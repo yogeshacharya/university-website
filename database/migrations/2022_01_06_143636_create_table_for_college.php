@@ -63,7 +63,7 @@ class CreateTableForCollege extends Migration
         Schema::table('menus', function (Blueprint $table) {
             $table->unsignedSmallInteger('parent_id')->nullable();
 
-            $table->foreign('parent_id','fk_menus_parent_id')->references('id')->on('menus');
+            $table->foreign('parent_id','fk_menus_parent_id')->references('id')->on('menus')->onDelete('cascade')->change();;
         });
 
         Schema::create('about_us', function (Blueprint $table) {

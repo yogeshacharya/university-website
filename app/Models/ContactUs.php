@@ -15,7 +15,7 @@ class ContactUs extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'contact_uses';
+    protected $table = 'contact_us';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];

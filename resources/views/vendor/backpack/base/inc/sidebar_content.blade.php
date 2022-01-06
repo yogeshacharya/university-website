@@ -13,11 +13,11 @@
 </li>
 
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('mst-department-type') }}'><i class='nav-icon la la-question'></i> Mst department types</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('about-us') }}'><i class='nav-icon la la-question'></i> About uses</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('about-us') }}'><i class='nav-icon la la-question'></i> About us</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('gallery') }}'><i class='nav-icon la la-question'></i> Galleries</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('course') }}'><i class='nav-icon la la-question'></i> Courses</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('contact-us') }}'><i class='nav-icon la la-question'></i> Contact uses</a></li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('news-notice') }}'><i class='nav-icon la la-question'></i> News notices</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('contact-us') }}'><i class='nav-icon la la-question'></i> Contact us</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('news-notice') }}'><i class='nav-icon la la-question'></i> News Notice</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('scholarship') }}'><i class='nav-icon la la-question'></i> Scholarships</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('agent-detail') }}'><i class='nav-icon la la-question'></i> Agent details</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('faq') }}'><i class='nav-icon la la-question'></i> Faqs</a></li>

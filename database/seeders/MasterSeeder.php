@@ -15,10 +15,25 @@ class MasterSeeder extends Seeder
      */
     public function run()
     {
-        $this->MenuSeeder();
+        $this->clean_tables();
+        $this->userSeeder();
+        $this->menuSeeder();
         $this->feeType();
     }
-    public function MenuSeeder(){
+
+    public function clean_tables(){
+        DB::table('users')->delete();
+        DB::table('menus')->delete();
+        DB::table('mst_fee_types')->delete();
+    }
+
+    public function userSeeder(){
+        DB::table('users')->insert([
+            ['id' => 1,'name' => 'admin', 'email' => 'admin@gmail.com','password'=> \Hash::make('123456')],
+        ]); 
+    }
+
+    public function menuSeeder(){
         DB::table('menus')->insert([
             // mainmenus
             ['id' => 1,'title' => 'Home', 'display_order' => '1','parent_id' => null,'type' => 'main','link' => '/home','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],

@@ -15,7 +15,7 @@ class FeeType extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'mst_fee_type';
+    protected $table = 'mst_fee_types';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];

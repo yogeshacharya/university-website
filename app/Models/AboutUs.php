@@ -15,7 +15,7 @@ class AboutUs extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'about_uses';
+    protected $table = 'about_us';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
