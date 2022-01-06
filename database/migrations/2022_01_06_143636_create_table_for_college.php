@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Database\Seeders\MenuSeeder;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateTableForCollege extends Migration
 {
@@ -59,6 +60,9 @@ class CreateTableForCollege extends Migration
             $table->unsignedInteger('deleted_by')->nullable();
                     
         });
+
+        $MenuSeeder = new MenuSeeder();
+        $MenuSeeder->run();
 
         Schema::create('about_us', function (Blueprint $table) {
             $table->smallIncrements('id');
