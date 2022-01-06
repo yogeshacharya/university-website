@@ -1,6 +1,7 @@
 <?php
 
 use Database\Seeders\MenuSeeder;
+use Database\Seeders\DatabaseSeeder;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,7 +16,7 @@ class CreateTableForCollege extends Migration
     public function up()
     {
 
-        Schema::create('mst_fee_type', function (Blueprint $table) {
+        Schema::create('mst_fee_types', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',100);
             $table->unsignedSmallInteger('display_order')->nullable();
@@ -29,7 +30,7 @@ class CreateTableForCollege extends Migration
                     
         });
 
-        Schema::create('mst_department_type', function (Blueprint $table) {
+        Schema::create('mst_department_types', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',100);
             $table->unsignedSmallInteger('display_order')->nullable();
@@ -64,8 +65,6 @@ class CreateTableForCollege extends Migration
 
             $table->foreign('parent_id','fk_menus_parent_id')->references('id')->on('menus');
         });
-        $MenuSeeder = new MenuSeeder();
-        $MenuSeeder->run();
 
         Schema::create('about_us', function (Blueprint $table) {
             $table->smallIncrements('id');
@@ -80,7 +79,7 @@ class CreateTableForCollege extends Migration
         });
 
 
-        Schema::create('gallery', function (Blueprint $table) {
+        Schema::create('galleries', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',200);
             $table->unsignedSmallInteger('display_order')->nullable();
@@ -131,7 +130,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
             $table->unsignedInteger('deleted_by')->nullable();
 
-            $table->foreign('department_type_id','fk_contact_us_department_type_id')->references('id')->on('mst_department_type');
+            $table->foreign('department_type_id','fk_contact_us_department_type_id')->references('id')->on('mst_department_types');
                     
         });
 
@@ -140,22 +139,6 @@ class CreateTableForCollege extends Migration
             $table->string('title',200);
             $table->string('file_upload',500)->nullable();
             $table->string('description',500)->nullable();
-            $table->unsignedSmallInteger('display_order')->nullable();
-                    
-            $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
-            $table->unsignedInteger('created_by')->nullable();
-            $table->unsignedInteger('updated_by')->nullable();
-            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
-                    
-        });
-
-        Schema::create('fee_structure', function (Blueprint $table) {
-            $table->smallIncrements('id');
-            $table->string('course_name',200);
-            $table->string('duration',100);
-            $table->string('fees',100);
             $table->unsignedSmallInteger('display_order')->nullable();
                     
             $table->timestamps();
@@ -205,7 +188,7 @@ class CreateTableForCollege extends Migration
                     
         });
 
-        Schema::create('faq', function (Blueprint $table) {
+        Schema::create('faqs', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',100);
             $table->string('description',500)->nullable();
@@ -220,7 +203,7 @@ class CreateTableForCollege extends Migration
                     
         });
 
-        Schema::create('slider', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',200);
             $table->string('image',500)->nullable();
@@ -236,7 +219,7 @@ class CreateTableForCollege extends Migration
                     
         });
 
-        Schema::create('human_resource', function (Blueprint $table) {
+        Schema::create('human_resources', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('code',100)->nullable();
             $table->unsignedSmallInteger('type')->nullable();
@@ -275,7 +258,7 @@ class CreateTableForCollege extends Migration
                     
         });
 
-        Schema::create('class', function (Blueprint $table) {
+        Schema::create('mst_classes', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('name',100);
             $table->string('capacity',50)->nullable();
@@ -291,6 +274,9 @@ class CreateTableForCollege extends Migration
             $table->unsignedInteger('deleted_by')->nullable();
                     
         });
+
+        $DbSeed = new DatabaseSeeder();
+        $DbSeed->run();
     }
 
     /**

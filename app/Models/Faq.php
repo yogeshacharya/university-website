@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class FeeType extends Model
+class Faq extends Model
 {
     use CrudTrait;
 
@@ -15,7 +15,7 @@ class FeeType extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'mst_fee_type';
+    protected $table = 'faqs';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];

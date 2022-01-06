@@ -18,4 +18,17 @@ Route::group([
 ], function () { // custom admin routes
     Route::crud('menu', 'MenuCrudController');
     Route::crud('fee-type', 'FeeTypeCrudController');
+    Route::crud('mst-department-type', 'MstDepartmentTypeCrudController');
+    Route::crud('about-us', 'AboutUsCrudController');
+    Route::crud('gallery', 'GalleryCrudController');
+    Route::crud('course', 'CourseCrudController');
+    Route::crud('contact-us', 'ContactUsCrudController');
+    Route::crud('news-notice', 'NewsNoticeCrudController');
+    Route::crud('scholarship', 'ScholarshipCrudController');
+    Route::crud('agent-detail', 'AgentDetailCrudController');
+    Route::crud('faq', 'FaqCrudController');
+    Route::crud('slider', 'SliderCrudController');
+    Route::crud('human-resource', 'HumanResourceCrudController');
+    Route::crud('event', 'EventCrudController');
+    Route::crud('mst-class', 'MstClassCrudController');
 }); // this should be the absolute last line of this file

@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class MenuSeeder extends Seeder
+class MasterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,10 @@ class MenuSeeder extends Seeder
      */
     public function run()
     {
+        $this->MenuSeeder();
+        $this->feeType();
+    }
+    public function MenuSeeder(){
         DB::table('menus')->insert([
             // mainmenus
             ['id' => 1,'title' => 'Home', 'display_order' => '1','parent_id' => null,'type' => 'main','link' => '/home','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
@@ -31,5 +35,14 @@ class MenuSeeder extends Seeder
             ['id' => 10,'title' => 'Work Permit', 'display_order' => '2','parent_id' => 4,'type' => 'sub','link' => '/about_us','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         
         ]);
+    }
+    public function feeType(){
+        DB::table('mst_fee_types')->insert([
+            // mainmenus
+            ['id' => 1,'title' => 'Tution Charge', 'display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'title' => 'Library Fee', 'display_order' => '2','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'title' => 'Sport Activity Fee', 'display_order' => '3','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'title' => 'Transportation Charge', 'display_order' => '4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+        ]); 
     }
 }
