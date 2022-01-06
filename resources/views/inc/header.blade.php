@@ -30,10 +30,15 @@
                                 <ul id="nav">
                                     @foreach($menus as $menu)
                                         <li class="current"><a href="#">{{$menu->title}}</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="#">Home Version 1</a></li>
-                                                <li><a href="index-2.html">Home Version 2</a></li>
-                                            </ul>
+                                            @if(count($menu->subMenus))
+                                                <ul class="sub-menu">
+                                                    @foreach ($menu->subMenus as $subMenu)
+                                                        <li><a href="#">{{$subMenu->title}}</a></li>
+                                                    @endforeach
+                                                    {{-- <li><a href="#">Home Version 1</a></li>
+                                                    <li><a href="index-2.html">Home Version 2</a></li> --}}
+                                                </ul>
+                                            @endif
                                         </li>
                                     @endforeach
                                 </ul>

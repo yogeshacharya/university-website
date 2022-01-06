@@ -1060,6 +1060,7 @@ mark {
 	transform-origin: 0 0 0;
 	-webkit-transition: all 0.6s ease 0s;
 	transition: all 0.6s ease 0s;
+	white-space: nowrap;
 }
 .mainmenu ul#nav li ul.sub-menu > li {
 	display: block;

@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+class FeeType extends Model
 {
     use CrudTrait;
 
@@ -15,16 +15,14 @@ class Menu extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'menus';
+    protected $table = 'fee_types';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
-    public function subMenus(){
-        return $this->hasMany('App\Models\Menu', 'parent_id', 'id')->orderBy('display_order','asc');
-    }
+
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS

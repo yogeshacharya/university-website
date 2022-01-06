@@ -18,7 +18,6 @@ class CreateTableForCollege extends Migration
         Schema::create('mst_fee_type', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',100);
-            $table->string('price',100);
             $table->unsignedSmallInteger('display_order')->nullable();
                     
             $table->timestamps();
@@ -60,7 +59,11 @@ class CreateTableForCollege extends Migration
             $table->unsignedInteger('deleted_by')->nullable();
                     
         });
+        Schema::table('menus', function (Blueprint $table) {
+            $table->unsignedSmallInteger('parent_id')->nullable();
 
+            $table->foreign('parent_id','fk_menus_parent_id')->references('id')->on('menus');
+        });
         $MenuSeeder = new MenuSeeder();
         $MenuSeeder->run();
 
@@ -292,16 +295,6 @@ class CreateTableForCollege extends Migration
             $table->unsignedInteger('deleted_by')->nullable();
                     
         });
-
-
-
-        Schema::table('menus', function (Blueprint $table) {
-            $table->unsignedSmallInteger('parent_id')->nullable();
-
-            $table->foreign('parent_id','fk_menus_parent_id')->references('id')->on('menus');
-        });
-
-
     }
 
     /**
