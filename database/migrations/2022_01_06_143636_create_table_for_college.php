@@ -115,7 +115,8 @@ class CreateTableForCollege extends Migration
 
         Schema::create('contact_us', function (Blueprint $table) {
             $table->smallIncrements('id');
-            $table->string('full_name',100);
+            $table->string('first_name',100);
+            $table->string('last_name',100);
             $table->string('phone',50);
             $table->string('email',50);
             $table->unsignedSmallInteger('department_type_id')->nullable();
@@ -130,6 +131,7 @@ class CreateTableForCollege extends Migration
             $table->foreign('department_type_id','fk_contact_us_department_type_id')->references('id')->on('mst_department_type');
                     
         });
+
 
 
 
