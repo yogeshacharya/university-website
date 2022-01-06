@@ -92,13 +92,12 @@ class CreateTableForCollege extends Migration
 
         Schema::create('courses', function (Blueprint $table) {
             $table->smallIncrements('id');
-            $table->string('course_code',200);
-            $table->string('title',200);
-            $table->string('duration',200);
-            $table->string('study_mode',200)->nullable();
+            $table->string('name',200);
+            $table->string('description',500);
+            $table->json('course_structure'); //code, course title, credit
             $table->string('file_upload',500)->nullable();
-            $table->unsignedSmallInteger('fee_type_id')->nullable();
             $table->string('payment_plan',500)->nullable();
+            $table->json('courses_fee',100)->nullable(); //type // fee //description
             $table->unsignedSmallInteger('display_order')->nullable();
                     
             $table->timestamps();
@@ -107,9 +106,6 @@ class CreateTableForCollege extends Migration
             $table->unsignedInteger('updated_by')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
             $table->unsignedInteger('deleted_by')->nullable();
-
-            $table->foreign('fee_type_id','fk_courses_fee_type_id')->references('id')->on('mst_fee_type');
-                    
         });
 
 
