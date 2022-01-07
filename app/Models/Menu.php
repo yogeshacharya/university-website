@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use App\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 class Menu extends Model
 {
+    use SoftDeletes;
     use CrudTrait;
 
     /*

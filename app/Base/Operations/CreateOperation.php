@@ -74,9 +74,10 @@ trait CreateOperation
 
         // execute the FormRequest authorization and validation, if one is required
         $request = $this->crud->validateRequest();
+        $user_id = backpack_user()->id;
+        $request->request->set('created_by', $user_id);
+        $item = $this->crud->create($request->except(['save_action', '_token', '_method', 'http_referrer']));
 
-        // insert item in the db
-        $item = $this->crud->create($this->crud->getStrippedSaveRequest());
         $this->data['entry'] = $this->crud->entry = $item;
 
         // show a success message

@@ -87,11 +87,13 @@ trait UpdateOperation
     {
         $this->crud->hasAccessOrFail('update');
 
-        // execute the FormRequest authorization and validation, if one is required
         $request = $this->crud->validateRequest();
+        $user_id = backpack_user()->id;
+        $request->request->set('updated_by', $user_id);
+
         // update the row in the db
         $item = $this->crud->update($request->get($this->crud->model->getKeyName()),
-                            $this->crud->getStrippedSaveRequest());
+        $request->except(['save_action', '_token', '_method', 'http_referrer']));
         $this->data['entry'] = $this->crud->entry = $item;
 
         // show a success message
