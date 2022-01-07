@@ -109,8 +109,9 @@ class CreateTableForCollege extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('name',200);
-            $table->string('description',500);
-            $table->json('course_structure'); //code, course title, credit
+            $table->text('description');
+            $table->text('entry_requirement')->nullable();
+            $table->json('course_structure')->nullable();//code, course title, credit
             $table->string('file_upload',500)->nullable();
             $table->string('payment_plan',500)->nullable();
             $table->json('courses_fee',100)->nullable(); //type // fee //description

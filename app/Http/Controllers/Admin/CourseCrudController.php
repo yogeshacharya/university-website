@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\FeeType;
 use App\Http\Requests\CourseRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -28,7 +29,7 @@ class CourseCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Course::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/course');
-        CRUD::setEntityNameStrings('course', 'courses');
+        CRUD::setEntityNameStrings('course', 'course');
     }
 
     /**
@@ -39,21 +40,12 @@ class CourseCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('id');
         CRUD::column('name');
-        CRUD::column('description');
-        CRUD::column('course_structure');
-        CRUD::column('file_upload');
+        // CRUD::column('course_structure');
+        // CRUD::column('file_upload');
         CRUD::column('payment_plan');
-        CRUD::column('courses_fee');
         CRUD::column('display_order');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
         CRUD::column('is_active');
-        CRUD::column('created_by');
-        CRUD::column('updated_by');
-        CRUD::column('deleted_uq_code');
-        CRUD::column('deleted_by');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -71,28 +63,118 @@ class CourseCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(CourseRequest::class);
+        $arr = [
+            [
+                'label' => trans('common.display_order').' (optional)',
+                'type' => 'number',
+                'name' => 'display_order',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ]
+            ],
+            [
+                'label' => trans('Name'),
+                'type' => 'text',
+                'name' => 'name',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ]
+            ],
+            [
+                'label' => trans('Payment Plan'),
+                'type' => 'text',
+                'name' => 'payment_plan',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ]
+            ],
+            [
+                'label' => trans('Description'),
+                'type' => 'ckeditor',
+                'name' => 'description',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
+            ],
+            [
+                'label' => trans('Entry Requirement'),
+                'type' => 'ckeditor',
+                'name' => 'entry_requirement',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
+            ],
+            [  
+                'name'  => 'course_structure',
+                'label'   => trans('Course Structure'),
+                'type'  => 'repeatable',
+                'fields' => [
+                                [
+                                    'name'    => 'code',
+                                    'type'    => 'text',
+                                    'label'   => trans('Code'),
+                                    'wrapper' => ['class' => 'form-group col-md-4'],
+                                    'attributes' => ['maxlength' =>'50'],
+                                    'required' => true
+                                ],
+                                [
+                                    'name'    => 'course_title',
+                                    'type'    => 'text',
+                                    'label'   => trans('Course Title'),
+                                    'wrapper' => ['class' => 'form-group col-md-4'],
+                                    'attributes' => ['maxlength' =>'50'],
+                                    'required' => true
+                                ],
+                                [
+                                    'name'    => 'credit',
+                                    'type'    => 'text',
+                                    'label'   => trans('Credit'),
+                                    'wrapper' => ['class' => 'form-group col-md-4'],
+                                    'attributes' => ['maxlength' =>'50'],
+                                    'required' => true
+                                ],
+                    ],
+                    'new_item_label'  => 'New', // customize the text of the button
+            ],
 
-        CRUD::field('id');
-        CRUD::field('name');
-        CRUD::field('description');
-        CRUD::field('course_structure');
-        CRUD::field('file_upload');
-        CRUD::field('payment_plan');
-        CRUD::field('courses_fee');
-        CRUD::field('display_order');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
-        CRUD::field('is_active');
-        CRUD::field('created_by');
-        CRUD::field('updated_by');
-        CRUD::field('deleted_uq_code');
-        CRUD::field('deleted_by');
 
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
+            [  
+                'name'  => 'courses_fee',
+                'label'   => trans('Course Fee'),
+                'type'  => 'repeatable',
+                'fields' => [
+                                [
+                                    'name' => 'fee_type_id',
+                                    'type' => 'select2',
+                                    'entity'=>'feeTypeEntity',
+                                    'attribute' => 'title',
+                                    'model'=>FeeType::class,
+                                    'label' => trans('Fee Type'),
+                                    'wrapper' => [
+                                        'class' => 'form-group col-md-4',
+                                    ],
+                                ],
+                                [
+                                    'name'    => 'total_fee',
+                                    'type'    => 'text',
+                                    'label'   => 'Total Fee',
+                                    'wrapper' => ['class' => 'form-group col-md-4'],
+                                    'attributes' => ['maxlength' =>'50'],
+                                    'required' => true
+                                ],
+                                [
+                                    'name'    => 'description',
+                                    'type'    => 'text',
+                                    'label'   => trans('Description'),
+                                    'wrapper' => ['class' => 'form-group col-md-4'],
+                                    'attributes' => ['maxlength' =>'100'],
+                                ],
+                    ],
+                    'new_item_label'  => 'New', // customize the text of the button
+            ],
+        ];
+        $this->crud->addFields(array_filter($arr));
+       
     }
 
     /**
