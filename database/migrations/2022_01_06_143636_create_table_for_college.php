@@ -53,7 +53,7 @@ class CreateTableForCollege extends Migration
             $table->smallIncrements('id');
             $table->string('title',200);
             $table->unsignedSmallInteger('display_order')->nullable();
-            $table->unsignedSmallInteger('type')->nullable();
+            $table->unsignedSmallInteger('type_id')->nullable();
             $table->string('link', 255)->nullable();
                     
             $table->timestamps();
