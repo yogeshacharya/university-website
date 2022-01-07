@@ -2,14 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Models\FeeType;
 use Illuminate\Http\Request;
-
+use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Base\Operations\ListOperation;
+use App\Base\Operations\CreateOperation;
+use App\Base\Operations\UpdateOperation;
+use App\Base\Operations\DeleteOperation;
+use App\Base\Operations\ShowOperation;
 class BaseCrudController extends CrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use ListOperation;
+    use CreateOperation;
+    use UpdateOperation;
+    use DeleteOperation;
+    use ShowOperation;
+    
+    protected function setDisplayOrder($request){
+        if(!isset($request->display_order)){
+            $max_order=FeeType::max('display_order');
+            $request->request->set('display_order', $max_order+1);
+        }
+    }
 }

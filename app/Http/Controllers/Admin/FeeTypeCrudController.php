@@ -122,10 +122,8 @@ class FeeTypeCrudController extends BaseCrudController
         
         // execute the FormRequest authorization and validation, if one is required
         $request = $this->crud->validateRequest();
-        if(!isset($request->display_order)){
-            $max_order=FeeType::max('display_order');
-            $request->request->set('display_order', $max_order+1);
-        }
+        $this->setDisplayOrder($request);
+        
         $request->request->set('created_by', $this->user->id);
 
         // insert item in the db
