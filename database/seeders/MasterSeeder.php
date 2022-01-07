@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class MasterSeeder extends Seeder
 {
@@ -50,6 +51,8 @@ class MasterSeeder extends Seeder
             ['id' => 10,'title' => 'Work Permit', 'display_order' => '2','parent_id' => 4,'type' => 'sub','link' => '/about_us','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         
         ]);
+        // DB::statement("SELECT SETVAL('menus_id_seq',1000)");
+
     }
     public function feeType(){
         DB::table('mst_fee_types')->insert([
@@ -59,5 +62,6 @@ class MasterSeeder extends Seeder
             ['id' => 3,'title' => 'Sport Activity Fee', 'display_order' => '3','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
             ['id' => 4,'title' => 'Transportation Charge', 'display_order' => '4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
+        // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }
 }
