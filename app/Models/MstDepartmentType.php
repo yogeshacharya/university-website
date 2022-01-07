@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use App\Models\BaseModel;
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
-class MstDepartmentType extends Model
+class MstDepartmentType extends BaseModel
 {
     use CrudTrait;
 

@@ -2,6 +2,7 @@
 
 namespace App\Base\Operations;
 
+use Prologue\Alerts\Facades\Alert;
 use Illuminate\Support\Facades\Route;
 
 trait CreateOperation
@@ -75,6 +76,10 @@ trait CreateOperation
         // execute the FormRequest authorization and validation, if one is required
         $request = $this->crud->validateRequest();
         $user_id = backpack_user()->id;
+        if(!isset($request->display_order)){
+            $max_order=$this->crud->model->max('display_order');
+            $request->request->set('display_order', $max_order+1);
+        }
         $request->request->set('created_by', $user_id);
         $item = $this->crud->create($request->except(['save_action', '_token', '_method', 'http_referrer']));
 

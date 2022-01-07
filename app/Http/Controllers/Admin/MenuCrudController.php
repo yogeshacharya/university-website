@@ -50,13 +50,35 @@ class MenuCrudController extends BaseCrudController
      */
     protected function setupListOperation()
     {
-        
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+        $cols = [
+            $this->addRowNumber(),
+            [
+                'name'=>'display_order',
+                'type'=>'number',
+                'label' => trans('common.display_order'),
+            ],
+            [
+                'label' => trans('common.title'),
+                'type' => 'text',
+                'name' => 'title',
+            ],
+            [
+                'label' => trans('common.type'),
+                'type' => 'boolean',
+                'name' => 'type', // the db column for the foreign key
+                'options'     => [
+                    0 => trans('common.main_menu'),
+                    1 => trans('common.sub_menu'),
+                    2 => trans('common.second_level_sub_menu'),
+                ],
+            ],
+            [
+                'label' => trans('common.link'),
+                'type' => 'text',
+                'name' => 'link',
+            ],
+        ];
+        $this->crud->addColumns($cols);  
     }
 
     /**

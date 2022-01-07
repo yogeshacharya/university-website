@@ -5,11 +5,13 @@ use Illuminate\Support\Facades\DB;
 // use App\Base\Traits\ComboField;
 use Illuminate\Database\Eloquent\Model;
 use \Venturecraft\Revisionable\RevisionableTrait;
+use App\Eloquent\SoftDeletes;
 
 
 class BaseModel extends Model
 {
     use RevisionableTrait;
+    use SoftDeletes;
 
     /**
      * The "booting" method of the model.

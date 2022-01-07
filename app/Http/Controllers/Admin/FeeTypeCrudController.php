@@ -34,14 +34,6 @@ class FeeTypeCrudController extends BaseCrudController
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
-    protected function addRowNumber()
-    {
-        return [
-            'name' => 'row_number',
-            'type' => 'row_number',
-            'label' => trans('common.sn'),
-        ];
-    }
     protected function setupListOperation()
     {
         $cols = [
@@ -115,27 +107,5 @@ class FeeTypeCrudController extends BaseCrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-    public function store()
-    {
-        $this->crud->hasAccessOrFail('create');
-        
-        // execute the FormRequest authorization and validation, if one is required
-        $request = $this->crud->validateRequest();
-        $this->setDisplayOrder($request);
-        
-        $request->request->set('created_by', $this->user->id);
-
-        // insert item in the db
-        $item = $this->crud->create($request->except(['save_action', 'http_referrer', '_token']));
-        $this->data['entry'] = $this->crud->entry = $item;
-
-        // show a success message
-        \Alert::success(trans('backpack::crud.insert_success'))->flash();
-
-        // save the redirect choice for next time
-        $this->crud->setSaveAction();
-
-        return $this->crud->performSaveAction($item->getKey());
     }
 }

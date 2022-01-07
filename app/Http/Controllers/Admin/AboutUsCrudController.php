@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\AboutUs;
 use App\Http\Requests\AboutUsRequest;
+use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -11,19 +13,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class AboutUsCrudController extends CrudController
+class AboutUsCrudController extends BaseCrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     * 
-     * @return void
-     */
     public function setup()
     {
         CRUD::setModel(\App\Models\AboutUs::class);
@@ -39,13 +30,16 @@ class AboutUsCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+        $cols = [
+            $this->addRowNumber(),
+            [
+                'name' => 'file_upload',
+                'type' => 'image',
+                'label' => "Image",
+                'disk'=>'uploads',
+            ]
+        ];
+        $this->crud->addColumns($cols);   
     }
 
     /**
@@ -56,7 +50,26 @@ class AboutUsCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(AboutUsRequest::class);
+        $this->crud->setValidation(AboutUsRequest::class);
+        $arr = [
+            [
+                'name' => 'details',
+                'type' => 'ckeditor',
+                'label' => 'Details',
+            ],
+            [
+                'name' => 'file_upload',
+                'type' => 'image',
+                'label' => 'Image',
+                'disk' => 'uploads', 
+                'upload' => true,
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                
+            ],
+        ];
+        $this->crud->addFields(array_filter($arr));
 
         
 
@@ -76,5 +89,25 @@ class AboutUsCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+    public function store()
+    {
+        $this->crud->hasAccessOrFail('create');
+
+        // execute the FormRequest authorization and validation, if one is required
+        $request = $this->crud->validateRequest();
+        $user_id = backpack_user()->id;
+        $request->request->set('created_by', $user_id);
+        $item = $this->crud->create($request->except(['save_action', '_token', '_method', 'http_referrer']));
+
+        $this->data['entry'] = $this->crud->entry = $item;
+
+        // show a success message
+        \Alert::success(trans('backpack::crud.insert_success'))->flash();
+
+        // save the redirect choice for next time
+        $this->crud->setSaveAction();
+
+        return $this->crud->performSaveAction($item->getKey());
     }
 }

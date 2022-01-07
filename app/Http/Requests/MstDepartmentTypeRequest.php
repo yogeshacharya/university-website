@@ -26,7 +26,8 @@ class MstDepartmentTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => 'required|min:2|max:255',
+            'display_order' => 'sometimes|unique:mst_department_types,display_order'
         ];
     }
 
