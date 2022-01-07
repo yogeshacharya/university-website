@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Menu;
 use App\Http\Requests\MenuRequest;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -11,14 +12,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class MenuCrudController extends CrudController
+class MenuCrudController extends BaseCrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -29,8 +24,23 @@ class MenuCrudController extends CrudController
         CRUD::setModel(\App\Models\Menu::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/menu');
         CRUD::setEntityNameStrings('menu', 'menus');
-    }
+        $this->data['script_js']= $this->getScriptJs();
 
+
+    }
+    public function getScriptJs(){
+        return "
+        $(document).ready(function(){
+                $('.parent_id').hide();
+            $('.type').change(function() {
+                if($('#type').val() == '0'){
+                }else{
+                    $('.parent_id').show();
+                }
+            });
+        });
+        ";
+    }
     /**
      * Define what happens when the List operation is loaded.
      * 
@@ -56,10 +66,72 @@ class MenuCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(MenuRequest::class);
-
+        $this->crud->setValidation(MenuRequest::class);
         
+        $arr = [
+            [
+                'label' => trans('common.display_order').' (optional)',
+                'type' => 'number',
+                'name' => 'display_order',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+            [
+                'label' => trans('common.type'),
+                'type' => 'select_from_array',
+                'name' => 'type',
+                'options'     => [
+                    0 => trans('common.main_menu'),
+                    1 => trans('common.sub_menu'),
+                    2 => trans('common.second_level_sub_menu'),
+                ],
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3 type',
+                ],
+                'attributes'=>[
+                    'id'=>'type'
+                ]
 
+            ],
+            [
+                'name' => 'parent_id',
+                'type' => "select2_from_ajax",
+                'method'=>'POST',
+                'label' =>trans('common.parent_menu'),//just a label
+                'model' => "App\Models\Menu",
+                'entity' => 'parentMenu',//relatioship which is inside the model
+                'attribute' => "title",//the field which is needed
+                'data_source' => url("api/parent_menu/type"),//api/modelsmallname/tableid from which state is taken
+                'placeholder' => 'First select menu type',
+                'minimum_input_length' => 0,
+                'dependencies' => ["type"],//id from which state is pulled
+                'wrapperAttributes' => [
+                'class' => 'form-group col-md-3 parent_id',
+                ],
+                'attributes'=>[
+                    'id'=>'parent_id'
+                ],
+            ],
+            [
+                'label' => trans('common.title'),
+                'type' => 'text',
+                'name' => 'title',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+
+            ],
+            [
+                'label' => trans('common.link'),
+                'type' => 'text',
+                'name' => 'link',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+            ],
+        ];
+        $this->crud->addFields(array_filter($arr));
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

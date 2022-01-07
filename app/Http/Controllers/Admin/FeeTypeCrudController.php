@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\FeeType;
 use Prologue\Alerts\Facades\Alert;
 use App\Http\Requests\FeeTypeRequest;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -13,14 +13,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class FeeTypeCrudController extends CrudController
+class FeeTypeCrudController extends BaseCrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -122,7 +116,7 @@ class FeeTypeCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
-    protected function store()
+    public function store()
     {
         $this->crud->hasAccessOrFail('create');
         

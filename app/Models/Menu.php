@@ -25,6 +25,9 @@ class Menu extends Model
     public function subMenus(){
         return $this->hasMany('App\Models\Menu', 'parent_id', 'id')->orderBy('display_order','asc');
     }
+    public function parentMenu(){
+        return $this->belongsTo('App\Models\Menu', 'parent_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | FUNCTIONS

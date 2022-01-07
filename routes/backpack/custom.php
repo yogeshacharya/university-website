@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 // This route file is loaded automatically by Backpack\Base.
 // Routes you generate using Backpack\Generators will be placed here.
 
+Route::post('api/parent_menu/{value}', 'App\Http\Controllers\Api\ParentMenuApiController@index');
+
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
     'middleware' => array_merge(
@@ -32,3 +34,6 @@ Route::group([
     Route::crud('event', 'EventCrudController');
     Route::crud('mst-class', 'MstClassCrudController');
 }); // this should be the absolute last line of this file
+
+
+

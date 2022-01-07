@@ -12,6 +12,23 @@
 
 @include('backpack::inc.alerts')
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+{{-- Send in $this->data['load_scripts'] as array to load in view --}}
+    @if(!empty($load_scripts))
+        @foreach ($load_scripts as $script)
+            <script type="text/javascript" src={{ $script }}></script>
+        @endforeach
+    @endif
+
+    {{-- Specific style in $this->data['script_js'] --}}
+    @if(!empty($script_js))
+        <script type="text/javascript">
+            {{!! html_entity_decode($script_js) !!}}
+        </script>
+    @endif
+
+
 <!-- page script -->
 <script type="text/javascript">
     // To make Pace works on Ajax calls
