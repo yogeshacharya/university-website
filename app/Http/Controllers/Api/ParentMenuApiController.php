@@ -10,8 +10,6 @@ class ParentMenuApiController extends Controller
     public function index(Request $request,$value)
     {
         $search_term = $request->input('q');
-        $form = collect($request->input('form'))->pluck('value', 'name');
-        $page = $request->input('page');
         $options = Menu::query();//model ma query gareko
         // // if no category has been selected, show no options
         // if (! data_get($form, $value)) {
@@ -19,18 +17,14 @@ class ParentMenuApiController extends Controller
         // }
         // // if a category has been selected, only show articles in that category
         // if (data_get($form, $value)) {
-        //     // if(is_numeric($form[$value])){
-        //     //     $District = Menu::find($form[$value]);
-        //     // }else{
-        //     //     $District = Menu::whereType($form[$value])->first();
-        //     // }
+        // }
+        dd($value);
+        $options = $options->where('type', $val);
+        // if (data_get($form, $value)) {
         //     $options = $options->where('type', $form[$value]);
         // }
-        if (data_get($form, $value)) {
-            $options = $options->where('type', $form[$value]);
-        }
         // if a search term has been given, filter results to match the search term
-         if ($search_term) {
+        if ($search_term) {
             $options = $options->where('type', 'LIKE', '%'.$search_term.'%');//k tannalako state ho tesaile
         }
         

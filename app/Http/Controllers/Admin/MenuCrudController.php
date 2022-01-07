@@ -31,8 +31,9 @@ class MenuCrudController extends BaseCrudController
     public function getScriptJs(){
         return "
         $(document).ready(function(){
-                $('.parent_id').hide();
+            $('.parent_id').hide();
             $('.type').change(function() {
+                $('.parent_id').hide();
                 if($('#type').val() == '0'){
                 }else{
                     $('.parent_id').show();
@@ -81,11 +82,7 @@ class MenuCrudController extends BaseCrudController
                 'label' => trans('common.type'),
                 'type' => 'select_from_array',
                 'name' => 'type',
-                'options'     => [
-                    0 => trans('common.main_menu'),
-                    1 => trans('common.sub_menu'),
-                    2 => trans('common.second_level_sub_menu'),
-                ],
+                'options' => Menu::$type,
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-3 type',
                 ],
