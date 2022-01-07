@@ -15,7 +15,7 @@ class Menu extends BaseModel
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    public static $type = [0 => "Main Menu", 1 => "Sub-menu", 2 => "Second Level Sub-menu"];
+    public static $menu_type = [0 => "Main Menu", 1 => "Sub-menu", 2 => "Second Level Sub-menu"];
     protected $table = 'menus';
     // protected $primaryKey = 'id';
     // public $timestamps = false;

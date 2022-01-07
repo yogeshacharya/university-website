@@ -32,9 +32,9 @@ class MenuCrudController extends BaseCrudController
         return "
         $(document).ready(function(){
             $('.parent_id').hide();
-            $('.type').change(function() {
+            $('.type_id').change(function() {
                 $('.parent_id').hide();
-                if($('#type').val() == '0'){
+                if($('#type_id').val() == '0'){
                 }else{
                     $('.parent_id').show();
                 }
@@ -103,28 +103,28 @@ class MenuCrudController extends BaseCrudController
             [
                 'label' => trans('common.type'),
                 'type' => 'select_from_array',
-                'name' => 'type',
-                'options' => Menu::$type,
+                'name' => 'type_id',
+                'options' => Menu::$menu_type,
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3 type',
+                    'class' => 'form-group col-md-3 type_id',
                 ],
                 'attributes'=>[
-                    'id'=>'type'
+                    'id'=>'type_id'
                 ]
 
             ],
             [
                 'name' => 'parent_id',
                 'type' => "select2_from_ajax",
-                'method'=>'POST',
                 'label' =>trans('common.parent_menu'),//just a label
-                'model' => "App\Models\Menu",
+                'model' =>  Menu::class,
                 'entity' => 'parentMenu',//relatioship which is inside the model
                 'attribute' => "title",//the field which is needed
-                'data_source' => url("api/parent_menu/type"),//api/modelsmallname/tableid from which state is taken
+                'data_source' => url("api/parent_menu/type_id"),//api/modelsmallname/tableid from which state is taken
                 'placeholder' => 'First select menu type',
                 'minimum_input_length' => 0,
-                'dependencies' => ["type"],//id from which state is pulled
+                'dependencies' => ["type_id"],//id from which state is pulled
+                'include_all_form_fields' => true,
                 'wrapperAttributes' => [
                 'class' => 'form-group col-md-3 parent_id',
                 ],

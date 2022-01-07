@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 // This route file is loaded automatically by Backpack\Base.
 // Routes you generate using Backpack\Generators will be placed here.
 
-Route::post('api/parent_menu/{value}', 'App\Http\Controllers\Api\ParentMenuApiController@index');
+Route::get('api/parent_menu/{value}', 'App\Http\Controllers\Api\ParentMenuApiController@index');
 
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),

@@ -29,6 +29,9 @@ class Course extends BaseModel
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function feeTypeEntity(){
+        return $this->belongsTo('App\Models\FeeType', 'fee_type_id', 'id');
+    }
 
     /*
     |--------------------------------------------------------------------------
