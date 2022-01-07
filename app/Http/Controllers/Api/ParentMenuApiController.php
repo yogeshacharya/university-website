@@ -18,8 +18,7 @@ class ParentMenuApiController extends Controller
         // // if a category has been selected, only show articles in that category
         // if (data_get($form, $value)) {
         // }
-        dd($value);
-        $options = $options->where('type', $val);
+        $options = $options->where('type', $value-1);
         // if (data_get($form, $value)) {
         //     $options = $options->where('type', $form[$value]);
         // }
