@@ -19,7 +19,7 @@ class AboutUsCrudController extends BaseCrudController
     {
         CRUD::setModel(\App\Models\AboutUs::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/about-us');
-        CRUD::setEntityNameStrings('about us', 'about uses');
+        CRUD::setEntityNameStrings('About Us', 'About Us');
     }
 
     /**

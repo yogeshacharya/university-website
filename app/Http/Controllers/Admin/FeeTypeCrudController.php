@@ -24,7 +24,7 @@ class FeeTypeCrudController extends BaseCrudController
     {
         CRUD::setModel(\App\Models\FeeType::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/fee-type');
-        CRUD::setEntityNameStrings('fee type', 'fee types');
+        CRUD::setEntityNameStrings('Fee Type', 'Fee Type');
         $this->user = backpack_user();
     }
 

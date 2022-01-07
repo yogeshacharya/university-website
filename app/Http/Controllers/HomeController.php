@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $menus = Menu::where('type','main')->orderBy('display_order','asc')->get();
+        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
         return view('frontend.index', compact('menus'));
     }
 }

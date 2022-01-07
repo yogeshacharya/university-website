@@ -20,7 +20,7 @@ class MstDepartmentTypeCrudController extends BaseCrudController
     {
         CRUD::setModel(\App\Models\MstDepartmentType::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/mst-department-type');
-        CRUD::setEntityNameStrings('mst department type', 'mst department types');
+        CRUD::setEntityNameStrings('Department Type', 'Department Type');
     }
 
     /**

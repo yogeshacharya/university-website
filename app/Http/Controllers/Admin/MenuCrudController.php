@@ -63,16 +63,6 @@ class MenuCrudController extends BaseCrudController
                 'name' => 'title',
             ],
             [
-                'label' => trans('common.type'),
-                'type' => 'boolean',
-                'name' => 'type', // the db column for the foreign key
-                'options'     => [
-                    0 => trans('common.main_menu'),
-                    1 => trans('common.sub_menu'),
-                    2 => trans('common.second_level_sub_menu'),
-                ],
-            ],
-            [
                 'label' => trans('common.link'),
                 'type' => 'text',
                 'name' => 'link',
