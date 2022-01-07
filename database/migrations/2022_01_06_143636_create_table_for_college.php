@@ -25,8 +25,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
@@ -39,8 +41,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
@@ -56,8 +60,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
         Schema::table('menus', function (Blueprint $table) {
@@ -74,8 +80,10 @@ class CreateTableForCollege extends Migration
             $table->timestamps();
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
         });
 
 
@@ -89,8 +97,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
@@ -110,8 +120,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
         });
 
 
@@ -127,8 +139,10 @@ class CreateTableForCollege extends Migration
             $table->timestamps();
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
 
             $table->foreign('department_type_id','fk_contact_us_department_type_id')->references('id')->on('mst_department_types');
                     
@@ -145,8 +159,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
@@ -161,8 +177,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
@@ -183,8 +201,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
@@ -198,8 +218,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
@@ -214,8 +236,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
@@ -237,8 +261,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
@@ -253,8 +279,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
@@ -270,8 +298,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_active')->nullable()->default(false);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->unsignedInteger('deleted_by')->nullable();
                     
         });
 
