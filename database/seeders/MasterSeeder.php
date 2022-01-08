@@ -39,17 +39,17 @@ class MasterSeeder extends Seeder
             // mainmenus
             ['id' => 1,'title' => 'Home', 'display_order' => '1','parent_id' => null,'type_id' => 0,'link' => '/home','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
             ['id' => 2,'title' => 'Courses', 'display_order' => '2','parent_id' => null,'type_id' => 0,'link' => '/courses','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 3,'title' => 'Future Students', 'display_order' => '3','parent_id' => null,'type_id' => 0,'link' => '/future_students','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 4,'title' => 'Current Students', 'display_order' => '4','parent_id' => null,'type_id' => 0,'link' => '/current_students','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'title' => 'About Us', 'display_order' => '3','parent_id' => null,'type_id' => 0,'link' => '/about_us','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'title' => 'News Notices', 'display_order' => '4','parent_id' => null,'type_id' => 0,'link' => '/news_notices','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
             ['id' => 5,'title' => 'Contact Us', 'display_order' => '5','parent_id' => null,'type_id' => 0,'link' => '/contact_us','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
             
             // submenus
-            ['id' => 6,'title' => 'About Us', 'display_order' => '1','parent_id' => 3,'type_id' => 1,'link' => '/about_us','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 7,'title' => 'Tution Fee', 'display_order' => '2','parent_id' => 3,'type_id' => 1,'link' => '/tution_fee','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 8,'title' => 'Scholarships', 'display_order' => '3','parent_id' => 3,'type_id' => 1,'link' => '/scholarships','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 9,'title' => 'Latest News & Update', 'display_order' => '1','parent_id' => 4,'type_id' => 1,'link' => '/about_us','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 10,'title' => 'Work Permit', 'display_order' => '2','parent_id' => 4,'type_id' => 1,'link' => '/about_us','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-        
+            ['id' => 6,'title' => 'Introduction', 'display_order' => '1','parent_id' => 3,'type_id' => 1,'link' => '/introduction','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 7,'title' => 'Our Team', 'display_order' => '2','parent_id' => 3,'type_id' => 1,'link' => '/our_team','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 8,'title' => 'Tution Fee', 'display_order' => '3','parent_id' => 3,'type_id' => 1,'link' => '/tution_fee','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 9,'title' => 'Scholarships', 'display_order' => '4','parent_id' => 3,'type_id' => 1,'link' => '/scholarships','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 10,'title' => 'Events', 'display_order' => '5','parent_id' => 4,'type_id' => 1,'link' => '/events','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 11,'title' => 'Blogs', 'display_order' => '6','parent_id' => 4,'type_id' => 1,'link' => '/blogs','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]);
         // DB::statement("SELECT SETVAL('menus_id_seq',1000)");
 
