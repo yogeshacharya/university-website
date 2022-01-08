@@ -117,6 +117,8 @@ class CreateTableForCollege extends Migration
             $table->string('payment_plan',500)->nullable();
             $table->json('courses_fee',100)->nullable(); //type // fee //description
             $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('visit_counts')->nullable();
+            $table->unsignedInteger('ratings')->nullable();
                     
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(false);
@@ -249,6 +251,7 @@ class CreateTableForCollege extends Migration
             $table->smallIncrements('id');
             $table->string('code',100)->nullable();
             $table->unsignedSmallInteger('type')->nullable();
+            $table->unsignedSmallInteger('department_type_id')->nullable();
             $table->string('name',100);
             $table->string('description',500)->nullable();
             $table->string('email',50)->nullable();
@@ -267,6 +270,8 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+
+            $table->foreign('department_type_id','fk_human_resources_department_type_id')->references('id')->on('mst_department_types');
                     
         });
 
@@ -304,7 +309,37 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-                    
+        });
+
+        Schema::create('headers', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('title',100)->nullable();
+            $table->string('subtitle',100)->nullable();
+            $table->string('logo')->nullable();
+            $table->timestamps();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
+            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+        });
+
+        Schema::create('footer_address', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('title')->nullable();
+            $table->string('full_address')->nullable();
+            $table->string('description')->nullable();
+            $table->string('phone',2000)->nullable();
+            $table->string('fax',100)->nullable();
+            $table->string('email',200)->nullable();
+            $table->timestamps();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
+            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
         });
 
         $DbSeed = new DatabaseSeeder();
