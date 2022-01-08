@@ -25,9 +25,13 @@ class MstDepartmentTypeRequest extends FormRequest
      */
     public function rules()
     {
+        $request=request();
+
+        $id_check = request()->request->get('id') ? ",".request()->request->get('id') : ",NULL";
+        $id_check=$id_check.",id,deleted_uq_code,1";
         return [
             'title' => 'required|min:2|max:255',
-            'display_order' => 'sometimes|unique:mst_department_types,display_order'
+            'display_order' => 'sometimes|unique:mst_department_types,display_order'.$id_check
         ];
     }
 

@@ -33,7 +33,15 @@
                                             @if(count($menu->subMenus))
                                                 <ul class="sub-menu">
                                                     @foreach ($menu->subMenus as $subMenu)
-                                                        <li><a href="#">{{$subMenu->title}}</a></li>
+                                                        <li><a href="#">{{$subMenu->title}}</a>
+                                                            @if(count($subMenu->subMenus))
+                                                                <ul class="inside-menu">
+                                                                    @foreach ($subMenu->subMenus as $second_level_sub_menu)
+                                                                        <li><a href="login-register.html">{{$second_level_sub_menu->title}}</a></li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            @endif
+                                                        </li>
                                                     @endforeach
                                                     {{-- <li><a href="#">Home Version 1</a></li>
                                                     <li><a href="index-2.html">Home Version 2</a></li> --}}

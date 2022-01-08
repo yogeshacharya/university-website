@@ -31,7 +31,9 @@ class MenuCrudController extends BaseCrudController
     public function getScriptJs(){
         return "
         $(document).ready(function(){
-            $('.parent_id').hide();
+            if($('#type_id').val() == '0' || $('#type_id').val() == ''){
+                $('.parent_id').hide();
+            }
             $('.type_id').change(function() {
                 $('.parent_id').hide();
                 if($('#type_id').val() == '0'){
@@ -157,5 +159,33 @@ class MenuCrudController extends BaseCrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+    public function store()
+    {
+        $this->crud->hasAccessOrFail('create');
+
+        // execute the FormRequest authorization and validation, if one is required
+        $request = $this->crud->validateRequest();
+        $user_id = backpack_user()->id;
+        if(!isset($request->display_order)){
+            if(isset($request->parent_id)){
+                $max_order=$this->crud->model->where('parent_id',$request->parent_id)->max('display_order');
+            }else{
+                $max_order=$this->crud->model->where('parent_id',null)->max('display_order');
+            }
+            $request->request->set('display_order', $max_order+1);
+        }
+        $request->request->set('created_by', $user_id);
+        $item = $this->crud->create($request->except(['save_action', '_token', '_method', 'http_referrer']));
+
+        $this->data['entry'] = $this->crud->entry = $item;
+
+        // show a success message
+        \Alert::success(trans('backpack::crud.insert_success'))->flash();
+
+        // save the redirect choice for next time
+        $this->crud->setSaveAction();
+
+        return $this->crud->performSaveAction($item->getKey());
     }
 }

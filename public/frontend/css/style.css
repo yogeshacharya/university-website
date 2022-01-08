@@ -1109,6 +1109,7 @@ mark {
 	transform-origin: 0 0 0;
 	-webkit-transition: all 0.6s ease 0s;
 	transition: all 0.6s ease 0s;
+	overflow: auto;
 }
 .mainmenu ul.sub-menu ul.inside-menu li {
 	list-style: none;
