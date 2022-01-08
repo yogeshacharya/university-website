@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Models\AgentDetail;
 use App\Http\Requests\AgentDetailRequest;
 use App\Http\Controllers\Admin\BaseCrudController;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -36,30 +35,46 @@ class AgentDetailCrudController extends BaseCrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('id');
-        CRUD::column('agent_name');
-        CRUD::column('email');
-        CRUD::column('phone');
-        CRUD::column('website');
-        CRUD::column('address');
-        CRUD::column('city');
-        CRUD::column('country');
-        CRUD::column('description');
-        CRUD::column('image');
-        CRUD::column('display_order');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
-        CRUD::column('is_active');
-        CRUD::column('created_by');
-        CRUD::column('updated_by');
-        CRUD::column('deleted_uq_code');
-        CRUD::column('deleted_by');
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+        $cols = [
+            $this->addRowNumber(),
+            [
+                'name'=>'display_order',
+                'type'=>'number',
+                'label' => trans('common.display_order'),
+            ],
+            [
+                'label' => 'Agent Name',
+                'type' => 'text',
+                'name' => 'agent_name',
+            ],
+            [
+                'label' => 'Email',
+                'type' => 'text',
+                'name' => 'email',
+            ],
+            [
+                'label' => 'Phone',
+                'type' => 'text',
+                'name' => 'phone',
+            ],
+            [
+                'label' => 'Website',
+                'type' => 'text',
+                'name' => 'Website',
+            ],
+            [
+                'label' => 'City',
+                'type' => 'text',
+                'name' => 'city',
+            ],
+            [
+                'name' => 'file_upload',
+                'type' => 'image',
+                'label' => "Image",
+                'disk'=>'uploads',
+            ]
+        ];
+        $this->crud->addColumns($cols);   
     }
 
     /**
@@ -70,7 +85,7 @@ class AgentDetailCrudController extends BaseCrudController
      */
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(NewsNoticeRequest::class);
+        $this->crud->setValidation(AgentDetailRequest::class);
         $arr = [
             [
                 'label' => 'Agent Name',
@@ -92,6 +107,38 @@ class AgentDetailCrudController extends BaseCrudController
                 'name' => 'phone',
                 'type' => 'text',
                 'label' => 'Phone',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ],
+            ],
+            [
+                'name' => 'website',
+                'type' => 'text',
+                'label' => 'Website',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ],
+            ],
+            [
+                'name' => 'address',
+                'type' => 'text',
+                'label' => 'Address',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ],
+            ],
+            [
+                'name' => 'city',
+                'type' => 'text',
+                'label' => 'City',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ],
+            ],
+            [
+                'name' => 'country',
+                'type' => 'text',
+                'label' => 'Country',
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-3',
                 ],

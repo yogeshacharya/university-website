@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-3 col-12">
                     <div class="logo">
-                        <a href="#"><img src="{{ asset('frontend/img/logo/logo.png') }}"alt="EDUCAT"></a>
+                        <a href="#"><img src="{{ asset('frontend/img/logo/logo.png') }}"alt="LINCON"></a>
                     </div>
                 </div>
                 <div class="col-lg-9 col-12">
