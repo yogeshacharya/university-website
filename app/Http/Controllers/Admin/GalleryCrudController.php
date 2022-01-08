@@ -71,6 +71,11 @@ class GalleryCrudController extends BaseCrudController
 
             ],
             [
+                'name' => 'description',
+                'type' => 'ckeditor',
+                'label' => 'Description',
+            ],
+            [
                 'name' => 'file_upload',
                 'type' => 'image',
                 'label' => 'Image',
