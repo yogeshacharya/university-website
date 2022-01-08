@@ -90,6 +90,7 @@ class CreateTableForCollege extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',200);
+            $table->text('description')->nullable();
             $table->unsignedSmallInteger('display_order')->nullable();
             $table->string('file_upload',500)->nullable();
                     
@@ -195,7 +196,7 @@ class CreateTableForCollege extends Migration
             $table->string('city',50)->nullable();
             $table->string('country',50)->nullable();
             $table->string('description',500)->nullable();
-            $table->string('image',500)->nullable();
+            $table->string('file_upload',500)->nullable();
             $table->unsignedSmallInteger('display_order')->nullable();
                     
             $table->timestamps();

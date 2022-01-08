@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\AgentDetail;
 use App\Http\Requests\AgentDetailRequest;
+use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -11,13 +13,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class AgentDetailCrudController extends CrudController
+class AgentDetailCrudController extends BaseCrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -73,32 +70,58 @@ class AgentDetailCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(AgentDetailRequest::class);
-
-        CRUD::field('id');
-        CRUD::field('agent_name');
-        CRUD::field('email');
-        CRUD::field('phone');
-        CRUD::field('website');
-        CRUD::field('address');
-        CRUD::field('city');
-        CRUD::field('country');
-        CRUD::field('description');
-        CRUD::field('image');
-        CRUD::field('display_order');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
-        CRUD::field('is_active');
-        CRUD::field('created_by');
-        CRUD::field('updated_by');
-        CRUD::field('deleted_uq_code');
-        CRUD::field('deleted_by');
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
+        $this->crud->setValidation(NewsNoticeRequest::class);
+        $arr = [
+            [
+                'label' => 'Agent Name',
+                'type' => 'text',
+                'name' => 'agent_name',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+            ],
+            [
+                'label' => 'Email',
+                'type' => 'email',
+                'name' => 'email',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+            ],
+            [
+                'name' => 'phone',
+                'type' => 'text',
+                'label' => 'Phone',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ],
+            ],
+            [
+                'name' => 'description',
+                'type' => 'ckeditor',
+                'label' => 'Description',
+            ],
+            [
+                'name' => 'file_upload',
+                'type' => 'image',
+                'label' => 'Image',
+                'disk' => 'uploads', 
+                'upload' => true,
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                
+            ],
+            [
+                'label' => trans('common.display_order').' (optional)',
+                'type' => 'number',
+                'name' => 'display_order',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+        ];
+        $this->crud->addFields(array_filter($arr));
     }
 
     /**

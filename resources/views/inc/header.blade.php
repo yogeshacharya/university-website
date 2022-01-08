@@ -27,29 +27,31 @@
                     <div class="mainmenu-area pull-right">
                         <div class="mainmenu d-none d-lg-block">
                             <nav>
-                                <ul id="nav">
-                                    @foreach($menus as $menu)
-                                        <li class="current"><a href="{{$menu->link}}">{{$menu->title}}</a>
-                                            @if(count($menu->subMenus))
-                                                <ul class="sub-menu">
-                                                    @foreach ($menu->subMenus as $subMenu)
-                                                        <li><a href="{{$subMenu->link}}">{{$subMenu->title}}</a>
-                                                            @if(count($subMenu->subMenus))
-                                                                <ul class="inside-menu">
-                                                                    @foreach ($subMenu->subMenus as $second_level_sub_menu)
-                                                                        <li><a href="{{$second_level_sub_menu->link}}">{{$second_level_sub_menu->title}}</a></li>
-                                                                    @endforeach
-                                                                </ul>
-                                                            @endif
-                                                        </li>
-                                                    @endforeach
-                                                    {{-- <li><a href="#">Home Version 1</a></li>
-                                                    <li><a href="index-2.html">Home Version 2</a></li> --}}
-                                                </ul>
-                                            @endif
-                                        </li>
-                                    @endforeach
-                                </ul>
+                                @if(count($menus))
+                                    <ul id="nav">
+                                        @foreach($menus as $menu)
+                                            <li class="current"><a href="{{$menu->link}}">{{$menu->title}}</a>
+                                                @if(count($menu->subMenus))
+                                                    <ul class="sub-menu">
+                                                        @foreach ($menu->subMenus as $subMenu)
+                                                            <li><a href="{{$subMenu->link}}">{{$subMenu->title}}</a>
+                                                                @if(count($subMenu->subMenus))
+                                                                    <ul class="inside-menu">
+                                                                        @foreach ($subMenu->subMenus as $second_level_sub_menu)
+                                                                            <li><a href="{{$second_level_sub_menu->link}}">{{$second_level_sub_menu->title}}</a></li>
+                                                                        @endforeach
+                                                                    </ul>
+                                                                @endif
+                                                            </li>
+                                                        @endforeach
+                                                        {{-- <li><a href="#">Home Version 1</a></li>
+                                                        <li><a href="index-2.html">Home Version 2</a></li> --}}
+                                                    </ul>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </nav>
                         </div>
                         <ul class="header-search">
@@ -81,64 +83,29 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="mobile-menu">
                         <nav id="dropdown">
-                            <ul>
-                                <li><a href="index.html">HOME</a>
-                                    <ul>
-                                        <li><a href="index.html">Home Version 1</a></li>
-                                        <li><a href="index-2.html">Home Version 1</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="gallery.html">Gallery</a>
-                                    <ul>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                        <li><a href="gallery-2.html">Gallery Filtaring</a></li>
-                                        <li><a href="gallery-four-column.html">Gallery Four Column</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="team-details.html">Team Details</a></li>
-                                <li><a href="course.html">Courses</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="courses-details.html">Courses Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="shop.html">Shop</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="single-product.html">Single Product</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="event.html">Event</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="event-details.html">Event Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="blog.html">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                        <li><a href="blog-no-sidebar.html">Blog No Sidebar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Pages</a>
-                                    <ul>
-                                        <li><a href="team-details.html">Team Details</a></li>
-                                        <li><a href="course.html">Courses Page</a></li>
-                                        <li><a href="courses-details.html">Course Details Page</a></li>
-                                        <li><a href="event.html">Event Page</a></li>
-                                        <li><a href="event-details.html">Event Details Page</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="blog-details.html">Blog Details Page</a></li>
-                                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                        <li><a href="blog-no-sidebar.html">Blog No Sidebar</a></li>
-                                        <li><a href="wishlist.html">Wishlist Page</a></li>
-                                        <li><a href="checkout.html">Checkout Page</a></li>
-                                        <li><a href="cart.html">Shopping Cart Page</a></li>
-                                        <li><a href="login-register.html">Login Page</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="404.html">404 Error</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact us</a></li>
-                            </ul>
+                            @if(count($menus))
+                                <ul>
+                                    @foreach($menus as $menu)
+                                        <li><a href="{{$menu->link}}">{{$menu->title}}</a>
+                                            @if(count($menu->subMenus))
+                                                <ul>
+                                                    @foreach ($menu->subMenus as $subMenu)
+                                                        <li><a href="{{$subMenu->link}}">{{$subMenu->title}}</a>
+                                                            @if(count($subMenu->subMenus))
+                                                                <ul>
+                                                                    @foreach ($subMenu->subMenus as $second_level_sub_menu)
+                                                                        <li><a href="{{$second_level_sub_menu->link}}">{{$second_level_sub_menu->title}}</a></li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            @endif
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         </nav>
                     </div>					
                 </div>

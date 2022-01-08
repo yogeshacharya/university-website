@@ -4,26 +4,17 @@
     <div class="slider-area">
         <div class="hero-slider owl-carousel">
             <!--Single Slider Start-->
-            <div class="single-slider" style="background-image: url(/frontend/img/slider/1.jpg)"> 
-                <div class="hero-slider-content">
-                    <h1>Education Needs <br> Complete Solution</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque unde, at molestias voluptatem praesentium quia magnam? Iste aliquam, voluptas sapiente animi, repudiandae officiis voluptatem tempore alias nihil. Aperiam voluptatum, velit.</p>
-                    <div class="slider-btn">
-                        <a class="button-default" href="course.html">View Courses</a>
+            @foreach($sliders as $slider)
+                <div class="single-slider" style="background-image: url('{{url('/') . '/storage/uploads/' . $slider->file_upload}}')"> 
+                    <div class="hero-slider-content">
+                        <h1>{{$slider->title}}</h1>
+                        <p>{{$slider->description}}</p>
+                        <div class="slider-btn">
+                            <a class="button-default" href="course.html">View Courses</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!--Single Slider End-->
-            <!--Single Slider Start-->
-            <div class="single-slider" style="background-image: url(/frontend/img/slider/2.jpg)">   
-                <div class="hero-slider-content">
-                    <h1>Education Needs <br> Complete Solution</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque unde, at molestias voluptatem praesentium quia magnam? Iste aliquam, voluptas sapiente animi, repudiandae officiis voluptatem tempore alias nihil. Aperiam voluptatum, velit.</p>
-                    <div class="slider-btn">
-                        <a class="button-default" href="course.html">View Courses</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
             <!--Single Slider End-->
         </div>
     </div>
