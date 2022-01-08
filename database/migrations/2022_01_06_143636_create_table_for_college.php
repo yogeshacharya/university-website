@@ -259,7 +259,7 @@ class CreateTableForCollege extends Migration
             $table->string('address',50)->nullable();
             $table->string('degree',50)->nullable();
             $table->string('institute',50)->nullable();
-            $table->string('image',500)->nullable();
+            $table->string('file_upload',500)->nullable();
 
             $table->unsignedSmallInteger('display_order')->nullable();
             $table->timestamps();
@@ -280,6 +280,7 @@ class CreateTableForCollege extends Migration
             $table->string('name',100);
             $table->string('date',10);
             $table->string('description',500)->nullable();
+            $table->string('file_upload',500)->nullable();
 
             $table->unsignedSmallInteger('display_order')->nullable();
             $table->timestamps();

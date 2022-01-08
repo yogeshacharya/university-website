@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Event;
 use App\Http\Requests\EventRequest;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -11,19 +12,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class EventCrudController extends CrudController
+class EventCrudController extends BaseCrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     * 
-     * @return void
-     */
     public function setup()
     {
         CRUD::setModel(\App\Models\Event::class);
@@ -39,24 +29,31 @@ class EventCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::column('id');
-        CRUD::column('name');
-        CRUD::column('date');
-        CRUD::column('description');
-        CRUD::column('display_order');
-        CRUD::column('created_at');
-        CRUD::column('updated_at');
-        CRUD::column('is_active');
-        CRUD::column('created_by');
-        CRUD::column('updated_by');
-        CRUD::column('deleted_uq_code');
-        CRUD::column('deleted_by');
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+        $cols = [
+            $this->addRowNumber(),
+            [
+                'name'=>'display_order',
+                'type'=>'number',
+                'label' => trans('common.display_order'),
+            ],
+            [
+                'label' => 'Name',
+                'type' => 'text',
+                'name' => 'name',
+            ],
+            [
+                'label' => 'Date',
+                'type' => 'date',
+                'name' => 'date',
+            ],
+            [
+                'name' => 'file_upload',
+                'type' => 'image',
+                'label' => "Image",
+                'disk'=>'uploads',
+            ]
+        ];
+        $this->crud->addColumns($cols);
     }
 
     /**
@@ -67,26 +64,50 @@ class EventCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(EventRequest::class);
-
-        CRUD::field('id');
-        CRUD::field('name');
-        CRUD::field('date');
-        CRUD::field('description');
-        CRUD::field('display_order');
-        CRUD::field('created_at');
-        CRUD::field('updated_at');
-        CRUD::field('is_active');
-        CRUD::field('created_by');
-        CRUD::field('updated_by');
-        CRUD::field('deleted_uq_code');
-        CRUD::field('deleted_by');
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
+        $this->crud->setValidation(EventRequest::class);
+        $arr = [
+            [
+                'label' => 'Name',
+                'type' => 'text',
+                'name' => 'name',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+            ],
+            [
+                'label' => 'Date',
+                'type' => 'date',
+                'name' => 'date',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+            ],
+            [
+                'name' => 'description',
+                'type' => 'ckeditor',
+                'label' => 'Description',
+            ],
+            [
+                'name' => 'file_upload',
+                'type' => 'image',
+                'label' => 'Image',
+                'disk' => 'uploads', 
+                'upload' => true,
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                
+            ],
+            [
+                'label' => trans('common.display_order').' (optional)',
+                'type' => 'number',
+                'name' => 'display_order',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+        ];
+        $this->crud->addFields(array_filter($arr));
     }
 
     /**

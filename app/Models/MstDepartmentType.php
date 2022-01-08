@@ -37,6 +37,9 @@ class MstDepartmentType extends BaseModel
     public function contatUs(){
         return $this->hasMany('App\Models\ContactUs', 'department_type_id', 'id');
     }
+    public function humanResource(){
+        return $this->hasMany('App\Models\HumanResource', 'department_type_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

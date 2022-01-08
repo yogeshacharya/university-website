@@ -25,8 +25,14 @@ class EventRequest extends FormRequest
      */
     public function rules()
     {
+        $request=request();
+
+        $id_check = request()->request->get('id') ? ",".request()->request->get('id') : ",NULL";
+        $id_check=$id_check.",id,deleted_uq_code,1";
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required',
+            'description' => 'required',
+            'display_order' => 'sometimes|unique:events,display_order'.$id_check
         ];
     }
 

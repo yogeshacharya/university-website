@@ -25,8 +25,15 @@ class HumanResourceRequest extends FormRequest
      */
     public function rules()
     {
+        $request=request();
+
+        $id_check = request()->request->get('id') ? ",".request()->request->get('id') : ",NULL";
+        $id_check=$id_check.",id,deleted_uq_code,1";
         return [
-            // 'name' => 'required|min:5|max:255'
+            'type' => 'required',
+            'department_type_id' => 'required',
+            'name' => 'required',
+            'display_order' => 'sometimes|unique:human_resources,display_order'.$id_check
         ];
     }
 

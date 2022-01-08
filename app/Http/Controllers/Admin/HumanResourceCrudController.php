@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\HumanResource;
 use App\Http\Requests\HumanResourceRequest;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -11,19 +12,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class HumanResourceCrudController extends CrudController
+class HumanResourceCrudController extends BaseCrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     * 
-     * @return void
-     */
     public function setup()
     {
         CRUD::setModel(\App\Models\HumanResource::class);
@@ -39,13 +29,45 @@ class HumanResourceCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+        $cols = [
+            $this->addRowNumber(),
+            [
+                'name'=>'display_order',
+                'type'=>'number',
+                'label' => trans('common.display_order'),
+            ],
+            [
+                'label' => 'Name',
+                'type' => 'text',
+                'name' => 'name',
+            ],
+            [
+                'label' => 'Email',
+                'type' => 'text',
+                'name' => 'email',
+            ],
+            [
+                'label' => 'Department',
+                'type' => 'select',
+                'name' => 'department_type_id',
+                'entity' => 'departmentType',
+                'attribute' => 'title',
+                'model' => "App\Models\MstDepartmentType",
+                
+            ],
+            [
+                'label' => 'Phone',
+                'type' => 'text',
+                'name' => 'phone',
+            ],
+            [
+                'name' => 'file_upload',
+                'type' => 'image',
+                'label' => "Image",
+                'disk'=>'uploads',
+            ]
+        ];
+        $this->crud->addColumns($cols);
     }
 
     /**
@@ -56,15 +78,115 @@ class HumanResourceCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(HumanResourceRequest::class);
+        $this->crud->setValidation(HumanResourceRequest::class);
+        $arr = [
+            [
+                'name' => 'code',
+                'type' => 'text',
+                'label' => 'Code',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ],
+            ],
+            [
+                'label' => trans('common.type'),
+                'type' => 'select_from_array',
+                'name' => 'type',
+                'options' => HumanResource::$HrType,
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3 type_id',
+                ],
+                'attributes'=>[
+                    'id'=>'type'
+                ]
 
-        
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
+            ],
+            [
+                'label' => 'Department',
+                'type' => 'select2',
+                'name' => 'department_type_id',
+                'entity' => 'departmentType',
+                'attribute' => 'title',
+                'model' => 'App\Models\MstDepartmentType',
+                'default' => 0,
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+            [
+                'label' => 'Name',
+                'type' => 'text',
+                'name' => 'name',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+            ],
+            [
+                'label' => 'Email',
+                'type' => 'email',
+                'name' => 'email',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+            ],
+            [
+                'name' => 'phone',
+                'type' => 'text',
+                'label' => 'Phone',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ],
+            ],
+            [
+                'name' => 'address',
+                'type' => 'text',
+                'label' => 'Address',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ],
+            ],
+            [
+                'name' => 'degree',
+                'type' => 'text',
+                'label' => 'Degree',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ],
+            ],
+            [
+                'name' => 'institute',
+                'type' => 'text',
+                'label' => 'Institute',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ],
+            ],
+            [
+                'name' => 'description',
+                'type' => 'ckeditor',
+                'label' => 'Description',
+            ],
+            [
+                'name' => 'file_upload',
+                'type' => 'image',
+                'label' => 'Image',
+                'disk' => 'uploads', 
+                'upload' => true,
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                
+            ],
+            [
+                'label' => trans('common.display_order').' (optional)',
+                'type' => 'number',
+                'name' => 'display_order',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+        ];
+        $this->crud->addFields(array_filter($arr));
     }
 
     /**

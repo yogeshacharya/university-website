@@ -37,8 +37,13 @@ class MstClassRequest extends FormRequest
      */
     public function attributes()
     {
+        $request=request();
+
+        $id_check = request()->request->get('id') ? ",".request()->request->get('id') : ",NULL";
+        $id_check=$id_check.",id,deleted_uq_code,1";
         return [
-            //
+            'name' => 'required',
+            'display_order' => 'sometimes|unique:mst_classes,display_order'.$id_check
         ];
     }
 
