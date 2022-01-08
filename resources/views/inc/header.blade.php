@@ -29,15 +29,15 @@
                             <nav>
                                 <ul id="nav">
                                     @foreach($menus as $menu)
-                                        <li class="current"><a href="#">{{$menu->title}}</a>
+                                        <li class="current"><a href="{{$menu->link}}">{{$menu->title}}</a>
                                             @if(count($menu->subMenus))
                                                 <ul class="sub-menu">
                                                     @foreach ($menu->subMenus as $subMenu)
-                                                        <li><a href="#">{{$subMenu->title}}</a>
+                                                        <li><a href="{{$subMenu->link}}">{{$subMenu->title}}</a>
                                                             @if(count($subMenu->subMenus))
                                                                 <ul class="inside-menu">
                                                                     @foreach ($subMenu->subMenus as $second_level_sub_menu)
-                                                                        <li><a href="login-register.html">{{$second_level_sub_menu->title}}</a></li>
+                                                                        <li><a href="{{$second_level_sub_menu->link}}">{{$second_level_sub_menu->title}}</a></li>
                                                                     @endforeach
                                                                 </ul>
                                                             @endif

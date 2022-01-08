@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
-use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 class MstDepartmentType extends BaseModel
@@ -35,7 +34,9 @@ class MstDepartmentType extends BaseModel
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function contatUs(){
+        return $this->hasMany('App\Models\ContactUs', 'department_type_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Faq;
 use App\Http\Requests\FaqRequest;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -11,13 +12,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class FaqCrudController extends CrudController
+class FaqCrudController extends BaseCrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -39,13 +35,25 @@ class FaqCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+        $cols = [
+            $this->addRowNumber(),
+            [
+                'name'=>'display_order',
+                'type'=>'number',
+                'label' => trans('common.display_order'),
+            ],
+            [
+                'label' => trans('common.title'),
+                'type' => 'text',
+                'name' => 'title',
+            ],
+            [
+                'label' => "Description",
+                'type' => 'text',
+                'name' => 'description',
+            ]
+        ];
+        $this->crud->addColumns($cols);  
     }
 
     /**
@@ -56,15 +64,32 @@ class FaqCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(FaqRequest::class);
+        $this->crud->setValidation(FaqRequest::class);
+        $arr = [
+            [
+                'label' => trans('common.title'),
+                'type' => 'text',
+                'name' => 'title',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
 
-        
-
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
+            ],
+            [
+                'name' => 'description',
+                'type' => 'ckeditor',
+                'label' => 'Description',
+            ],
+            [
+                'label' => trans('common.display_order').' (optional)',
+                'type' => 'number',
+                'name' => 'display_order',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+        ];
+        $this->crud->addFields(array_filter($arr));
     }
 
     /**

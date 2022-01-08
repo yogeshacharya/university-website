@@ -26,7 +26,10 @@ class ContactUsRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'first_name' => 'required|min:2|max:32',
+            'last_name' => 'required|min:2|max:32',
+            'email' => 'required|email',
+            'message' => 'required|min:5|max:500',
         ];
     }
 

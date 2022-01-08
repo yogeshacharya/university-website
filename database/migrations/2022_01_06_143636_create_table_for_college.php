@@ -229,7 +229,7 @@ class CreateTableForCollege extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',200);
-            $table->string('image',500)->nullable();
+            $table->string('file_upload',500)->nullable();
             $table->string('description',500)->nullable();
             $table->unsignedSmallInteger('display_order')->nullable();
 

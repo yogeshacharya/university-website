@@ -25,8 +25,14 @@ class FaqRequest extends FormRequest
      */
     public function rules()
     {
+        $request=request();
+
+        $id_check = request()->request->get('id') ? ",".request()->request->get('id') : ",NULL";
+        $id_check=$id_check.",id,deleted_uq_code,1";
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title' => 'required|min:2|max:255',
+            'description' => 'required|min:2|max:500',
+            'display_order' => 'sometimes|unique:faqs,display_order'.$id_check
         ];
     }
 

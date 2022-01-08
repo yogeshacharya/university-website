@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\ContactUs;
 use App\Http\Requests\ContactUsRequest;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -11,24 +12,14 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class ContactUsCrudController extends CrudController
+class ContactUsCrudController extends BaseCrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     * 
-     * @return void
-     */
     public function setup()
     {
         CRUD::setModel(\App\Models\ContactUs::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/contact-us');
         CRUD::setEntityNameStrings('contact us', 'contact uses');
+        $this->crud->denyAccess(['create','edit','delete']);
     }
 
     /**
@@ -39,13 +30,44 @@ class ContactUsCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+        $cols = [
+            $this->addRowNumber(),
+            [
+                'label' => "Department",
+                'type' => 'select',
+                'name' => 'department_type_id',
+                'entity' => 'departmentType',
+                'attribute' => 'title',
+                'model' => "App\Models\MstDepartmentType",
+                
+            ],
+            [
+                'label' => "First Name",
+                'type' => 'text',
+                'name' => 'first_name',
+            ],
+            [
+                'label' => "Last Name",
+                'type' => 'text',
+                'name' => 'last_name',
+            ],
+            [
+                'label' => "Email",
+                'type' => 'text',
+                'name' => 'email',
+            ],
+            [
+                'label' => "Phone",
+                'type' => 'text',
+                'name' => 'Phone',
+            ],
+            [
+                'label' => "Message",
+                'type' => 'text',
+                'name' => 'message',
+            ],
+        ];
+        $this->crud->addColumns($cols);   
     }
 
     /**
