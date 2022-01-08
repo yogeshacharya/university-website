@@ -33,7 +33,6 @@ Route::group([
     Route::crud('human-resource', 'HumanResourceCrudController');
     Route::crud('event', 'EventCrudController');
     Route::crud('mst-class', 'MstClassCrudController');
+    Route::crud('header', 'HeaderCrudController');
+    Route::crud('footer-address', 'FooterAddressCrudController');
 }); // this should be the absolute last line of this file
-
-
-
