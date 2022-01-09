@@ -47,4 +47,7 @@ Route::group([
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
     Route::get('/courses', 'CourseController@index');
+    Route::get('/about_us', 'AboutUsController@index');
+    Route::get('/gallery', 'GalleryController@index');
+    Route::get('/contact_us', 'ContactUsController@index');
 });
