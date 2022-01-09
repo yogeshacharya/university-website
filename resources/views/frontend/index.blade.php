@@ -49,114 +49,48 @@
                     <div class="section-title-wrapper">
                         <div class="section-title">
                             <h3>POPULAR COURSES</h3>
-                            <p>There are many variations of passages of Lorem Ipsum</p>
+                            <p>There are many variations courses in Lincon International College</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-item">
-                        <div class="single-item-image overlay-effect">
-                            <a href="courses-details.html"><img src="img/course/1.jpg" alt=""></a>
-                            <div class="courses-hover-info">
-                                <div class="courses-hover-action">
-                                    <div class="courses-hover-thumb">
-                                        <img src="img/teacher/1.png" alt="small images">
+                @foreach($popular_courses as $popular_course)
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-item">
+                            <div class="single-item-image overlay-effect">
+                                <a href="courses-details.html"><img src="{{url('/') . '/storage/uploads/' . $popular_course->file_upload}}" alt=""></a>
+                                {{-- <div class="courses-hover-info">
+                                    <div class="courses-hover-action">
+                                        <div class="courses-hover-thumb">
+                                            <img src="{{url('/') . '/storage/uploads/' . $popular_course->file_upload}}" alt="small images">
+                                        </div>
+                                        <h4><a href="#">Derek Spafford</a></h4>
+                                        <span class="crs-separator">/</span>
+                                        <p>Professor</p>
                                     </div>
-                                    <h4><a href="#">Derek Spafford</a></h4>
-                                    <span class="crs-separator">/</span>
-                                    <p>Professor</p>
-                                </div>
+                                </div> --}}
+                            </div>
+                            <div class="single-item-text">
+                                <h4><a href="courses-details.html">{{$popular_course->name}}</a></h4>
+                                <p>{!! Str::limit($popular_course->description, 50) !!}</p>
+                                <div class="single-item-content">
+                                    <div class="single-item-comment-view">
+                                        <span><i class="zmdi zmdi-accounts"></i>59</span>
+                                        <span><i class="zmdi zmdi-favorite"></i>19</span>
+                                    </div>
+                                    <div class="single-item-rating">
+                                        <i class="zmdi zmdi-star"></i>
+                                        <i class="zmdi zmdi-star"></i>
+                                        <i class="zmdi zmdi-star"></i>
+                                        <i class="zmdi zmdi-star"></i>
+                                        <i class="zmdi zmdi-star-half"></i>
+                                    </div>
+                                </div>   
                             </div>
                         </div>
-                        <div class="single-item-text">
-                            <h4><a href="courses-details.html">Photoshop CC 2017</a></h4>
-                            <p>There are many variations of sages of Lorem Ipsum available, but the mrity have suffered alteration in some orm.</p>
-                            <div class="single-item-content">
-                                <div class="single-item-comment-view">
-                                    <span><i class="zmdi zmdi-accounts"></i>59</span>
-                                    <span><i class="zmdi zmdi-favorite"></i>19</span>
-                                </div>
-                                <div class="single-item-rating">
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star-half"></i>
-                                </div>
-                            </div>   
-                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-item">
-                        <div class="single-item-image overlay-effect">
-                            <a href="courses-details.html"><img src="img/course/2.jpg" alt=""></a>
-                            <div class="courses-hover-info">
-                                <div class="courses-hover-action">
-                                    <div class="courses-hover-thumb">
-                                        <img src="img/teacher/1.png" alt="small images">
-                                    </div>
-                                    <h4><a href="#">Derek Spafford</a></h4>
-                                    <span class="crs-separator">/</span>
-                                    <p>Professor</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-item-text">
-                            <h4><a href="courses-details.html">Illustrator CC 2017</a></h4>
-                            <p>There are many variations of sages of Lorem Ipsum available, but the mrity have suffered alteration in some orm.</p>
-                            <div class="single-item-content">
-                                <div class="single-item-comment-view">
-                                    <span><i class="zmdi zmdi-accounts"></i>59</span>
-                                    <span><i class="zmdi zmdi-favorite"></i>19</span>
-                                </div>
-                                <div class="single-item-rating">
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star-half"></i>
-                                </div>
-                            </div>   
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-item">
-                        <div class="single-item-image overlay-effect">
-                            <a href="courses-details.html"><img src="img/course/3.jpg" alt=""></a>
-                            <div class="courses-hover-info">
-                                <div class="courses-hover-action">
-                                    <div class="courses-hover-thumb">
-                                        <img src="img/teacher/1.png" alt="small images">
-                                    </div>
-                                    <h4><a href="#">Derek Spafford</a></h4>
-                                    <span class="crs-separator">/</span>
-                                    <p>Professor</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-item-text">
-                            <h4><a href="courses-details.html">Indesign CC 2017</a></h4>
-                            <p>There are many variations of sages of Lorem Ipsum available, but the mrity have suffered alteration in some orm.</p>
-                            <div class="single-item-content">
-                                <div class="single-item-comment-view">
-                                    <span><i class="zmdi zmdi-accounts"></i>59</span>
-                                    <span><i class="zmdi zmdi-favorite"></i>19</span>
-                                </div>
-                                <div class="single-item-rating">
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star"></i>
-                                    <i class="zmdi zmdi-star-half"></i>
-                                </div>
-                            </div>   
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <div class="col-md-12 col-sm-12 text-center">
                     <a href="course.html" class="button-default button-large">Browse All Courses <i class="zmdi zmdi-chevron-right"></i></a>
                 </div>

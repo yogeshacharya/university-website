@@ -20,7 +20,7 @@ class HomeController extends Controller
         $header = Header::first();
         $footer = FooterAddress::first();
         $about_us = AboutUs::first();
-        $popular_courses = Course::orderBy('visit_counts', 'DESC')->limit(2)->get();
+        $popular_courses = Course::orderBy('visit_counts', 'DESC')->limit(3)->get();
         $this->data = [
             'menus' => $menus,
             'sliders' => $sliders,

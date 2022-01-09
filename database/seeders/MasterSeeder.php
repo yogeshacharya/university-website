@@ -81,20 +81,20 @@ class MasterSeeder extends Seeder
     public function courses(){
         DB::table('courses')->insert([
             // mainmenus
-            ['id' => 1,'name' => 'Photoshop CC 2017','short_description' => 'Lorem ipsum dolor sit amet','overview' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            ['id' => 1,'name' => 'Photoshop CC 2017','description' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
                 'entry_requirement' => 'Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content',
-                'course_structure'=>'{"code":"001","course_title":"CourseTitle1","credit":"5hrs"}',
-                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'{"fee_type_id":"1","fee":"10000","description":"This is a description"}',
+                'course_structure'=>'[{"code":"001","course_title":"CourseTitle1","credit":"5hrs"}]',
+                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'anual','courses_fee'=>'[{"fee_type_id":"1","total_fee":"10000","description":"This is a description"}]',
                 'visit_counts'=>500,'ratings'=>3.5,'display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 2,'name' => 'Illustrator CC 2017','short_description' => 'Lorem ipsum dolor sit amet','overview' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            ['id' => 2,'name' => 'Illustrator CC 2017','description' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
                 'entry_requirement' => 'Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content',
-                'course_structure'=>'{"code":"002","course_title":"CourseTitle2","credit":"8hrs"}',
-                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'{"fee_type_id":"2","fee":"14000","description":"This is a description"}',
-                'visit_counts'=>300,'ratings'=>2,'display_order' => '2','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 3,'name' => 'Indesign CC 2017','short_description' => 'Lorem ipsum dolor sit amet','overview' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                'course_structure'=>'[{"code":"002","course_title":"CourseTitle2","credit":"8hrs"}]',
+                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'anual','courses_fee'=>'[{"fee_type_id":"2","total_fee":"14000","description":"This is a description"}]',
+                'visit_counts'=>100,'ratings'=>2,'display_order' => '2','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'name' => 'Indesign CC 2017','description' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
                 'entry_requirement' => 'Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content',
-                'course_structure'=>'{"code":"003","course_title":"CourseTitle3","credit":"3hrs"}',
-                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'{"fee_type_id":"3","fee":"10400","description":"This is a description"}',
+                'course_structure'=>'[{"code":"003","course_title":"CourseTitle3","credit":"3hrs"}]',
+                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'anual','courses_fee'=>'[{"fee_type_id":"3","total_fee":"10400","description":"This is a description"}]',
                 'visit_counts'=>200,'ratings'=>5,'display_order' => '3','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
