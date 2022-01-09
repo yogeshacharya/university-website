@@ -13,6 +13,7 @@
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-database"></i>Master</a>
 	<ul class="nav-dropdown-items">
+	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('blog') }}'><i class='nav-icon la la-blog'></i> Blog</a></li>
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('fee-type') }}'><i class='nav-icon la la-plus'></i> Fee Types</a></li>
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('mst-department-type') }}'><i class='nav-icon la la-building'></i> Department Type</a></li>
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('mst-class') }}'><i class='nav-icon la la-building'></i>Class</a></li>

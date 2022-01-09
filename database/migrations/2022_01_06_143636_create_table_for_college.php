@@ -343,6 +343,20 @@ class CreateTableForCollege extends Migration
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
         });
 
+        Schema::create('blogs', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('title',100)->nullable();
+            $table->string('description',500)->nullable();
+            $table->string('image')->nullable();
+            $table->timestamps();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
+            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+        });
+
         $DbSeed = new DatabaseSeeder();
         $DbSeed->run();
     }

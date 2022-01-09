@@ -35,4 +35,5 @@ Route::group([
     Route::crud('mst-class', 'MstClassCrudController');
     Route::crud('header', 'HeaderCrudController');
     Route::crud('footer-address', 'FooterAddressCrudController');
+    Route::crud('blog', 'BlogCrudController');
 }); // this should be the absolute last line of this file
