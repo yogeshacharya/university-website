@@ -25,6 +25,9 @@ class MasterSeeder extends Seeder
         $this->header();
         $this->footer_address();
         $this->about_us();
+        $this->department_type();
+        $this->human_resources();
+        $this->gallery();
     }
 
     public function clean_tables(){
@@ -36,6 +39,9 @@ class MasterSeeder extends Seeder
         DB::table('headers')->delete();
         DB::table('footer_address')->delete();
         DB::table('about_us')->delete();
+        DB::table('mst_department_types')->delete();
+        DB::table('human_resources')->delete();
+        DB::table('galleries')->delete();
     }
 
     public function userSeeder(){
@@ -123,6 +129,48 @@ class MasterSeeder extends Seeder
     public function about_us(){
         DB::table('about_us')->insert([
             ['id' => 1,'title' => 'Slider Two','file_upload'=>'Logo/noimg.jpg','details'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+        ]); 
+        // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
+    }
+    public function department_type(){
+        DB::table('mst_department_types')->insert([
+            ['id' => 1,'title' => 'Computer','display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'title' => 'Civil','display_order' => '2','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'title' => 'Architecture','display_order' => '3','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+        ]); 
+        // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
+    }
+    public function human_resources(){
+        DB::table('human_resources')->insert([
+            ['id' => 1,'code'=>'001','type'=>1,'department_type_id'=>2,'name' => 'Sandip Silwal','email'=>'sandip.silwal.ss@gmail.com','phone'=>'9843180434','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '1','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'code'=>'002','type'=>2,'department_type_id'=>3,'name' => 'Sunil Pathak','email'=>'sunil.pathak@gmail.com','phone'=>'9843180767','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '2','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'code'=>'003','type'=>0,'department_type_id'=>1,'name' => 'Yogesh Acharya','email'=>'yogesh.acharya@gmail.com','phone'=>'9843180567','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '3','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'code'=>'004','type'=>1,'department_type_id'=>2,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 5,'code'=>'005','type'=>2,'department_type_id'=>2,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 6,'code'=>'006','type'=>1,'department_type_id'=>2,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 7,'code'=>'007','type'=>3,'department_type_id'=>1,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 8,'code'=>'008','type'=>1,'department_type_id'=>1,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 9,'code'=>'009','type'=>3,'department_type_id'=>3,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 10,'code'=>'010','type'=>1,'department_type_id'=>3,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 11,'code'=>'011','type'=>3,'department_type_id'=>1,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 12,'code'=>'012','type'=>1,'department_type_id'=>1,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 13,'code'=>'013','type'=>3,'department_type_id'=>1,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 14,'code'=>'014','type'=>1,'department_type_id'=>3,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 15,'code'=>'015','type'=>2,'department_type_id'=>3,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 16,'code'=>'016','type'=>2,'department_type_id'=>2,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 17,'code'=>'017','type'=>2,'department_type_id'=>2,'name' => 'Ram Thapa','email'=>'ram.thapa@gmail.com','phone'=>'9843180778','address'=>'Banasthali, Kathmandu','degree'=>'Bachelor','institute'=>'Acme Engineering College','file_upload'=>'HumanResource/noimg.jpg','display_order' => '4','description'=>'Description of second slider','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+        ]); 
+        // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
+    }
+    public function gallery(){
+        DB::table('galleries')->insert([
+            // mainmenus
+            ['id' => 1,'title' => 'gallery One','file_upload'=>'Gallery/noimg.jpg','description'=>'Description of first slider','display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'title' => 'gallery Two','file_upload'=>'Gallery/noimg.jpg','description'=>'Description of second slider','display_order' => '2','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'title' => 'gallery Three','file_upload'=>'Gallery/noimg.jpg','description'=>'Description of third slider','display_order' => '3','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'title' => 'gallery Four','file_upload'=>'Gallery/noimg.jpg','description'=>'Description of fourth slider','display_order' => '4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 5,'title' => 'gallery Five','file_upload'=>'Gallery/noimg.jpg','description'=>'Description of fifth slider','display_order' => '5','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 6,'title' => 'gallery Six','file_upload'=>'Gallery/noimg.jpg','description'=>'Description of sixth slider','display_order' => '6','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }

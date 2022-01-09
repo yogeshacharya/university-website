@@ -22,7 +22,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('display_order')->nullable();
                     
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -38,7 +38,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('display_order')->nullable();
                     
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -57,7 +57,7 @@ class CreateTableForCollege extends Migration
             $table->string('link', 255)->nullable();
                     
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -96,7 +96,7 @@ class CreateTableForCollege extends Migration
             $table->string('file_upload',500)->nullable();
                     
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -122,7 +122,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedInteger('ratings')->nullable();
                     
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -163,7 +163,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedInteger('visit_counts')->nullable();
                     
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -181,7 +181,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('display_order')->nullable();
                     
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -205,7 +205,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('display_order')->nullable();
                     
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -222,7 +222,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('display_order')->nullable();
                     
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -240,7 +240,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('display_order')->nullable();
 
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -266,7 +266,7 @@ class CreateTableForCollege extends Migration
 
             $table->unsignedSmallInteger('display_order')->nullable();
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -285,7 +285,7 @@ class CreateTableForCollege extends Migration
             $table->string('url',50)->nullable();
             $table->unsignedSmallInteger('display_order')->nullable();
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -306,7 +306,7 @@ class CreateTableForCollege extends Migration
 
             $table->unsignedSmallInteger('display_order')->nullable();
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();
@@ -325,7 +325,7 @@ class CreateTableForCollege extends Migration
 
             $table->unsignedSmallInteger('display_order')->nullable();
             $table->timestamps();
-            $table->boolean('is_active')->nullable()->default(false);
+            $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->softDeletes();

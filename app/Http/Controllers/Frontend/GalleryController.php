@@ -18,10 +18,10 @@ class GalleryController extends Controller
     {
         $header_footer_data = $this->getHeaderFooterData();
         $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
-        $gallery = Gallery::all();
+        $galleries = Gallery::where('deleted_uq_code',1)->get();
         $this->data = [
             'menus' => $menus,
-            'gallery' => $gallery,
+            'galleries' => $galleries,
             'header_footer_data' => $header_footer_data,
         ];
         return view('frontend.gallery', $this->data);

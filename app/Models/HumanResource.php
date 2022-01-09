@@ -17,7 +17,7 @@ class HumanResource extends BaseModel
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    public static $HrType = [0 => "Administration", 1 => "Teacher", 2 => "College Staff", 3 => "Student"];
+    public static $HrType = [0 => "Administrator", 1 => "Teacher", 2 => "Student", 3 => "Member"];
     protected $table = 'human_resources';
     // protected $primaryKey = 'id';
     // public $timestamps = false;

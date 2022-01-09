@@ -25,7 +25,7 @@
                                     <h1 class="text-center">ABOUT US</h1>
                                     <div class="breadcrumb-bar">
                                         <ul class="breadcrumb text-center">
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="/home">Home</a></li>
                                             <li>ABOUT US</li>
                                         </ul>
                                     </div>

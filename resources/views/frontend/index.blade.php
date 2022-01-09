@@ -73,11 +73,11 @@
                             </div>
                             <div class="single-item-text">
                                 <h4><a href="courses-details.html">{{$popular_course->name}}</a></h4>
-                                <p>{!! Str::limit($popular_course->description, 50) !!}</p>
+                                <p>{!! Str::limit($popular_course->description, 150) !!}</p>
                                 <div class="single-item-content">
                                     <div class="single-item-comment-view">
-                                        <span><i class="zmdi zmdi-accounts"></i>59</span>
-                                        <span><i class="zmdi zmdi-favorite"></i>19</span>
+                                        <span><i class="zmdi zmdi-accounts"></i>{{$popular_course->visit_counts}}</span>
+                                        {{-- <span><i class="zmdi zmdi-favorite"></i>19</span> --}}
                                     </div>
                                     <div class="single-item-rating">
                                         <i class="zmdi zmdi-star"></i>
@@ -104,26 +104,26 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-fun-factor mb-30">
-                        <h2><span class="counter">79</span>+</h2>
+                        <h2><span class="counter">{{$teacher_count}}</span>+</h2>
                         <h4>Teachers</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-fun-factor mb-30">
-                        <h2><span class="counter">120</span>+</h2>
-                        <h4>Members</h4>
+                        <h2><span class="counter">{{$student_count}}</span>+</h2>
+                        <h4>Student</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-fun-factor mb-30">
-                        <h2><span class="counter">36</span>+</h2>
+                        <h2><span class="counter">{{$course_count}}</span>+</h2>
                         <h4>Courses</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-fun-factor mb-30">
-                        <h2><span class="counter">20</span>+</h2>
-                        <h4>Countries</h4>
+                        <h2><span class="counter">{{$member_count}}</span>+</h2>
+                        <h4>Members</h4>
                     </div>
                 </div>
             </div>
