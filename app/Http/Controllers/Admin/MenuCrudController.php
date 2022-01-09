@@ -139,6 +139,9 @@ class MenuCrudController extends BaseCrudController
                 'name' => 'link',
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-6',
+                ],
+                'attributes' => [
+                    'readonly' => true
                 ]
             ],
         ];
@@ -175,6 +178,8 @@ class MenuCrudController extends BaseCrudController
             }
             $request->request->set('display_order', $max_order+1);
         }
+        $request->request->set('link','pages'.'/'.strtolower($request->title));
+
         $request->request->set('created_by', $user_id);
         $item = $this->crud->create($request->except(['save_action', '_token', '_method', 'http_referrer']));
 

@@ -9,6 +9,7 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('agent-detail') }}'><i class='nav-icon la la-user-secret'></i> Agent Details</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('human-resource') }}'><i class='nav-icon la la-user'></i> Human Resource</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('event') }}'><i class='nav-icon la la-calendar'></i> Events</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('page') }}'><i class='nav-icon la la-file'></i> Page</a></li>
 
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-database"></i>Master</a>

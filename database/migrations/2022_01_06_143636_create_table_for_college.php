@@ -110,8 +110,9 @@ class CreateTableForCollege extends Migration
 
         Schema::create('courses', function (Blueprint $table) {
             $table->smallIncrements('id');
-            $table->string('name',200);
-            $table->text('description');
+            $table->string('title',200);
+            $table->string('short_description',50);
+            $table->text('overview',500);
             $table->text('entry_requirement')->nullable();
             $table->json('course_structure')->nullable();//code, course title, credit
             $table->string('file_upload',500)->nullable();
@@ -158,7 +159,9 @@ class CreateTableForCollege extends Migration
             $table->string('title',200);
             $table->string('file_upload',500)->nullable();
             $table->string('description',500)->nullable();
+            $table->date('date_ad')->nullable();
             $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('visit_counts')->nullable();
                     
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(false);
@@ -276,6 +279,25 @@ class CreateTableForCollege extends Migration
                     
         });
 
+        Schema::create('social_media', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->unsignedSmallInteger('human_resource_id')->nullable();
+            $table->unsignedSmallInteger('social_resource_id')->nullable();
+            $table->string('url',50)->nullable();
+            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->timestamps();
+            $table->boolean('is_active')->nullable()->default(false);
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
+            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+
+            $table->foreign('human_resource_id','fk_social_media_human_resource_id')->references('id')->on('human_resources');
+        });
+
+
         Schema::create('events', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('name',100);
@@ -332,9 +354,9 @@ class CreateTableForCollege extends Migration
             $table->string('title')->nullable();
             $table->string('full_address')->nullable();
             $table->string('description')->nullable();
-            $table->string('phone',2000)->nullable();
-            $table->string('fax',100)->nullable();
-            $table->string('email',200)->nullable();
+            $table->string('phone',20)->nullable();
+            $table->string('fax',50)->nullable();
+            $table->string('email',20)->nullable();
             $table->timestamps();
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
@@ -356,6 +378,24 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+        });
+
+        Schema::create('pages', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('title',100)->nullable();
+            $table->unsignedSmallInteger('sub_menu_id')->nullable();
+            $table->string('description',500)->nullable();
+            $table->string('slug',50);
+            $table->string('file_upload')->nullable();
+            $table->timestamps();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
+            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+
+            $table->foreign('sub_menu_id','fk_pages_sub_menu_id')->references('id')->on('menus');
         });
 
         $DbSeed = new DatabaseSeeder();

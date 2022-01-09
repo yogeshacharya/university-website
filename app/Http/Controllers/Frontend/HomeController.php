@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
 use App\Models\Menu;
 use App\Models\Course;
@@ -31,5 +31,10 @@ class HomeController extends Controller
             // 'popular_courses' => $popular_courses,
         ];
         return view('frontend.index', $this->data);
+    }
+
+    public function getData($slug)
+    {
+        dd($slug);
     }
 }
