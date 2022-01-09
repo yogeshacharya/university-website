@@ -26,6 +26,7 @@ class AboutUsRequest extends FormRequest
     public function rules()
     {
         return [
+            'title' => 'required|min:5|max:255',
             'details' => 'required|min:5|max:500',
         ];
     }

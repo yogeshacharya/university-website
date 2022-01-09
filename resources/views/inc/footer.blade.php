@@ -37,9 +37,9 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="img/logo/footer.png" alt=""></a>
+                            <a href="index.html"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' . $header->logo}}" alt=""></a>
                         </div>
-                        <p>There are many variations of passg of Lorem Ipsum available, but thmajority have suffered altem, </p>
+                        <p>{{$footer->description}}</p>
                         <div class="social-icons">
                             <a href="#"><i class="zmdi zmdi-facebook"></i></a>
                             <a href="#"><i class="zmdi zmdi-rss"></i></a>
@@ -52,10 +52,10 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget">
                         <h3>GET IN TOUCH</h3>
-                        <a href="tel:555-555-1212"><i class="fa fa-phone"></i>555-555-1212</a>
-                        <span><i class="fa fa-envelope"></i>info@example.com</span>
-                        <span><i class="fa fa-globe"></i>www.educat.com</span>
-                        <span><i class="fa fa-map-marker"></i>ur address goes here,street.</span>
+                        <a href="tel:555-555-1212"><i class="fa fa-phone"></i>{{$footer->phone}}</a>
+                        <span><i class="fa fa-envelope"></i>{{$footer->email}}</span>
+                        {{-- <span><i class="fa fa-globe"></i>www.educat.com</span> --}}
+                        <span><i class="fa fa-map-marker"></i>{{$footer->full_address}}</span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

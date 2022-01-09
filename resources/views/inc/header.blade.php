@@ -4,12 +4,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-12">
-                    <span>Have any question? +968 547856 254</span>
+                    <span>Have any question? {{$footer->phone}}</span>
                 </div>
                 <div class="col-lg-5 col-md-6 col-12">
                     <div class="header-top-right">
-                        <span>Phone: +85 4856 5478</span>
-                        <span>Email: info@example.com</span>
+                        <span>Phone: {{$footer->phone}}</span>
+                        <span>Email: {{$footer->email}}</span>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-3 col-12">
                     <div class="logo">
-                        <a href="#"><img src="{{ asset('frontend/img/logo/logo.png') }}"alt="LINCON"></a>
+                        <a href="#"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' . $header->logo}}"alt="LINCON"></a>
                     </div>
                 </div>
                 <div class="col-lg-9 col-12">

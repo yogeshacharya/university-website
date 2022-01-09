@@ -57,7 +57,7 @@ class Header extends BaseModel
     |--------------------------------------------------------------------------
     */
 
-    public function setLogoUploadAttribute($value)
+    public function setLogoAttribute($value)
     {
         $attribute_name = "logo";
         // disk, defined in config/filesystems.php

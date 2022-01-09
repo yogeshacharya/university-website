@@ -33,6 +33,11 @@ class AboutUsCrudController extends BaseCrudController
         $cols = [
             $this->addRowNumber(),
             [
+                'name' => 'title',
+                'type' => 'text',
+                'label' => "Title",
+            ],
+            [
                 'name' => 'file_upload',
                 'type' => 'image',
                 'label' => "Image",
@@ -52,6 +57,11 @@ class AboutUsCrudController extends BaseCrudController
     {
         $this->crud->setValidation(AboutUsRequest::class);
         $arr = [
+            [
+                'name' => 'title',
+                'type' => 'text',
+                'label' => 'Title',
+            ],
             [
                 'name' => 'details',
                 'type' => 'ckeditor',
