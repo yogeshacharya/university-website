@@ -110,7 +110,7 @@ class CreateTableForCollege extends Migration
 
         Schema::create('courses', function (Blueprint $table) {
             $table->smallIncrements('id');
-            $table->string('title',200);
+            $table->string('name',200);
             $table->string('short_description',50);
             $table->text('overview',500);
             $table->text('entry_requirement')->nullable();
@@ -356,7 +356,7 @@ class CreateTableForCollege extends Migration
             $table->string('description')->nullable();
             $table->string('phone',20)->nullable();
             $table->string('fax',50)->nullable();
-            $table->string('email',20)->nullable();
+            $table->string('email',50)->nullable();
             $table->timestamps();
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
