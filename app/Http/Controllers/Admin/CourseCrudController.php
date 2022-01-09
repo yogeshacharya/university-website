@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Course;
 use App\Models\FeeType;
 use App\Http\Requests\CourseRequest;
-use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
@@ -12,19 +13,8 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class CourseCrudController extends CrudController
+class CourseCrudController extends BaseCrudController
 {
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
-
-    /**
-     * Configure the CrudPanel object. Apply settings to all operations.
-     * 
-     * @return void
-     */
     public function setup()
     {
         CRUD::setModel(\App\Models\Course::class);
@@ -103,6 +93,17 @@ class CourseCrudController extends CrudController
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-12',
                 ]
+            ],
+            [
+                'name' => 'file_upload',
+                'type' => 'image',
+                'label' => 'Image',
+                'disk' => 'uploads', 
+                'upload' => true,
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                
             ],
             [  
                 'name'  => 'course_structure',
