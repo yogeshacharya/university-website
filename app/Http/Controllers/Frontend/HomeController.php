@@ -20,15 +20,14 @@ class HomeController extends Controller
         $header = Header::first();
         $footer = FooterAddress::first();
         $about_us = AboutUs::first();
-        // $popular_courses = Course::max('visit_counts')->limit(2);
-        // dd($popular_courses);
+        $popular_courses = Course::orderBy('visit_counts', 'DESC')->limit(2)->get();
         $this->data = [
             'menus' => $menus,
             'sliders' => $sliders,
             'header' => $header,
             'footer' => $footer,
             'about_us' => $about_us,
-            // 'popular_courses' => $popular_courses,
+            'popular_courses' => $popular_courses,
         ];
         return view('frontend.index', $this->data);
     }
