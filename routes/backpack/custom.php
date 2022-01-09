@@ -36,8 +36,8 @@ Route::group([
     Route::crud('header', 'HeaderCrudController');
     Route::crud('footer-address', 'FooterAddressCrudController');
     Route::crud('blog', 'BlogCrudController');
+    Route::crud('page', 'PageCrudController');
 }); // this should be the absolute last line of this file
-
 
 Route::group([
     'prefix'     => '',
@@ -50,4 +50,6 @@ Route::group([
     Route::get('/about_us', 'AboutUsController@index');
     Route::get('/gallery', 'GalleryController@index');
     Route::get('/contact_us', 'ContactUsController@index');
+
+    Route::get('/pages/{slug}', 'HomeController@getData');
 });
