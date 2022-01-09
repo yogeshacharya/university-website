@@ -37,3 +37,14 @@ Route::group([
     Route::crud('footer-address', 'FooterAddressCrudController');
     Route::crud('blog', 'BlogCrudController');
 }); // this should be the absolute last line of this file
+
+
+Route::group([
+    'prefix'     => '',
+    'middleware' => ['web'],
+    'namespace'  => 'App\Http\Controllers\Frontend',
+], function () { 
+    Route::get('/', 'HomeController@index');
+    Route::get('/home', 'HomeController@index');
+    Route::get('/courses', 'CourseController@index');
+});
