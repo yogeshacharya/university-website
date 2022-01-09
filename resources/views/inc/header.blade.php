@@ -4,12 +4,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-12">
-                    <span>Have any question? {{$footer->phone}}</span>
+                    <span>Have any question? {{$header_footer_data['footer']->phone}}</span>
                 </div>
                 <div class="col-lg-5 col-md-6 col-12">
                     <div class="header-top-right">
-                        <span>Phone: {{$footer->phone}}</span>
-                        <span>Email: {{$footer->email}}</span>
+                        <span>Phone: {{$header_footer_data['footer']->phone}}</span>
+                        <span>Email: {{$header_footer_data['footer']->email}}</span>
                     </div>
                 </div>
             </div>
@@ -19,8 +19,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-12">
+                    @php
+                     $logo = $header_footer_data['header']->logo;
+                    @endphp
                     <div class="logo">
-                        <a href="#"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' . $header->logo}}"alt="LINCON"></a>
+                        <a href="#"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' .$logo}}"alt="LINCON"></a>
                     </div>
                 </div>
                 <div class="col-lg-9 col-12">

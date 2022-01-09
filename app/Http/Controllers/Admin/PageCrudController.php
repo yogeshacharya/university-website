@@ -38,7 +38,7 @@ class PageCrudController extends BaseCrudController
         
 
         CRUD::column('title');
-        CRUD::column('description');
+        CRUD::column('slug');
     }
 
     /**
@@ -126,7 +126,8 @@ class PageCrudController extends BaseCrudController
         $request = $this->crud->validateRequest();
         $user_id = backpack_user()->id;
         $request->request->set('created_by', $user_id);
-        $title_name = Menu::find($request->sub_menu_id)->pluck('title');
+        $title_name = Menu::where('id',$request->sub_menu_id)->pluck('title')->first();
+        $request->request->set('slug', strtolower($title_name));
         $item = $this->crud->create($request->except(['save_action', '_token', '_method', 'http_referrer']));
 
         $this->data['entry'] = $this->crud->entry = $item;
