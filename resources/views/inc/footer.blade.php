@@ -1,6 +1,6 @@
 <footer>
     <!--Newsletter Area Start-->
-    <div class="newsletter-area">
+    {{-- <div class="newsletter-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-5">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     <!--End of Newsletter Area-->
     <!--Footer Widget Area Start-->

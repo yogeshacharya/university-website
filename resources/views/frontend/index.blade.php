@@ -267,7 +267,7 @@
     </div>
     <!--End of Latest News Area--> 
     <!--Online Product Area Start-->
-    <div class="product-area section-bottom-padding bg-white">
+    {{-- <div class="product-area section-bottom-padding bg-white">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -374,7 +374,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--End of Online Product Area-->
     <div class="testimonial-area">
         <div class="container">
