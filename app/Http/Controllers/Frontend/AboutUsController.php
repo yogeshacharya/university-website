@@ -25,4 +25,82 @@ class AboutUsController extends Controller
         ];
         return view('frontend.about', $this->data);
     }
+
+    public function introduction()
+    {
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $this->data = [
+            'menus' => $menus,
+            'header_footer_data' => $header_footer_data,
+        ];
+        return view('frontend.introduction', $this->data);
+    }
+
+    public function ourTeam()
+    {
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $this->data = [
+            'menus' => $menus,
+            'header_footer_data' => $header_footer_data,
+        ];
+        return view('frontend.our_team', $this->data);
+    }
+
+    public function departmentType()
+    {
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $this->data = [
+            'menus' => $menus,
+            'header_footer_data' => $header_footer_data,
+        ];
+        return view('frontend.department_type', $this->data);
+    }
+
+    public function class()
+    {
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $this->data = [
+            'menus' => $menus,
+            'header_footer_data' => $header_footer_data,
+        ];
+        return view('frontend.class', $this->data);
+    }
+
+    public function feeType()
+    {
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $this->data = [
+            'menus' => $menus,
+            'header_footer_data' => $header_footer_data,
+        ];
+        return view('frontend.fee_type', $this->data);
+    }
+
+    public function scholarship()
+    {
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $this->data = [
+            'menus' => $menus,
+            'header_footer_data' => $header_footer_data,
+        ];
+        return view('frontend.scholarship', $this->data);
+    }
+
+    public function agentDetail()
+    {
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $this->data = [
+            'menus' => $menus,
+            'header_footer_data' => $header_footer_data,
+        ];
+        return view('frontend.agent_details', $this->data);
+    }
 }
+

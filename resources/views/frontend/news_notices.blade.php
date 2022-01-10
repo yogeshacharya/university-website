@@ -25,11 +25,11 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="breadcrumb-text">
-                                    <h1 class="text-center">Our Events</h1>
+                                    <h1 class="text-center">News & Notices</h1>
                                     <div class="breadcrumb-bar">
                                         <ul class="breadcrumb text-center">
                                             <li><a href="index.html">Home</a></li>
-                                            <li>Events</li>
+                                            <li>News & Notices</li>
                                         </ul>
                                     </div>
                                 </div>

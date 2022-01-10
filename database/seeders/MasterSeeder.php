@@ -18,6 +18,7 @@ class MasterSeeder extends Seeder
     {
         $this->clean_tables();
         $this->userSeeder();
+        $this->department_type();
         $this->menuSeeder();
         $this->feeType();
         $this->courses();
@@ -25,7 +26,6 @@ class MasterSeeder extends Seeder
         $this->header();
         $this->footer_address();
         $this->about_us();
-        $this->department_type();
         $this->human_resources();
         $this->gallery();
         $this->events();
@@ -41,11 +41,11 @@ class MasterSeeder extends Seeder
         DB::table('headers')->delete();
         DB::table('footer_address')->delete();
         DB::table('about_us')->delete();
-        DB::table('mst_department_types')->delete();
         DB::table('human_resources')->delete();
         DB::table('galleries')->delete();
         DB::table('events')->delete();
         DB::table('news_notices')->delete();
+        DB::table('mst_department_types')->delete();
     }
 
     public function userSeeder(){

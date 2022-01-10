@@ -48,8 +48,18 @@ Route::group([
     Route::get('/home', 'HomeController@index');
     Route::get('/courses', 'CourseController@index');
     Route::get('/about_us', 'AboutUsController@index');
+    Route::get('/about_us/introduction', 'AboutUsController@introduction');
+    Route::get('/about_us/our_team', 'AboutUsController@ourTeam');
+    Route::get('/about_us/department_type', 'AboutUsController@departmentType');
+    Route::get('/about_us/class', 'AboutUsController@class');
+    Route::get('/about_us/fee_type', 'AboutUsController@feeType');
+    Route::get('/about_us/scholarships', 'AboutUsController@scholarship');
+    Route::get('/about_us/agent_details', 'AboutUsController@agentDetail');
     Route::get('/gallery', 'GalleryController@index');
     Route::get('/contact_us', 'ContactUsController@index');
+    Route::get('/news_notices', 'NewsController@index');
+    Route::get('/news_notices/events', 'NewsController@events');
+    Route::get('/news_notices/blogs', 'NewsController@blog');
 
     Route::get('/pages/{slug}', 'HomeController@getData');
 });
