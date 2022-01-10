@@ -27,7 +27,7 @@
                     <div class="about-container">
                         <h3><span class="orange-color">{{$about_us->title}}</span> <span class="orange-color"></span></h3>
                         <p>{{$about_us->details}}</p>
-                        <a class="button-default" href="course.html">Learn More</a>	      
+                        <a class="button-default" href="{{url('/about_us')}}">Learn More</a>	      
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -92,7 +92,7 @@
                     </div>
                 @endforeach
                 <div class="col-md-12 col-sm-12 text-center">
-                    <a href="course.html" class="button-default button-large">Browse All Courses <i class="zmdi zmdi-chevron-right"></i></a>
+                    <a href="{{url('/courses')}}" class="button-default button-large">Browse All Courses <i class="zmdi zmdi-chevron-right"></i></a>
                 </div>
             </div>
         </div>
@@ -144,57 +144,25 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($news_notice as $news)
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="single-latest-item">
                         <div class="single-latest-image">
-                            <a href="blog-details.html"><img src="img/latest/1.jpg" alt=""></a>
+                            <a href="blog-details.html"><img src="{{url('/') . '/storage/uploads/' . $news->file_upload}}" alt=""></a>
                         </div>
                         <div class="single-latest-text">
-                            <h3><a href="blog-details.html">Learn English in ease</a></h3>
+                            <h3><a href="blog-details.html">{{$news->title}}</a></h3>
                             <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-calendar-check"></i>25 jun 2050</span>
-                                <span><i class="zmdi zmdi-eye"></i>59</span>
-                                <span><i class="zmdi zmdi-comments"></i>19</span>
+                                <span><i class="zmdi zmdi-calendar-check"></i>{{$news->date_ad}}</span>
+                                <span><i class="zmdi zmdi-eye"></i>{{$news->visit_counts}}</span>
+                                {{-- <span><i class="zmdi zmdi-comments"></i>19</span> --}}
                             </div>
-                            <p>There are many variaons of passages of Lorem Ipsuable, amrn in some by injected humour, </p>
+                            <p>{!! Str::limit($news->description, 150) !!}</p>
                             <a href="blog-details.html" class="button-default">Read More</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-latest-item">
-                        <div class="single-latest-image">
-                            <a href="blog-details.html"><img src="img/latest/2.jpg" alt=""></a>
-                        </div>
-                        <div class="single-latest-text">
-                            <h3><a href="blog-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-calendar-check"></i>25 jun 2050</span>
-                                <span><i class="zmdi zmdi-eye"></i>59</span>
-                                <span><i class="zmdi zmdi-comments"></i>19</span>
-                            </div>
-                            <p>There are many variaons of passages of Lorem Ipsuable, amrn in some by injected humour, </p>
-                            <a href="blog-details.html" class="button-default">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="single-latest-item">
-                        <div class="single-latest-image">
-                            <a href="blog-details.html"><img src="img/latest/4.jpg" alt=""></a>
-                        </div>
-                        <div class="single-latest-text">
-                            <h3><a href="blog-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-calendar-check"></i>25 jun 2050</span>
-                                <span><i class="zmdi zmdi-eye"></i>59</span>
-                                <span><i class="zmdi zmdi-comments"></i>19</span>
-                            </div>
-                            <p>There are many variaons of passages of Lorem Ipsuable, amrn in some by injected humour, </p>
-                            <a href="blog-details.html" class="button-default">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -397,63 +365,27 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-event-item">
-                        <div class="single-event-image">
-                            <a href="event-details.html">
-                                <img src="img/event/1.jpg" alt="">
-                                <span>15 Jun</span>
-                            </a>
-                        </div>
-                        <div class="single-event-text">
-                            <h3><a href="event-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                                <span><i class="zmdi zmdi-pin"></i>Dhaka Bangladesh</span>
+                @foreach ($events as $event)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-event-item">
+                            <div class="single-event-image">
+                                <a href="event-details.html">
+                                    <img src="img/event/1.jpg" alt="">
+                                    <span>15 Jun</span>
+                                </a>
                             </div>
-                            <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata din megla....</p>
-                            <a class="button-default" href="event-details.html">LEARN Now</a>
+                            <div class="single-event-text">
+                                <h3><a href="event-details.html">{{$event->name}}</a></h3>
+                                <div class="single-item-comment-view">
+                                    <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
+                                    <span><i class="zmdi zmdi-pin"></i>Dhaka Bangladesh</span>
+                                </div>
+                                <p>{!! Str::limit($event->description, 150) !!}</p>
+                                <a class="button-default" href="event-details.html">LEARN Now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-event-item">
-                        <div class="single-event-image">
-                            <a href="event-details.html">
-                                <img src="img/event/2.jpg" alt="">
-                                <span>20 Apr</span>
-                            </a>
-                        </div>
-                        <div class="single-event-text">
-                            <h3><a href="event-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                                <span><i class="zmdi zmdi-pin"></i>Jessore Bangladesh</span>
-                            </div>
-                            <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata din megla....</p>
-                            <a class="button-default" href="event-details.html">LEARN Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-event-item">
-                        <div class="single-event-image">
-                            <a href="event-details.html">
-                                <img src="img/event/3.jpg" alt="">
-                                <span>06 Dec</span>
-                            </a>
-                        </div>
-                        <div class="single-event-text">
-                            <h3><a href="event-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                                <span><i class="zmdi zmdi-pin"></i>Dhaka. Bangladesh</span>
-                            </div>
-                            <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata din megla....</p>
-                            <a class="button-default" href="event-details.html">LEARN Now</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

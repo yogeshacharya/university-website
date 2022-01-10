@@ -52,10 +52,10 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget">
                         <h3>GET IN TOUCH</h3>
-                        <a href="tel:555-555-1212"><i class="fa fa-phone"></i>{{$header_footer_data['footer']->phone}}</a>
-                        <span><i class="fa fa-envelope"></i>{{$header_footer_data['footer']->email}}</span>
+                        <a style="color: white;" href="tel:.'{{$header_footer_data['footer']->phone}}'."><i class="fa fa-phone"></i>{{$header_footer_data['footer']->phone}}</a>
+                        <span><a style="color: white;" href="mailto:'.{{$header_footer_data['footer']->email}}.'"><i class="fa fa-envelope"></i>{{$header_footer_data['footer']->email}}</a></span>
                         {{-- <span><i class="fa fa-globe"></i>www.educat.com</span> --}}
-                        <span><i class="fa fa-map-marker"></i>{{$header_footer_data['footer']->full_address}}</span>
+                        <span><a style="color: white;" href="http://maps.google.com/?q='.{{$header_footer_data['footer']->full_address}}.'"><i class="fa fa-map-marker"></i>{{$header_footer_data['footer']->full_address}}</a></span>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

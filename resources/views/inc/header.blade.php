@@ -4,12 +4,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-12">
-                    <span>Have any question? {{$header_footer_data['footer']->phone}}</span>
+                    <span>Have any question? <a style="color: white;" href="tel:.'{{$header_footer_data['footer']->phone}}'.">{{$header_footer_data['footer']->phone}}</a></span>
                 </div>
                 <div class="col-lg-5 col-md-6 col-12">
                     <div class="header-top-right">
-                        <span>Phone: {{$header_footer_data['footer']->phone}}</span>
-                        <span>Email: {{$header_footer_data['footer']->email}}</span>
+                        <span><a style="color: white;" href="tel:.'{{$header_footer_data['footer']->phone}}'.">Phone: {{$header_footer_data['footer']->phone}}</a></span>
+                        <span><a style="color: white;" href="mailto:'.{{$header_footer_data['footer']->email}}.'">Email: {{$header_footer_data['footer']->email}}</a></span>
                     </div>
                 </div>
             </div>
@@ -33,15 +33,15 @@
                                 @if(count($menus))
                                     <ul id="nav">
                                         @foreach($menus as $menu)
-                                            <li class="current"><a href="{{$menu->link}}">{{$menu->title}}</a>
+                                            <li class="current"><a href="{{url($menu->link)}}">{{$menu->title}}</a>
                                                 @if(count($menu->subMenus))
                                                     <ul class="sub-menu">
                                                         @foreach ($menu->subMenus as $subMenu)
-                                                            <li><a href="{{$subMenu->link}}">{{$subMenu->title}}</a>
+                                                            <li><a href="{{url($subMenu->link)}}">{{$subMenu->title}}</a>
                                                                 @if(count($subMenu->subMenus))
                                                                     <ul class="inside-menu">
                                                                         @foreach ($subMenu->subMenus as $second_level_sub_menu)
-                                                                            <li><a href="{{$second_level_sub_menu->link}}">{{$second_level_sub_menu->title}}</a></li>
+                                                                            <li><a href="{{url($second_level_sub_menu->link)}}">{{$second_level_sub_menu->title}}</a></li>
                                                                         @endforeach
                                                                     </ul>
                                                                 @endif

@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Menu;
 use App\Models\Page;
+use App\Models\Event;
 use App\Models\Course;
 use App\Models\Header;
 use App\Models\Slider;
 use App\Models\AboutUs;
+use App\Models\NewsNotice;
 use Illuminate\Http\Request;
 use App\Models\FooterAddress;
 use App\Models\HumanResource;
@@ -29,6 +31,8 @@ class HomeController extends Controller
         $student_count=HumanResource::where('type',2)->count();
         $member_count=HumanResource::where('type',3)->count();
         $course_count=Course::count();
+        $events=Event::limit(3)->get();
+        $news_notice=NewsNotice::limit(3)->get();
         $this->data = [
             'menus' => $menus,
             'sliders' => $sliders,
@@ -39,6 +43,8 @@ class HomeController extends Controller
             'student_count' => $student_count,
             'course_count' => $course_count,
             'member_count' => $member_count,
+            'events' => $events,
+            'news_notice' => $news_notice,
         ];
         return view('frontend.index', $this->data);
     }
