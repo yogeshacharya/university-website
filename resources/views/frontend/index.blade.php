@@ -138,7 +138,7 @@
                     <div class="section-title-wrapper">
                         <div class="section-title">
                             <h3>Latest News</h3>
-                            <p>There are many variations of passages</p>
+                            <p>Read latest news it may help you</p>
                         </div>
                     </div>
                 </div>
@@ -281,71 +281,21 @@
         <div class="container">
             <div class="row">
                 <div class="testimonial-slider owl-carousel">
-                    <div class="col-12">
-                        <!--Single Testimonial Area Start-->
-                        <div class="single-testimonial-area">
-                            <div class="testimonial-image">
-                                <img src="img/testimonial/testimonial1.png" alt="">
+                    @foreach ($sayings as $saying)
+                        <div class="col-12">
+                            <!--Single Testimonial Area Start-->
+                            <div class="single-testimonial-area">
+                                <div class="testimonial-image">
+                                    <img src="{{url('/') . '/storage/uploads/' . $saying->image}}" alt="">
+                                </div>
+                                <div class="testimonial-content">
+                                    <p class="author-desc">{!! $saying->saying !!}</p>
+                                    <p class="testimonial-author">{{$saying->said_by}}</p>
+                                </div>
                             </div>
-                            <div class="testimonial-content">
-                                <p class="author-desc">  All Perfect !! I have three sites with magento , this theme is the best !! Excellent support , advice theme installation package , sorry for English, are Italian but I had no problem !! Thank you ! ..</p>
-                                <p class="testimonial-author">Alva Ono</p>
-                            </div>
+                            <!--Single Testimonial Area End-->
                         </div>
-                        <!--Single Testimonial Area End-->
-                    </div>
-                    <div class="col-12">
-                        <!--Single Testimonial Area Start-->
-                        <div class="single-testimonial-area">
-                            <div class="testimonial-image">
-                                <img src="img/testimonial/testimonial2.png" alt="">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="author-desc">Perfect Themes and the best of all that you have many options to choose! Best Support team ever!Very fast responding and experts on their fields! Thank you very much! ..</p>
-                                <p class="testimonial-author">Amber Laha</p>
-                            </div>
-                        </div>
-                        <!--Single Testimonial Area End-->
-                    </div>
-                    <div class="col-12">
-                        <!--Single Testimonial Area Start-->
-                        <div class="single-testimonial-area">
-                            <div class="testimonial-image">
-                                <img src="img/testimonial/testimonial3.png" alt="">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="author-desc"> Code, template and others are very good. The support has served me immediately and solved my problems when I need help. Are to be congratulated. Att Renan Andrade ..</p>
-                                <p class="testimonial-author">Dewey Tetzlaff</p>
-                            </div>
-                        </div>
-                        <!--Single Testimonial Area End-->
-                    </div>
-                    <div class="col-12">
-                        <!--Single Testimonial Area Start-->
-                        <div class="single-testimonial-area">
-                            <div class="testimonial-image">
-                                <img src="img/testimonial/testimonial4.png" alt="">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="author-desc">  All Perfect !! I have three sites with magento , this theme is the best !! Excellent support , advice theme installation package , sorry for English, are Italian but I had no problem !! Thank you ! ..</p>
-                                <p class="testimonial-author">Lavina Wilderman</p>
-                            </div>
-                        </div>
-                        <!--Single Testimonial Area End-->
-                    </div>
-                    <div class="col-12">
-                        <!--Single Testimonial Area Start-->
-                        <div class="single-testimonial-area">
-                            <div class="testimonial-image">
-                                <img src="img/testimonial/testimonial5.png" alt="">
-                            </div>
-                            <div class="testimonial-content">
-                                <p class="author-desc">  All Perfect !! I have three sites with magento , this theme is the best !! Excellent support , advice theme installation package , sorry for English, are Italian but I had no problem !! Thank you ! ..</p>
-                                <p class="testimonial-author">Stefano</p>
-                            </div>
-                        </div>
-                        <!--Single Testimonial Area End-->
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -359,7 +309,7 @@
                     <div class="section-title-wrapper">
                         <div class="section-title">
                             <h3>OUR EVENTS</h3>
-                            <p>There are many variations of passages</p>
+                            <p>There are many on going events</p>
                         </div>
                     </div>
                 </div>
@@ -371,17 +321,17 @@
                             <div class="single-event-image">
                                 <a href="event-details.html">
                                     <img src="img/event/1.jpg" alt="">
-                                    <span>15 Jun</span>
+                                    <span>{{date('d', strtotime($event->date))}} {{date('M', strtotime($event->date))}}</span>
                                 </a>
                             </div>
                             <div class="single-event-text">
                                 <h3><a href="event-details.html">{{$event->name}}</a></h3>
                                 <div class="single-item-comment-view">
-                                    <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                                    <span><i class="zmdi zmdi-pin"></i>Dhaka Bangladesh</span>
+                                    <span><i class="zmdi zmdi-time"></i>{{$event->time}}</span>
+                                    <span><i class="zmdi zmdi-pin"></i>{{$event->location}}</span>
                                 </div>
                                 <p>{!! Str::limit($event->description, 150) !!}</p>
-                                <a class="button-default" href="event-details.html">LEARN Now</a>
+                                <a class="button-default" href="{{url('/events')}}">LEARN Now</a>
                             </div>
                         </div>
                     </div>

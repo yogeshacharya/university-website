@@ -47,6 +47,16 @@ class EventCrudController extends BaseCrudController
                 'name' => 'date',
             ],
             [
+                'label' => 'Time',
+                'type' => 'text',
+                'name' => 'time',
+            ],
+            [
+                'label' => 'Location',
+                'type' => 'text',
+                'name' => 'location',
+            ],
+            [
                 'name' => 'file_upload',
                 'type' => 'image',
                 'label' => "Image",
@@ -78,6 +88,22 @@ class EventCrudController extends BaseCrudController
                 'label' => 'Date',
                 'type' => 'date',
                 'name' => 'date',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+            ],
+            [
+                'label' => 'Time',
+                'type' => 'text',
+                'name' => 'time',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+            ],
+            [
+                'label' => 'Location',
+                'type' => 'text',
+                'name' => 'location',
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-6',
                 ]

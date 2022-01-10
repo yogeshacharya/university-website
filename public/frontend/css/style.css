@@ -2041,11 +2041,11 @@ mark {
 	float: left;
 	width: 104px;
 	height: 104px;
-	border: 2px solid #FFAE27;
 	margin-top: 13px;
 }
 .single-testimonial-area .testimonial-image img {
-	width: auto;
+	height: 104px;
+	border: 2px solid #FFAE27;
 	border-radius: 100%;
 }
 .single-testimonial-area .testimonial-content {

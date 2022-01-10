@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class BlogRequest extends FormRequest
+class SayingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,9 +30,9 @@ class BlogRequest extends FormRequest
         $id_check = request()->request->get('id') ? ",".request()->request->get('id') : ",NULL";
         $id_check=$id_check.",id,deleted_uq_code,1";
         return [
-            'title' => 'required|min:2|max:255',
-            'description' => 'required|min:5|max:500',
-            'display_order' => 'sometimes|unique:blogs,display_order'.$id_check
+            'said_by' => 'required|min:2|max:255',
+            'saying' => 'required|min:2|max:500',
+            'display_order' => 'sometimes|unique:sayings,display_order'.$id_check
         ];
     }
 

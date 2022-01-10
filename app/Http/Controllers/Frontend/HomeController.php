@@ -7,6 +7,7 @@ use App\Models\Page;
 use App\Models\Event;
 use App\Models\Course;
 use App\Models\Header;
+use App\Models\Saying;
 use App\Models\Slider;
 use App\Models\AboutUs;
 use App\Models\NewsNotice;
@@ -33,6 +34,7 @@ class HomeController extends Controller
         $course_count=Course::count();
         $events=Event::limit(3)->get();
         $news_notice=NewsNotice::limit(3)->get();
+        $sayings=Saying::all();
         $this->data = [
             'menus' => $menus,
             'sliders' => $sliders,
@@ -45,6 +47,7 @@ class HomeController extends Controller
             'member_count' => $member_count,
             'events' => $events,
             'news_notice' => $news_notice,
+            'sayings' => $sayings,
         ];
         return view('frontend.index', $this->data);
     }

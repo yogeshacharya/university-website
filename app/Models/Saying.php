@@ -4,11 +4,11 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 use Illuminate\Support\Str;
-use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
+use Intervention\Image\ImageManagerStatic as Image;
 
-class HumanResource extends BaseModel
+class Saying extends BaseModel
 {
     use CrudTrait;
 
@@ -17,8 +17,8 @@ class HumanResource extends BaseModel
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
-    public static $HrType = [0 => "Administrator", 1 => "Teacher", 2 => "Student", 3 => "Member"];
-    protected $table = 'human_resources';
+
+    protected $table = 'sayings';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -37,11 +37,8 @@ class HumanResource extends BaseModel
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function departmentType(){
-        return $this->belongsTo('App\Models\MstDepartmentType', 'department_type_id', 'id');
-    }
-    public function sayings(){
-        return $this->hasMany('App\Models\Saying', 'human_resource_id', 'id');
+    public function humanResource(){
+        return $this->belongsTo('App\Models\HumanResource', 'human_resource_id', 'id');
     }
     /*
     |--------------------------------------------------------------------------
@@ -54,13 +51,13 @@ class HumanResource extends BaseModel
     | ACCESSORS
     |--------------------------------------------------------------------------
     */
-    public function setFileUploadAttribute($value)
+    public function setImageAttribute($value)
     {
-        $attribute_name = "file_upload";
+        $attribute_name = "image";
         // disk, defined in config/filesystems.php
         $disk = "uploads";
         // destination path relative to the disk above
-        $destination_path = "HumanResource"; 
+        $destination_path = "Saying"; 
 
         // if the image was erased
         if ($value==null) {

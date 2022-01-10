@@ -37,8 +37,8 @@ Route::group([
     Route::crud('footer-address', 'FooterAddressCrudController');
     Route::crud('blog', 'BlogCrudController');
     Route::crud('page', 'PageCrudController');
+    Route::crud('saying', 'SayingCrudController');
 }); // this should be the absolute last line of this file
-
 Route::group([
     'prefix'     => '',
     'middleware' => ['web'],

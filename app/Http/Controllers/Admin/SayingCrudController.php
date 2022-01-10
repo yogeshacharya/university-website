@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Blog;
-use App\Http\Requests\BlogRequest;
+use App\Models\Saying;
+use App\Http\Requests\SayingRequest;
 use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class BlogCrudController
+ * Class SayingCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class BlogCrudController extends BaseCrudController
+class SayingCrudController extends BaseCrudController
 {
     public function setup()
     {
-        CRUD::setModel(\App\Models\Blog::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/blog');
-        CRUD::setEntityNameStrings('blog', 'blogs');
+        CRUD::setModel(\App\Models\Saying::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/saying');
+        CRUD::setEntityNameStrings('saying', 'sayings');
     }
 
     /**
@@ -37,9 +37,14 @@ class BlogCrudController extends BaseCrudController
                 'label' => trans('common.display_order'),
             ],
             [
-                'label' => 'Title',
+                'label' => 'Said By',
                 'type' => 'text',
-                'name' => 'title',
+                'name' => 'said_by',
+            ],
+            [
+                'label' => "Saying",
+                'type' => 'text',
+                'name' => 'saying',
             ],
             [
                 'name' => 'image',
@@ -48,7 +53,7 @@ class BlogCrudController extends BaseCrudController
                 'disk'=>'uploads',
             ]
         ];
-        $this->crud->addColumns($cols);
+        $this->crud->addColumns($cols);  
     }
 
     /**
@@ -59,20 +64,21 @@ class BlogCrudController extends BaseCrudController
      */
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(BlogRequest::class);
+        $this->crud->setValidation(SayingRequest::class);
         $arr = [
             [
-                'label' => 'Title',
+                'label' => 'Said By',
                 'type' => 'text',
-                'name' => 'title',
+                'name' => 'said_by',
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-6',
                 ]
+
             ],
             [
-                'name' => 'description',
+                'name' => 'saying',
                 'type' => 'ckeditor',
-                'label' => 'Description',
+                'label' => 'Saying',
             ],
             [
                 'name' => 'image',
@@ -83,7 +89,18 @@ class BlogCrudController extends BaseCrudController
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
                 ],
-                
+            ],
+            [
+                'label' => 'Said By (If he/she is registered in this software)',
+                'type' => 'select2',
+                'name' => 'human_resource_id',
+                'entity' => 'humanResource',
+                'attribute' => 'name',
+                'model' => 'App\Models\HumanResource',
+                'default' => 0,
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
             ],
             [
                 'label' => trans('common.display_order').' (optional)',

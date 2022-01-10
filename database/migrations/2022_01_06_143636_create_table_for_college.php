@@ -19,7 +19,7 @@ class CreateTableForCollege extends Migration
         Schema::create('mst_fee_types', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',100);
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
                     
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
@@ -35,7 +35,7 @@ class CreateTableForCollege extends Migration
         Schema::create('mst_department_types', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',100);
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
                     
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
@@ -52,7 +52,7 @@ class CreateTableForCollege extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',200);
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
             $table->unsignedSmallInteger('type_id')->nullable();
             $table->string('link', 255)->nullable();
                     
@@ -92,7 +92,7 @@ class CreateTableForCollege extends Migration
             $table->smallIncrements('id');
             $table->string('title',200);
             $table->text('description')->nullable();
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
             $table->string('file_upload',500)->nullable();
                     
             $table->timestamps();
@@ -117,7 +117,7 @@ class CreateTableForCollege extends Migration
             $table->string('file_upload',500)->nullable();
             $table->string('payment_plan',500)->nullable();
             $table->json('courses_fee',100)->nullable(); //type // fee //description
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
             $table->unsignedInteger('visit_counts')->nullable();
             $table->unsignedInteger('ratings')->nullable();
                     
@@ -159,7 +159,7 @@ class CreateTableForCollege extends Migration
             $table->string('file_upload',500)->nullable();
             $table->string('description',500)->nullable();
             $table->date('date_ad')->nullable();
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
             $table->unsignedInteger('visit_counts')->nullable();
                     
             $table->timestamps();
@@ -178,7 +178,7 @@ class CreateTableForCollege extends Migration
             $table->string('title',200);
             $table->string('description',500)->nullable();
             $table->string('file_upload',500)->nullable();
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
                     
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
@@ -202,7 +202,7 @@ class CreateTableForCollege extends Migration
             $table->string('country',50)->nullable();
             $table->string('description',500)->nullable();
             $table->string('file_upload',500)->nullable();
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
                     
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
@@ -219,7 +219,7 @@ class CreateTableForCollege extends Migration
             $table->smallIncrements('id');
             $table->string('title',100);
             $table->string('description',500)->nullable();
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
                     
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
@@ -237,7 +237,7 @@ class CreateTableForCollege extends Migration
             $table->string('title',200);
             $table->string('file_upload',500)->nullable();
             $table->string('description',500)->nullable();
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
 
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
@@ -264,7 +264,7 @@ class CreateTableForCollege extends Migration
             $table->string('institute',50)->nullable();
             $table->string('file_upload',500)->nullable();
 
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
@@ -283,7 +283,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('human_resource_id')->nullable();
             $table->unsignedSmallInteger('social_resource_id')->nullable();
             $table->string('url',50)->nullable();
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
@@ -301,10 +301,12 @@ class CreateTableForCollege extends Migration
             $table->smallIncrements('id');
             $table->string('name',100);
             $table->string('date',10);
+            $table->string('time',20);
+            $table->string('location',100);
             $table->string('description',500)->nullable();
             $table->string('file_upload',500)->nullable();
 
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
@@ -323,7 +325,7 @@ class CreateTableForCollege extends Migration
             $table->string('section',50)->nullable();
             $table->string('description',500)->nullable();
 
-            $table->unsignedSmallInteger('display_order')->nullable();
+            $table->unsignedInteger('display_order')->nullable();
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
@@ -370,6 +372,8 @@ class CreateTableForCollege extends Migration
             $table->string('title',100)->nullable();
             $table->string('description',500)->nullable();
             $table->string('image')->nullable();
+
+            $table->unsignedInteger('display_order')->nullable();
             $table->timestamps();
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
@@ -395,6 +399,25 @@ class CreateTableForCollege extends Migration
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
 
             $table->foreign('sub_menu_id','fk_pages_sub_menu_id')->references('id')->on('menus');
+        });
+
+        Schema::create('sayings', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('said_by',100)->nullable();
+            $table->string('saying',500)->nullable();
+            $table->string('image')->nullable();
+            $table->unsignedSmallInteger('human_resource_id')->nullable();
+
+            $table->unsignedInteger('display_order')->nullable();
+            $table->timestamps();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
+            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+
+            $table->foreign('human_resource_id','fk_saying_human_resource_id')->references('id')->on('human_resources');
         });
 
         $DbSeed = new DatabaseSeeder();
