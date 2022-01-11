@@ -30,7 +30,7 @@ class NewsController extends Controller
     {
         $header_footer_data = $this->getHeaderFooterData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
-        $events = Event::where('deleted_uq_code',1)->get();
+        $events = Event::where('deleted_uq_code',1)->paginate(1);
         $this->data = [
             'menus' => $menus,
             'header_footer_data' => $header_footer_data,
