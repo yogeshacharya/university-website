@@ -79,6 +79,67 @@ class CourseCrudController extends BaseCrudController
                 ]
             ],
             [
+                'name' => 'fieldset_open',
+                'type' => 'custom_html',
+                'value' => '<fieldset>',
+            ],
+            [
+                'name' => 'legend1',
+                'type' => 'custom_html',
+                'value' => '<legend>Course Structure</legend><hr class="m-0">',
+            ],
+            [
+                'label' => trans('Levels'),
+                'type' => 'text',
+                'name' => 'levels',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+            [
+                'label' => trans('Start On'),
+                'type' => 'date',
+                'name' => 'start_on',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+            [
+                'label' => trans('Duration'),
+                'type' => 'number',
+                'name' => 'duration',
+                'suffix'=>'Hours',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+            [
+                'label' => trans('Class Size'),
+                'type' => 'number',
+                'name' => 'class_size',
+                'suffix'=>'Person',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+            [
+                'label' => trans('Lectures'),
+                'type' => 'number',
+                'name' => 'lectures',
+                'suffix'=>'Session',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+            [
+                'label' => trans('Time'),
+                'type' => 'text',
+                'name' => 'time',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
+            ],
+            [
                 'label' => trans('Description'),
                 'type' => 'ckeditor',
                 'name' => 'description',
