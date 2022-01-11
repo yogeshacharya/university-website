@@ -24,17 +24,17 @@ class HomeController extends Controller
     public function index()
     {
         $header_footer_data = $this->getHeaderFooterData();
-        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
-        $sliders = Slider::all();
-        $about_us = AboutUs::first();
-        $popular_courses = Course::orderBy('visit_counts', 'DESC')->limit(3)->get(); 
-        $teacher_count=HumanResource::where('type',1)->count();
-        $student_count=HumanResource::where('type',2)->count();
-        $member_count=HumanResource::where('type',3)->count();
-        $course_count=Course::count();
-        $events=Event::limit(3)->get();
-        $news_notice=NewsNotice::limit(3)->get();
-        $sayings=Saying::all();
+        $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $sliders = Slider::where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $about_us = AboutUs::where('deleted_uq_code',1)->first();
+        $popular_courses = Course::where('deleted_uq_code',1)->orderBy('visit_counts', 'DESC')->limit(3)->get();
+        $teacher_count=HumanResource::where('type',1)->where('deleted_uq_code',1)->orderBy('display_order','asc')->count();
+        $student_count=HumanResource::where('type',2)->where('deleted_uq_code',1)->orderBy('display_order','asc')->count();
+        $member_count=HumanResource::where('type',3)->where('deleted_uq_code',1)->count();
+        $course_count=Course::where('deleted_uq_code',1)->count();
+        $events=Event::where('deleted_uq_code',1)->orderBy('display_order','asc')->limit(3)->get();
+        $news_notice=NewsNotice::where('deleted_uq_code',1)->orderBy('display_order','asc')->limit(3)->get();
+        $sayings=Saying::where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $this->data = [
             'menus' => $menus,
             'sliders' => $sliders,
@@ -55,8 +55,8 @@ class HomeController extends Controller
     public function getData($slug)
     {
         $header_footer_data = $this->getHeaderFooterData();
-        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
-        $pages = Page::where('slug',$slug)->first();
+        $menus = Menu::where('deleted_uq_code',1)->where('type_id','main')->orderBy('display_order','asc')->get();
+        $pages = Page::where('deleted_uq_code',1)->where('slug',$slug)->first();
         $this->data = [
             'menus' => $menus,
             'pages' => $pages,

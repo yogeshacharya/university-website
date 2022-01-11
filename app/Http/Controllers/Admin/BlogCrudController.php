@@ -70,6 +70,14 @@ class BlogCrudController extends BaseCrudController
                 ]
             ],
             [
+                'label' => 'Date',
+                'type' => 'date',
+                'name' => 'date',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-6',
+                ]
+            ],
+            [
                 'name' => 'description',
                 'type' => 'ckeditor',
                 'label' => 'Description',
