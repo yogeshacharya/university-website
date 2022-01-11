@@ -47,6 +47,7 @@ Route::group([
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
     Route::get('/courses', 'CourseController@index');
+    Route::get('/courses/{id}', 'CourseController@getCourseDetail');
     Route::get('/about_us', 'AboutUsController@index');
     Route::get('/about_us/introduction', 'AboutUsController@introduction');
     Route::get('/about_us/our_team', 'AboutUsController@ourTeam');

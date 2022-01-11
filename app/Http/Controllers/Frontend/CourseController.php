@@ -16,12 +16,26 @@ class CourseController extends Controller
     {
         $header_footer_data = $this->getHeaderFooterData();
         $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
-        $courses = Course::where('is_active',true)->get();
+        $courses = Course::where('is_active',true)->paginate(6);
         $this->data = [
             'menus' => $menus,
             'courses' => $courses,
             'header_footer_data' => $header_footer_data,
         ];
         return view('frontend.course', $this->data);
+    }
+
+    public function getCourseDetail($id)
+    {
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $course_detail = Course::find($id);
+
+        $this->data = [
+            'menus' => $menus,
+            'course_detail' => $course_detail,
+            'header_footer_data' => $header_footer_data,
+        ];
+        return view('frontend.courses_details', $this->data);
     }
 }

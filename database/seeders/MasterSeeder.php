@@ -106,6 +106,11 @@ class MasterSeeder extends Seeder
                 'course_structure'=>'[{"code":"003","course_title":"CourseTitle3","credit":"3hrs"}]',
                 'file_upload'=>'Course/noimg.jpg','payment_plan'=>'anual','courses_fee'=>'[{"fee_type_id":"3","total_fee":"10400","description":"This is a description"}]',
                 'visit_counts'=>200,'ratings'=>5,'display_order' => '3','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'name' => 'Master In Economics','description' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                'entry_requirement' => 'Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content',
+                'course_structure'=>'[{"code":"004","course_title":"master","credit":"4hrs"}]',
+                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'monthly','courses_fee'=>'[{"fee_type_id":"3","total_fee":"15400","description":"This is a description"}]',
+                'visit_counts'=>100,'ratings'=>4,'display_order' => '4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }
