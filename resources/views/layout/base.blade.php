@@ -27,7 +27,15 @@
                     background: rgba(0, 0, 0, 0) url("img/bg_img.jpg") no-repeat scroll 0 0 !important;
                     background-size: cover !important;
                 }
+                /* .rs-team .team-item-wrap .team-wrap {
+                    padding: 9px 35px 25px 20px !important;
+                    background: url("img/ngbng.png") !important;
+                    background-repeat: no-repeat !important;
+                    background-position: center !important;
+                    background-size: cover !important;
+                } */
             </style>
+            @yield('css')
     </head>
     <body>
         <!--[if lt IE 8]>

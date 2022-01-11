@@ -16,7 +16,7 @@ class CourseController extends Controller
     {
         $header_footer_data = $this->getHeaderFooterData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
-        $courses = Course::where('deleted_uq_code',1)->where('is_active',true)->paginate(3);
+        $courses = Course::where('deleted_uq_code',1)->where('is_active',true)->paginate(6);
         $this->data = [
             'menus' => $menus,
             'courses' => $courses,
