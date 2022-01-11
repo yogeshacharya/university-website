@@ -27,7 +27,7 @@ class HomeController extends Controller
         $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
         $sliders = Slider::all();
         $about_us = AboutUs::first();
-        $popular_courses = Course::orderBy('visit_counts', 'DESC')->limit(3)->get();
+        $popular_courses = Course::orderBy('visit_counts', 'DESC')->limit(3)->get(); 
         $teacher_count=HumanResource::where('type',1)->count();
         $student_count=HumanResource::where('type',2)->count();
         $member_count=HumanResource::where('type',3)->count();
