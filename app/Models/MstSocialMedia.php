@@ -34,7 +34,9 @@ class MstSocialMedia extends BaseModel
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function hrSocialMedias(){
+        return $this->hasMany('App\Models\HrSocialMedia', 'social_media_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

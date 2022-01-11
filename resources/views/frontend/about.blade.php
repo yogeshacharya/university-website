@@ -110,12 +110,13 @@
                                     <div class="agent mb-30">
                                         <div class="image img-full">
                                             <a class="img" href="team-details.html"><img src="{{url('/') . '/storage/uploads/' . $teacher->file_upload}}" alt=""></a>
-                                            <div class="social">
-                                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                                                <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-                                            </div>
+                                            @if(count($teacher->hrSocialMedias))
+                                                <div class="social">
+                                                    @foreach ($teacher->hrSocialMedias as $hrSocialMedia)
+                                                        <a href="#" class="{{strtolower($hrSocialMedia->socialMedia->name)}}"><i class="fa fa-{{strtolower($hrSocialMedia->socialMedia->name)}}"></i></a>
+                                                    @endforeach
+                                                </div>
+                                            @endif
                                         </div>
                                         <div class="content">
                                             <h4 class="title"><a href="team-details.html">{{$teacher->name}}</a></h4>

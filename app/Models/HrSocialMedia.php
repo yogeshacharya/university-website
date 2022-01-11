@@ -37,6 +37,9 @@ class HrSocialMedia extends BaseModel
     public function socialMedia(){
         return $this->belongsTo('App\Models\MstSocialMedia', 'social_media_id', 'id');
     }
+    public function humanResource(){
+        return $this->belongsTo('App\Models\HumanResource', 'human_resource_id', 'id');
+    }
 
     /*
     |--------------------------------------------------------------------------

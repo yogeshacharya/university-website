@@ -43,6 +43,9 @@ class HumanResource extends BaseModel
     public function sayings(){
         return $this->hasMany('App\Models\Saying', 'human_resource_id', 'id');
     }
+    public function hrSocialMedias(){
+        return $this->hasMany('App\Models\HrSocialMedia', 'human_resource_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
