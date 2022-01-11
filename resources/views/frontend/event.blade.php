@@ -56,16 +56,7 @@
                 @endforeach
             <div class="row">
                 <div class="col-md-12">
-                    <div class="pagination-content number">
-                        <ul class="pagination">
-                            <li><a href="#"><i class="zmdi zmdi-chevron-left"></i></a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li class="current"><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
+                        {{ $events->links('inc.pagination') }}
                 </div>
             </div>
         </div>
