@@ -18,6 +18,21 @@ class BaseCrudController extends CrudController
     use DeleteOperation;
     use ShowOperation;
     
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->crud = app()->make('crud');
+            $this->crud->setRequest($request);
+            $this->request = $request;
+            $this->setupDefaults();
+            $this->setup();
+            $this->setupConfigurationForCurrentOperation();
+            return $next($request);
+        });
+    }
+
+
     protected function addCodeField()
     {
         return [
@@ -83,6 +98,24 @@ class BaseCrudController extends CrudController
             'name' => 'remarks',
             'label' => trans('common.remarks'),
             'type' => 'textarea',
+        ];
+    }
+
+    public function addIsActiveField(){
+        return [
+            'name'=>'is_active',
+            'label'=>'Is Active',
+            'type'=>'radio',
+            'default'=>1,
+            'inline' => true,
+            'wrapper' => [
+                'class' => 'form-group col-md-4',
+            ],
+            'options'=>
+            [
+                1=>'Yes',
+                0=>'No',
+            ],
         ];
     }
 }

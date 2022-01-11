@@ -26,7 +26,9 @@
 
     <!-- THE ACTUAL CONTENT -->
     <div class="{{ $crud->getListContentClass() }}">
-
+      @if(isset($tab_links))
+      @include('admin.tab.tab', ['links' => $tab_links])
+      @endif
         <div class="row mb-0">
           <div class="col-sm-6">
             @if ( $crud->buttons()->where('stack', 'top')->count() ||  $crud->exportButtons())

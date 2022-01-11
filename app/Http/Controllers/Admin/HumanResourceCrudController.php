@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\HumanResource;
+use App\Base\Traits\ParentData;
 use App\Http\Requests\HumanResourceRequest;
 use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -14,11 +15,13 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
  */
 class HumanResourceCrudController extends BaseCrudController
 {
+    use ParentData;
     public function setup()
     {
         CRUD::setModel(\App\Models\HumanResource::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/human-resource');
         CRUD::setEntityNameStrings('human resource', 'human resources');
+        $this->setUpLinks(['edit']);
     }
 
     /**
@@ -27,6 +30,11 @@ class HumanResourceCrudController extends BaseCrudController
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
+    public function tabLinks()
+    {
+        return $this->setHumanResourceTabs();
+    }
+
     protected function setupListOperation()
     {
         $cols = [
@@ -85,7 +93,7 @@ class HumanResourceCrudController extends BaseCrudController
                 'type' => 'text',
                 'label' => 'Code',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ],
             ],
             [
@@ -94,7 +102,7 @@ class HumanResourceCrudController extends BaseCrudController
                 'name' => 'type',
                 'options' => HumanResource::$HrType,
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3 type_id',
+                    'class' => 'form-group col-md-4 type_id',
                 ],
                 'attributes'=>[
                     'id'=>'type'
@@ -110,7 +118,7 @@ class HumanResourceCrudController extends BaseCrudController
                 'model' => 'App\Models\MstDepartmentType',
                 'default' => 0,
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -118,7 +126,7 @@ class HumanResourceCrudController extends BaseCrudController
                 'type' => 'text',
                 'name' => 'name',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -126,7 +134,7 @@ class HumanResourceCrudController extends BaseCrudController
                 'type' => 'email',
                 'name' => 'email',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -134,7 +142,7 @@ class HumanResourceCrudController extends BaseCrudController
                 'type' => 'text',
                 'label' => 'Phone',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ],
             ],
             [
@@ -142,7 +150,7 @@ class HumanResourceCrudController extends BaseCrudController
                 'type' => 'text',
                 'label' => 'Address',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ],
             ],
             [
@@ -150,7 +158,7 @@ class HumanResourceCrudController extends BaseCrudController
                 'type' => 'text',
                 'label' => 'Degree',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ],
             ],
             [
@@ -158,7 +166,7 @@ class HumanResourceCrudController extends BaseCrudController
                 'type' => 'text',
                 'label' => 'Institute',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ],
             ],
             [

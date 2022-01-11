@@ -18,6 +18,7 @@ class MasterSeeder extends Seeder
     {
         $this->clean_tables();
         $this->userSeeder();
+        $this->mst_social_media();
         $this->department_type();
         $this->menuSeeder();
         $this->feeType();
@@ -35,6 +36,7 @@ class MasterSeeder extends Seeder
 
     public function clean_tables(){
         DB::table('users')->delete();
+        DB::table('mst_social_media')->delete();
         DB::table('menus')->delete();
         DB::table('mst_fee_types')->delete();
         DB::table('courses')->delete();
@@ -48,6 +50,13 @@ class MasterSeeder extends Seeder
         DB::table('news_notices')->delete();
         DB::table('mst_department_types')->delete();
         DB::table('blogs')->delete();
+    }
+
+    private function mst_social_media(){
+        DB::table('mst_social_media')->insert([
+            array('id' => '1','code' => 'fb', 'name' => 'FaceBook', 'display_order' => 1, 'is_active' => true),
+            array('id' => '2','code' => 'tw', 'name' => 'Twitter', 'display_order' => 2, 'is_active' => true),            
+        ]);
     }
 
     public function userSeeder(){

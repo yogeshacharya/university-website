@@ -22,6 +22,8 @@
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('about-us') }}'><i class='nav-icon la la-address-card'></i> About us</a></li>
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('header') }}'><i class='nav-icon la la-header'></i> Header</a></li>
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('footer-address') }}'><i class='nav-icon la la-copyright'></i> Footer</a></li>
+	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('mst-social-media') }}'><i class='nav-icon la la-users'></i> Mst Social Media</a></li>
+	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('saying') }}'><i class='nav-icon la la-compass'></i> Sayings</a></li>
 	</ul>
 </li>
 
@@ -33,5 +35,3 @@
 	  <li class="nav-item"><a class="nav-link" href="{{ backpack_url('permission') }}"><i class="nav-icon la la-key"></i> <span>Permissions</span></a></li>
 	</ul>
 </li>
-
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('saying') }}'><i class='nav-icon la la-question'></i> Sayings</a></li>

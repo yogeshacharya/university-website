@@ -28,7 +28,9 @@
 <div class="row">
 	<div class="{{ $crud->getEditContentClass() }}">
 		<!-- Default box -->
-
+		@if(isset($tab_links))
+		@include('admin.tab.tab', ['links' => $tab_links])
+	  	@endif
 		@include('crud::inc.grouped_errors')
 
 		  <form method="post"
