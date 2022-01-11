@@ -1,20 +1,5 @@
 @extends('layout.base')
 @section('content')
-    
-<!-- Mirrored from template.hasthemes.com/edubuzz/edubuzz/gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Jan 2022 18:25:33 GMT -->
-    <body>
-        
-        <!--Loading Area Start-->
-        <div class="loading">
-    		<div class="text-center middle">
-    			<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-    		</div>
-    	</div>
-        <!--Loading Area End-->
-        <!--Main Wrapper Start-->
-        <div class="as-mainwrapper">
-            <!--Bg White Start-->
-            <div class="bg-white">
                 <!--Breadcrumb Banner Area Start-->
                 <div class="breadcrumb-banner-area">
                     <div class="container">
@@ -44,11 +29,4 @@
                     </div>
                 </div>
                 <!--Gallery Area End-->
-            </div>   
-            <!--End of Bg White--> 
-        </div>    
-        <!--End of Main Wrapper Area--> 
-    </body>
-
-<!-- Mirrored from template.hasthemes.com/edubuzz/edubuzz/gallery.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Jan 2022 18:25:38 GMT -->
 @endsection
