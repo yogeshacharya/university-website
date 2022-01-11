@@ -24,7 +24,7 @@
                                     <h1 class="text-center">Gallery</h1>
                                     <div class="breadcrumb-bar">
                                         <ul class="breadcrumb text-center">
-                                            <li><a href="/home">Home</a></li>
+                                            <li><a href="{{url('/home')}}">Home</a></li>
                                             <li>Gallery</li>
                                         </ul>
                                     </div>

@@ -25,7 +25,7 @@
                                     <h1 class="text-center">Contact</h1>
                                     <div class="breadcrumb-bar">
                                         <ul class="breadcrumb text-center">
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="{{url('/home')}}">Home</a></li>
                                             <li>Contact</li>
                                         </ul>
                                     </div>

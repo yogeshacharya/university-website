@@ -300,7 +300,7 @@ class CreateTableForCollege extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('name',100);
-            $table->string('date',10);
+            $table->date('date');
             $table->string('time',20);
             $table->string('location',100);
             $table->string('description',500)->nullable();
@@ -371,6 +371,8 @@ class CreateTableForCollege extends Migration
             $table->smallIncrements('id');
             $table->string('title',100)->nullable();
             $table->string('description',500)->nullable();
+            $table->date('date');
+            $table->unsignedInteger('visit_counts')->nullable();
             $table->string('image')->nullable();
 
             $table->unsignedInteger('display_order')->nullable();

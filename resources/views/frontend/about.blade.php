@@ -105,82 +105,27 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-3 col-md-6 col-12">
-                                <div class="agent mb-30">
-                                    <div class="image img-full">
-                                        <a class="img" href="team-details.html"><img src="img/teacher/l-1.jpg" alt=""></a>
-                                        <div class="social">
-                                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                            @foreach ($teachers as $teacher)
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <div class="agent mb-30">
+                                        <div class="image img-full">
+                                            <a class="img" href="team-details.html"><img src="{{url('/') . '/storage/uploads/' . $teacher->file_upload}}" alt=""></a>
+                                            <div class="social">
+                                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                                                <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <h4 class="title"><a href="team-details.html">{{$teacher->name}}</a></h4>
+                                            <a href="#" class="phone">{{$teacher->phone}}</a>
+                                            <a href="#" class="email">{{$teacher->email}}</a>
+                                            <span class="properties">Teacher</span>
                                         </div>
                                     </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="team-details.html">Donald Palmer</a></h4>
-                                        <a href="#" class="phone">(756) 447 5779</a>
-                                        <a href="#" class="email">info@example.com</a>
-                                        <span class="properties">Teacher</span>
-                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-12">
-                                <div class="agent mb-30">
-                                    <div class="image img-full">
-                                        <a class="img" href="team-details.html"><img src="img/teacher/l-2.jpg" alt=""></a>
-                                        <div class="social">
-                                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="team-details.html">Sean Hamilton</a></h4>
-                                        <a href="#" class="phone">(756) 447 5779</a>
-                                        <a href="#" class="email">info@example.com</a>
-                                        <span class="properties">PROFESSOR</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-12">
-                                <div class="agent mb-30">
-                                    <div class="image img-full">
-                                        <a class="img" href="team-details.html"><img src="img/teacher/l-3.jpg" alt=""></a>
-                                        <div class="social">
-                                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="team-details.html">Christine Gilbert</a></h4>
-                                        <a href="#" class="phone">(756) 447 5779</a>
-                                        <a href="#" class="email">info@example.com</a>
-                                        <span class="properties">Teacher</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-12">
-                                <div class="agent mb-30">
-                                    <div class="image img-full">
-                                        <a class="img" href="team-details.html"><img src="img/teacher/l-4.jpg" alt=""></a>
-                                        <div class="social">
-                                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                                            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="content">
-                                        <h4 class="title"><a href="team-details.html">Jason Patel</a></h4>
-                                        <a href="#" class="phone">(756) 447 5779</a>
-                                        <a href="#" class="email">info@example.com</a>
-                                        <span class="properties">PROFESSOR</span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -190,70 +135,26 @@
                     <div class="container">
                         <div class="row">
                             <div class="testimonial-slider-2 owl-carousel">
-                                <div class="col-12">
-                                    <div class="single-testimonial testimonial-style-2">
-                                        <div class="des-testimonial">
-                                            <p>Praesent volutpat ut nisl in hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Etiam porttitor, lacus in ...</p>
-                                        </div>
-                                        <div class="testimonial-author">
-                                            <div class="author-img">
-                                                <img src="img/testimonial/testimonial1.png" alt="">
+                                @foreach ($sayings as $saying)
+                                    <div class="col-12">
+                                        <div class="single-testimonial testimonial-style-2">
+                                            <div class="des-testimonial">
+                                                <p>{!! $saying->saying !!}</p>
                                             </div>
-                                            <div class="author-content">
-                                                <h5>John  Doe </h5>
-                                                <p>demo@hastech.com</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="single-testimonial testimonial-style-2">
-                                        <div class="des-testimonial">
-                                            <p>Praesent volutpat ut nisl in hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Etiam porttitor, lacus in ...</p>
-                                        </div>
-                                        <div class="testimonial-author">
-                                            <div class="author-img">
-                                                <img src="img/testimonial/testimonial1.png" alt="">
-                                            </div>
-                                            <div class="author-content">
-                                                <h5>John  Doe </h5>
-                                                <p>demo@hastech.com</p>
+                                            <div class="testimonial-author">
+                                                <div class="author-img">
+                                                    <img src="{{url('/') . '/storage/uploads/' . $saying->image}}" alt="">
+                                                </div>
+                                                <div class="author-content">
+                                                    <h5>{{$saying->said_by}}</h5>
+                                                    @if($saying->human_resource_id)
+                                                        <p>{{$saying->humanResource->email}}</p>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="single-testimonial testimonial-style-2">
-                                        <div class="des-testimonial">
-                                            <p>Praesent volutpat ut nisl in hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Etiam porttitor, lacus in ...</p>
-                                        </div>
-                                        <div class="testimonial-author">
-                                            <div class="author-img">
-                                                <img src="img/testimonial/testimonial1.png" alt="">
-                                            </div>
-                                            <div class="author-content">
-                                                <h5>John  Doe </h5>
-                                                <p>demo@hastech.com</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="single-testimonial testimonial-style-2">
-                                        <div class="des-testimonial">
-                                            <p>Praesent volutpat ut nisl in hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Etiam porttitor, lacus in ...</p>
-                                        </div>
-                                        <div class="testimonial-author">
-                                            <div class="author-img">
-                                                <img src="img/testimonial/testimonial1.png" alt="">
-                                            </div>
-                                            <div class="author-content">
-                                                <h5>John  Doe </h5>
-                                                <p>demo@hastech.com</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

@@ -28,7 +28,7 @@
                                     <h1 class="text-center">Blog</h1>
                                     <div class="breadcrumb-bar">
                                         <ul class="breadcrumb text-center">
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="{{url('/home')}}">Home</a></li>
                                             <li>Blog</li>
                                         </ul>
                                     </div>
@@ -52,108 +52,25 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="single-latest-item">
-                                    <div class="single-latest-image">
-                                        <a href="blog-details.html"><img src="img/latest/1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-latest-text">
-                                        <h3><a href="blog-details.html">Learn English in ease</a></h3>
-                                        <div class="single-item-comment-view">
-                                           <span><i class="zmdi zmdi-calendar-check"></i>25 jun 2050</span>
-                                           <span><i class="zmdi zmdi-eye"></i>59</span>
-                                           <span><i class="zmdi zmdi-comments"></i>19</span>
-                                       </div>
-                                       <p>There are many variaons of passages of Lorem Ipsuable, amrn in some by injected humour, </p>
-                                       <a href="blog-details.html" class="button-default">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="single-latest-item">
-                                    <div class="single-latest-image">
-                                        <a href="blog-details.html"><img src="img/latest/2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-latest-text">
-                                        <h3><a href="blog-details.html">Learn English in ease</a></h3>
-                                        <div class="single-item-comment-view">
-                                           <span><i class="zmdi zmdi-calendar-check"></i>25 jun 2050</span>
-                                           <span><i class="zmdi zmdi-eye"></i>59</span>
-                                           <span><i class="zmdi zmdi-comments"></i>19</span>
-                                       </div>
-                                       <p>There are many variaons of passages of Lorem Ipsuable, amrn in some by injected humour, </p>
-                                       <a href="blog-details.html" class="button-default">Read More</a>
+                            @foreach ($blogs as $blog)
+                                <div class="col-lg-4 col-md-6 col-12">
+                                    <div class="single-latest-item">
+                                        <div class="single-latest-image">
+                                            <a href="blog-details.html"><img src="{{url('/') . '/storage/uploads/' . $blog->image}}" alt=""></a>
+                                        </div>
+                                        <div class="single-latest-text">
+                                            <h3><a href="blog-details.html">{{$blog->title}}</a></h3>
+                                            <div class="single-item-comment-view">
+                                            <span><i class="zmdi zmdi-calendar-check"></i>{{date('d', strtotime($blog->date))}} {{date('M', strtotime($blog->date))}} {{date('Y', strtotime($blog->date))}}</span>
+                                            <span><i class="zmdi zmdi-eye"></i>{{$blog->visit_counts}}</span>
+                                            {{-- <span><i class="zmdi zmdi-comments"></i>19</span> --}}
+                                        </div>
+                                        <p>{{$blog->description}}</p>
+                                        <a href="blog-details.html" class="button-default">Read More</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="single-latest-item">
-                                    <div class="single-latest-image">
-                                        <a href="blog-details.html"><img src="img/latest/3.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-latest-text">
-                                        <h3><a href="blog-details.html">Learn English in ease</a></h3>
-                                        <div class="single-item-comment-view">
-                                           <span><i class="zmdi zmdi-calendar-check"></i>25 jun 2050</span>
-                                           <span><i class="zmdi zmdi-eye"></i>59</span>
-                                           <span><i class="zmdi zmdi-comments"></i>19</span>
-                                       </div>
-                                       <p>There are many variaons of passages of Lorem Ipsuable, amrn in some by injected humour, </p>
-                                       <a href="blog-details.html" class="button-default">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="single-latest-item">
-                                    <div class="single-latest-image">
-                                        <a href="blog-details.html"><img src="img/latest/4.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-latest-text">
-                                        <h3><a href="blog-details.html">Learn English in ease</a></h3>
-                                        <div class="single-item-comment-view">
-                                           <span><i class="zmdi zmdi-calendar-check"></i>25 jun 2050</span>
-                                           <span><i class="zmdi zmdi-eye"></i>59</span>
-                                           <span><i class="zmdi zmdi-comments"></i>19</span>
-                                       </div>
-                                       <p>There are many variaons of passages of Lorem Ipsuable, amrn in some by injected humour, </p>
-                                       <a href="blog-details.html" class="button-default">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="single-latest-item">
-                                    <div class="single-latest-image">
-                                        <a href="blog-details.html"><img src="img/latest/5.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-latest-text">
-                                        <h3><a href="blog-details.html">Learn English in ease</a></h3>
-                                        <div class="single-item-comment-view">
-                                           <span><i class="zmdi zmdi-calendar-check"></i>25 jun 2050</span>
-                                           <span><i class="zmdi zmdi-eye"></i>59</span>
-                                           <span><i class="zmdi zmdi-comments"></i>19</span>
-                                       </div>
-                                       <p>There are many variaons of passages of Lorem Ipsuable, amrn in some by injected humour, </p>
-                                       <a href="blog-details.html" class="button-default">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12">
-                                <div class="single-latest-item">
-                                    <div class="single-latest-image">
-                                        <a href="blog-details.html"><img src="img/latest/6.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single-latest-text">
-                                        <h3><a href="blog-details.html">Learn English in ease</a></h3>
-                                        <div class="single-item-comment-view">
-                                           <span><i class="zmdi zmdi-calendar-check"></i>25 jun 2050</span>
-                                           <span><i class="zmdi zmdi-eye"></i>59</span>
-                                           <span><i class="zmdi zmdi-comments"></i>19</span>
-                                       </div>
-                                       <p>There are many variaons of passages of Lorem Ipsuable, amrn in some by injected humour, </p>
-                                       <a href="blog-details.html" class="button-default">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="row">
                             <div class="col-md-12">

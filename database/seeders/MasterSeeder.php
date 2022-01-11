@@ -30,6 +30,7 @@ class MasterSeeder extends Seeder
         $this->gallery();
         $this->events();
         $this->news();
+        $this->blogs();
     }
 
     public function clean_tables(){
@@ -46,6 +47,7 @@ class MasterSeeder extends Seeder
         DB::table('events')->delete();
         DB::table('news_notices')->delete();
         DB::table('mst_department_types')->delete();
+        DB::table('blogs')->delete();
     }
 
     public function userSeeder(){
@@ -199,6 +201,18 @@ class MasterSeeder extends Seeder
             ['id' => 4,'title' => 'Title Four','file_upload'=>'NewsNotice/noimg.jpg','description'=>'Description of fourth Title','display_order' => '4','visit_counts'=>500,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
             ['id' => 5,'title' => 'Title Five','file_upload'=>'NewsNotice/noimg.jpg','description'=>'Description of fifth Title','display_order' => '5','visit_counts'=>300,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
             ['id' => 6,'title' => 'Title Six','file_upload'=>'NewsNotice/noimg.jpg','description'=>'Description of sixth Title','display_order' => '6','visit_counts'=>500,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+        ]); 
+        // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
+    }
+    public function blogs(){
+        DB::table('blogs')->insert([
+            // mainmenus
+            ['id' => 1,'title' => 'Blog One','image'=>'Blog/noimg.jpg','description'=>'Description of first Blog','display_order' => '1','visit_counts'=>400,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'title' => 'Blog Two','image'=>'Blog/noimg.jpg','description'=>'Description of second Blog','display_order' => '2','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'title' => 'Blog Three','image'=>'Blog/noimg.jpg','description'=>'Description of third Blog','display_order' => '3','visit_counts'=>600,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'title' => 'Blog Four','image'=>'Blog/noimg.jpg','description'=>'Description of fourth Blog','display_order' => '4','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 5,'title' => 'Blog Five','image'=>'Blog/noimg.jpg','description'=>'Description of fifth Blog','display_order' => '5','visit_counts'=>300,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 6,'title' => 'Blog Six','image'=>'Event/noimg.jpg','description'=>'Description of sixth event','display_order' => '6','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }

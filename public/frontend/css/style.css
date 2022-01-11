@@ -2045,6 +2045,7 @@ mark {
 }
 .single-testimonial-area .testimonial-image img {
 	height: 104px;
+	width: 104px;
 	border: 2px solid #FFAE27;
 	border-radius: 100%;
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Blog;
 use App\Models\Menu;
+use App\Models\Event;
 use App\Models\Course;
 use App\Models\Slider;
 use App\Models\AboutUs;
@@ -16,7 +18,7 @@ class NewsController extends Controller
     public function index()
     {
         $header_footer_data = $this->getHeaderFooterData();
-        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $this->data = [
             'menus' => $menus,
             'header_footer_data' => $header_footer_data,
@@ -27,10 +29,12 @@ class NewsController extends Controller
     public function events()
     {
         $header_footer_data = $this->getHeaderFooterData();
-        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $events = Event::where('deleted_uq_code',1)->get();
         $this->data = [
             'menus' => $menus,
             'header_footer_data' => $header_footer_data,
+            'events'=>$events
         ];
         return view('frontend.event', $this->data);
     }
@@ -38,10 +42,12 @@ class NewsController extends Controller
     public function blog()
     {
         $header_footer_data = $this->getHeaderFooterData();
-        $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
+        $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $blogs = Blog::where('deleted_uq_code',1)->get();
         $this->data = [
             'menus' => $menus,
             'header_footer_data' => $header_footer_data,
+            'blogs' => $blogs,
         ];
         return view('frontend.blog', $this->data);
     }
