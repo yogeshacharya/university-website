@@ -31,6 +31,7 @@ Route::group([
     Route::crud('faq', 'FaqCrudController');
     Route::crud('slider', 'SliderCrudController');
     Route::crud('human-resource', 'HumanResourceCrudController');
+    Route::crud('human-resource/{human_resource_id}/hr-social-media', 'HrSocialMediaCrudController');
     Route::crud('event', 'EventCrudController');
     Route::crud('mst-class', 'MstClassCrudController');
     Route::crud('header', 'HeaderCrudController');
@@ -38,7 +39,12 @@ Route::group([
     Route::crud('blog', 'BlogCrudController');
     Route::crud('page', 'PageCrudController');
     Route::crud('saying', 'SayingCrudController');
+    Route::crud('mst-social-media', 'MstSocialMediaCrudController');
 }); // this should be the absolute last line of this file
+
+
+
+
 Route::group([
     'prefix'     => '',
     'middleware' => ['web'],

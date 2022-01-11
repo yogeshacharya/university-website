@@ -278,10 +278,25 @@ class CreateTableForCollege extends Migration
                     
         });
 
-        Schema::create('social_media', function (Blueprint $table) {
+        Schema::create('mst_social_media', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('code',50)->nullable();
+            $table->string('name',50)->nullable();
+            $table->unsignedInteger('display_order')->nullable();
+            $table->timestamps();
+            $table->boolean('is_active')->nullable()->default(true);
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
+            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+        });
+
+        Schema::create('hr_social_media', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->unsignedSmallInteger('human_resource_id')->nullable();
-            $table->unsignedSmallInteger('social_resource_id')->nullable();
+            $table->unsignedSmallInteger('social_media_id')->nullable();
             $table->string('url',50)->nullable();
             $table->unsignedInteger('display_order')->nullable();
             $table->timestamps();
@@ -293,7 +308,8 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
 
-            $table->foreign('human_resource_id','fk_social_media_human_resource_id')->references('id')->on('human_resources');
+            $table->foreign('human_resource_id','fk_hr_social_media_human_resource_id')->references('id')->on('human_resources');
+            $table->foreign('social_media_id','fk_hr_social_media_social_media_id')->references('id')->on('mst_social_media');
         });
 
 
