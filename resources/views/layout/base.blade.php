@@ -25,7 +25,6 @@
             <style>
                 .breadcrumb-banner-area {
                     background: rgba(0, 0, 0, 0) url("img/bg_img.jpg") no-repeat scroll 0 0 !important;
-                    
                     background-size: cover !important;
                 }
             </style>

@@ -56,6 +56,8 @@ class MasterSeeder extends Seeder
         DB::table('mst_social_media')->insert([
             array('id' => '1','code' => 'fb', 'name' => 'FaceBook', 'display_order' => 1, 'is_active' => true),
             array('id' => '2','code' => 'tw', 'name' => 'Twitter', 'display_order' => 2, 'is_active' => true),            
+            array('id' => '3','code' => 'lin', 'name' => 'Linkden', 'display_order' => 3, 'is_active' => true),            
+            array('id' => '4','code' => 'goo', 'name' => 'Google', 'display_order' => 4, 'is_active' => true),            
         ]);
     }
 

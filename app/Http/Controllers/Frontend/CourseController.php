@@ -30,11 +30,12 @@ class CourseController extends Controller
         $header_footer_data = $this->getHeaderFooterData();
         $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
         $course_detail = Course::find($id);
-
+        $new_course = Course::latest()->take(3)->get();
         $this->data = [
             'menus' => $menus,
             'course_detail' => $course_detail,
             'header_footer_data' => $header_footer_data,
+            'new_course' => $new_course,
         ];
         return view('frontend.courses_details', $this->data);
     }
