@@ -113,6 +113,12 @@ class CreateTableForCollege extends Migration
             $table->string('name',200);
             $table->text('description',500);
             $table->text('entry_requirement')->nullable();
+            $table->string('levels',20)->nullable();
+            $table->date('start_on',10)->nullable();
+            $table->integer('duration')->nullable();
+            $table->integer('class_size')->nullable();
+            $table->integer('lectures')->nullable();
+            $table->string('time',30)->nullable();
             $table->json('course_structure')->nullable();//code, course title, credit
             $table->string('file_upload',500)->nullable();
             $table->string('payment_plan',500)->nullable();

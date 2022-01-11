@@ -74,6 +74,33 @@
                             <h3 class="content2">Entry Requirement</h3>
                             <p>{!! $course_detail->entry_requirement !!}</p>
                         </div>
+
+                        <div class="fee_structure mb-30">
+                            <h3 class="sidebar-title">Fee Structure </h3>
+                            <table class="table table-hover">
+                                <thead class="title">
+                                    <tr>
+                                    <th scope="col">SN</th>
+                                    <th scope="col">Fee Type</th>
+                                    <th scope="col">Total Fee</th>
+                                    <th scope="col">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($course_fees as $fee)
+                                    @php
+                                    $fee_type = App\Models\FeeType::where('id',$fee->fee_type_id)->pluck('title')->first();
+                                    @endphp
+                                    <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$fee_type}}</td>
+                                        <td>{{$fee->total_fee}}</td>
+                                        <td>{{$fee->description}}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                </table>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -81,14 +108,12 @@
                         <div class="single-sidebar-widget">
                             <h3 class="sidebar-title">Course Structure </h3>
                             <ul class="course-menu">
-                                <li>Levels :<span>Beginner</span></li>
-                                <li>Start On :<span>14.09.2018</span></li>
-                                <li>Duration :<span>30 Hours</span></li>
-                                <li>Class Size :<span>25 Persone</span></li>
-                                <li>Lectures :<span>15 Session</span></li>
-                                <li>Time :<span>07am - 12pm</span></li>
-                                <li>Location :<span>07am - 12pm</span></li>
-                                <li>Price :<span>$150.00</span></li>
+                                <li>Levels :<span>{{$course_detail->levels}}</span></li>
+                                <li>Start On :<span>{{$course_detail->start_on}}</span></li>
+                                <li>Duration :<span>{{$course_detail->duration}} Hours</span></li>
+                                <li>Class Size :<span>{{$course_detail->class_size}} Persone</span></li>
+                                <li>Lectures :<span>{{$course_detail->lectures}} Session</span></li>
+                                <li>Time :<span>{{$course_detail->time}}</span></li>
                             </ul>
                         </div>
                         {{-- <div class="single-sidebar-widget">
