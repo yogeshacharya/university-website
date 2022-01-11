@@ -31,7 +31,7 @@
                 </div>
                 <!--End of Breadcrumb Banner Area-->
                 <!--Search Category Start-->
-                <div class="search-category">
+                {{-- <div class="search-category">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!--Search Category End-->
                 <!--Course Area Start-->
                 <div class="course-area bg-white section-padding">
@@ -84,7 +84,7 @@
                             <div class="col-md-12">
                                 <div class="section-title-wrapper">
                                     <div class="section-title">
-                                        <h3>POPULAR COURSES</h3>
+                                        <h3>OUR COURSES</h3>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                 <div class="col-lg-4 col-md-6 col-12">
                                     <div class="single-item mb-50">
                                         <div class="single-item-image overlay-effect">
-                                            <a href="courses-details.html"><img src="{{url('/') . '/storage/uploads/' . $course->file_upload}}" alt=""></a>
+                                            <a href="{{url('/'). '/courses/' . $course->id}}"><img src="{{url('/') . '/storage/uploads/' . $course->file_upload}}" alt=""></a>
                                             {{-- <div class="courses-hover-info">
                                                 <div class="courses-hover-action">
                                                     <div class="courses-hover-thumb">
@@ -107,7 +107,7 @@
                                             </div> --}}
                                         </div>
                                         <div class="single-item-text">
-                                            <h4><a href="courses-details.html">{{$course->name}}</a></h4>
+                                            <h4><a href="{{url('/'). '/courses/' . $course->id}}">{{$course->name}}</a></h4>
                                             <p>{!! Str::limit($course->description, 150) !!}</p>
                                             <div class="single-item-content">
                                             <div class="single-item-comment-view">
@@ -129,16 +129,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="pagination-content number">
-                                    <ul class="pagination">
-                                        <li><a href="#"><i class="zmdi zmdi-chevron-left"></i></a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li class="current"><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                                    </ul>
-                                </div>
+                                    {{ $courses->links('inc.pagination') }}
                             </div>
                         </div>
                     </div>
