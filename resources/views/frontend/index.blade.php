@@ -114,8 +114,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-fun-factor mb-30">
-                        <h2><span class="counter">{{$student_count}}</span>+</h2>
-                        <h4>Student</h4>
+                        <h2><span class="counter">{{$department_count}}</span>+</h2>
+                        <h4>Departments</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">

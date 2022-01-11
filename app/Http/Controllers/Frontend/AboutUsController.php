@@ -20,7 +20,7 @@ class AboutUsController extends Controller
         $header_footer_data = $this->getHeaderFooterData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $about_us = AboutUs::where('deleted_uq_code',1)->get();
-        $teachers = HumanResource::where('type',1)->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $teachers = HumanResource::where('type',1)->where('deleted_uq_code',1)->limit(4)->orderBy('display_order','asc')->get();
         $sayings = Saying::where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $this->data = [
             'menus' => $menus,
