@@ -182,8 +182,14 @@ class CreateTableForCollege extends Migration
         Schema::create('scholarships', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',200);
-            $table->string('description',500)->nullable();
+            $table->text('description')->nullable();
+            $table->text('contact')->nullable();
+            $table->text('eligibility')->nullable();
+            $table->text('process')->nullable();
+            $table->text('outcome')->nullable();
             $table->string('file_upload',500)->nullable();
+            $table->date('application_open',500)->nullable();
+            $table->date('application_close',500)->nullable();
             $table->unsignedInteger('display_order')->nullable();
                     
             $table->timestamps();

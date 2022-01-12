@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\Saying;
 use App\Models\Slider;
 use App\Models\AboutUs;
+use App\Models\Scholarship;
 use Illuminate\Http\Request;
 use App\Models\HumanResource;
 use Illuminate\Routing\Controller;
@@ -93,9 +94,11 @@ class AboutUsController extends Controller
     {
         $header_footer_data = $this->getHeaderFooterData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $scholarships = Scholarship::where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $this->data = [
             'menus' => $menus,
             'header_footer_data' => $header_footer_data,
+            'scholarships' => $scholarships,
         ];
         return view('frontend.scholarship', $this->data);
     }

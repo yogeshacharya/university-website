@@ -64,6 +64,7 @@
 		  
 		<!-- jquery
 		============================================ -->	
+        @yield('js')
         <script type="text/javascript" src="{{url('frontend/js/vendor/modernizr-3.6.0.min.js')}}"></script>
         <script type="text/javascript" src="{{url('frontend/js/vendor/jquery-3.6.0.min.js')}}"></script>
         <script type="text/javascript" src="{{url('frontend/js/vendor/jquery-migrate-3.3.2.min.js')}}"></script>

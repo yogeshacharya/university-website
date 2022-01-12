@@ -32,6 +32,7 @@ class MasterSeeder extends Seeder
         $this->events();
         $this->news();
         $this->blogs();
+        $this->scholarship();
     }
 
     public function clean_tables(){
@@ -50,6 +51,7 @@ class MasterSeeder extends Seeder
         DB::table('news_notices')->delete();
         DB::table('mst_department_types')->delete();
         DB::table('blogs')->delete();
+        DB::table('scholarships')->delete();
     }
 
     private function mst_social_media(){
@@ -230,6 +232,57 @@ class MasterSeeder extends Seeder
             ['id' => 4,'title' => 'Blog Four','image'=>'Blog/noimg.jpg','description'=>'Description of fourth Blog','display_order' => '4','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
             ['id' => 5,'title' => 'Blog Five','image'=>'Blog/noimg.jpg','description'=>'Description of fifth Blog','display_order' => '5','visit_counts'=>300,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
             ['id' => 6,'title' => 'Blog Six','image'=>'Event/noimg.jpg','description'=>'Description of sixth event','display_order' => '6','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+        ]); 
+        // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
+    }
+    public function scholarship(){
+        DB::table('scholarships')->insert([
+            // mainmenus
+            ['id' => 1,'title' => 'Scholarship Name: 20 Talent Student Scholarships 2021/2022','description'=>'This scholarship supports eligible exceptional elite students based upon their achievement. The student will receive up to 20% additional scholarships towards their tuition fees. 
+
+            “Wouldn’t it be great to be gifted? In fact… It turns out that choices lead to habits. Habits become talents. Talents are labeled gifts. You’re not born this way, you get this way.” – Seth Godin','process'=>'Students should submit evidence of their achievements in writing with supporting documents.
+
+            This can include:
+            
+            Evidence of having been awarded a Medal in the Nationally or Internationally
+            Evidence of outstanding achievement in any Competition
+             
+            The PEO of the institute will consider applications.
+            
+            Applications should be submitted to admissions@medicus.edu.au','eligibility'=>'Everyone is unique in that they feel part of who they have demonstrated exceptional talent by having performed outstandingly in high-level competitions or recognised by the relevant authority.  
+
+            You are Maybe one of the following,
+            
+            Leader
+            Artist
+            Craftsman
+            Intrapreneur
+            Magician
+            Musician
+            Networking (person to person)
+            Photographer
+            Public Speaker
+            Singer
+            Storyteller
+             
+            All students want to receive financial assistance, which is why we’ve compiled a list of special talents specifically pitched towards the unique hobbies that make students who they are.
+            
+             
+            
+            Eligibility:
+            
+            Currently enrolled who has 1.5 years of study to complete at Medicus College
+            Maintaining satisfactory course progress
+            Does not have any outstanding fees','outcome'=>'The announcement of scholarship awards will be announced via email.  
+
+            What are the benefits?
+            
+             
+            
+            Depending on the student’s achievement, the institute will announce a percentage of scholarships between 5% to 20%. The Scholarship percentage will be decided at the sole discretion of the PEO. Scholarship’s value will be adjusted towards the end of the course.','contact'=>'11 London Circuit Canberra ACT 2601
+            Ph. 1300 131 017
+            Email: info@medicus.edu.au
+            Office Hours: 9AM – 5PM','application_open'=>Carbon::now()->toDateString(),'application_close'=>Carbon::now()->toDateString(),'display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }

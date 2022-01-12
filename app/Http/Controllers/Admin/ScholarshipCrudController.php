@@ -81,6 +81,36 @@ class ScholarshipCrudController extends BaseCrudController
                 'label' => 'Description',
             ],
             [
+                'name' => 'process',
+                'type' => 'ckeditor',
+                'label' => 'Application Proccess',
+            ],
+            [
+                'name' => 'eligibility',
+                'type' => 'ckeditor',
+                'label' => 'Eligibility & selection criteria',
+            ],
+            [
+                'name' => 'contact',
+                'type' => 'ckeditor',
+                'label' => 'Contact For Scholarship',
+            ],
+            [
+                'name' => 'outcome',
+                'type' => 'ckeditor',
+                'label' => 'When will I know the outcome?',
+            ],
+            [
+                'name'=>'application_open',
+                'type'=>'date',
+                'lable'=>'Application opan date'
+            ],
+            [
+                'name'=>'application_close',
+                'type'=>'date',
+                'lable'=>'Application will close'
+            ],
+            [
                 'name' => 'file_upload',
                 'type' => 'image',
                 'label' => 'Image',
