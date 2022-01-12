@@ -32,9 +32,11 @@ class MenuCrudController extends BaseCrudController
         return "
         $(document).ready(function(){
             if($('#type_id').val() == '0' || $('#type_id').val() == ''){
+                $('.parent_id').val(null);
                 $('.parent_id').hide();
             }
             $('.type_id').change(function() {
+                $('.parent_id').val(null);
                 $('.parent_id').hide();
                 if($('#type_id').val() == '0'){
                 }else{

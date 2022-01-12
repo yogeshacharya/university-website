@@ -22,6 +22,7 @@ class HumanResourceCrudController extends BaseCrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/human-resource');
         CRUD::setEntityNameStrings('human resource', 'human resources');
         $this->setUpLinks(['edit']);
+        $this->data['script_js']= $this->getScriptJs();
     }
 
     /**
@@ -30,6 +31,24 @@ class HumanResourceCrudController extends BaseCrudController
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
+    public function getScriptJs(){
+        return "
+        $(document).ready(function(){
+            if(parseInt($('#type').val()) == '2'){
+                $('#designation').val(null);
+                $('.designation').hide();
+            }
+            $('.type_id').change(function() {
+                if(parseInt($('#type').val()) == '2'){
+                    $('#designation').val(null);
+                    $('.designation').hide();
+                }else{
+                    $('.designation').show();
+                }
+            });
+        });
+        ";
+    }
     public function tabLinks()
     {
         return $this->setHumanResourceTabs();
@@ -128,6 +147,17 @@ class HumanResourceCrudController extends BaseCrudController
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
                 ]
+            ],
+            [
+                'label' => 'Designation',
+                'type' => 'text',
+                'name' => 'designation',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4 designation',
+                ],
+                'attributes'=>[
+                    'id'=>'designation'
+                ],
             ],
             [
                 'label' => 'Email',

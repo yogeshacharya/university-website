@@ -4889,3 +4889,7 @@ input.checkbox {
 #scrollUp:hover {
 	background-color: #F4A012;
 }
+
+.current-menu-item>a{
+	color:orange !important;
+}

@@ -344,5 +344,25 @@ $('.gallery-area').imagesLoaded(function () {
     });
 });
 
+
+
+/** add active class and stay opened when selected */
+var url = window.location;
+
+// for sidebar menu entirely but not cover treeview
+$('ul.nav-menu li a').filter(function() {
+	 return this.href == url;
+}).parent().addClass('current-menu-item');
+
+// for subMenu
+$('ul.sub-menu a').filter(function() {
+	 return this.href == url;
+}).parentsUntil(".nav-menu > .sub-menu li").addClass('current-menu-item');
+
+// for second level subMenu
+$('ul.inside-menu a').filter(function() {
+	 return this.href == url;
+}).parentsUntil(".nav-menu > .inside-menu li").addClass('current-menu-item');
+
     
 })(jQuery); 

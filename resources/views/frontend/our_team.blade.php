@@ -26,101 +26,28 @@
     <div class="rs-team modify1 pt-120 pb-95 md-pt-80 md-pb-75"> 
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-50">
-                    <div class="team-item-wrap">
-                        <div class="team-wrap">
-                            <div class="image-inner">
-                                <a href="#"><img src="{{url('/') . '/storage/uploads/Gallery/noimg1.jpg'}}" alt=""></a>
+                @foreach ($teams as $team)
+                    <div class="col-lg-4 col-md-6 mb-50">
+                        <div class="team-item-wrap">
+                            <div class="team-wrap">
+                                <div class="image-inner">
+                                    <a href="#"><img src="{{url('/') . '/storage/uploads/Gallery/noimg.jpg'}}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="team-content text-center">
+                                <h4 class="person-name"><a href="single-team.html">{{$team->name}}</a></h4>
+                                <span class="designation">{{$team->designation}}</span>
+                                @if(count($team->hrSocialMedias))
+                                    <ul class="team-social">
+                                        @foreach ($team->hrSocialMedias as $hrSocialMedia)
+                                            <li><a href="{{$hrSocialMedia->url}}"><i class="fa fa-{{strtolower($hrSocialMedia->socialMedia->name)}}"></i></a></li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
                         </div>
-                        <div class="team-content text-center">
-                            <h4 class="person-name"><a href="single-team.html">Makhaia Antitni</a></h4>
-                            <span class="designation">President & CEO</span>
-                            <ul class="team-social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            </ul>
-                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-50">
-                    <div class="team-item-wrap">
-                        <div class="team-wrap">
-                            <div class="image-inner">
-                                <a href="#"><img src="{{url('/') . '/storage/uploads/Gallery/noimg.jpg'}}" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="team-content text-center">
-                            <h4 class="person-name"><a href="single-team.html">Makhaia Antitni</a></h4>
-                            <span class="designation">President & CEO</span>
-                            <ul class="team-social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-50">
-                    <div class="team-item-wrap">
-                        <div class="team-wrap">
-                            <div class="image-inner">
-                                <a href="#"><img src="{{url('/') . '/storage/uploads/Gallery/noimg.jpg'}}" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="team-content text-center">
-                            <h4 class="person-name"><a href="single-team.html">Makhaia Antitni</a></h4>
-                            <span class="designation">President & CEO</span>
-                            <ul class="team-social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-50">
-                    <div class="team-item-wrap">
-                        <div class="team-wrap">
-                            <div class="image-inner">
-                                <a href="#"><img src="{{url('/') . '/storage/uploads/Gallery/noimg.jpg'}}" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="team-content text-center">
-                            <h4 class="person-name"><a href="single-team.html">Makhaia Antitni</a></h4>
-                            <span class="designation">President & CEO</span>
-                            <ul class="team-social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-50">
-                    <div class="team-item-wrap">
-                        <div class="team-wrap">
-                            <div class="image-inner">
-                                <a href="#"><img src="{{url('/') . '/storage/uploads/Gallery/noimg.jpg'}}" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="team-content text-center">
-                            <h4 class="person-name"><a href="single-team.html">Makhaia Antitni</a></h4>
-                            <span class="designation">President & CEO</span>
-                            <ul class="team-social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div> 
     </div>

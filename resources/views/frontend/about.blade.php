@@ -97,7 +97,7 @@
                                 @if(count($teacher->hrSocialMedias))
                                     <div class="social">
                                         @foreach ($teacher->hrSocialMedias as $hrSocialMedia)
-                                            <a href="#" class="{{strtolower($hrSocialMedia->socialMedia->name)}}"><i class="fa fa-{{strtolower($hrSocialMedia->socialMedia->name)}}"></i></a>
+                                            <a href="{{url($hrSocialMedia->link)}}" class="{{strtolower($hrSocialMedia->socialMedia->name)}}"><i class="fa fa-{{strtolower($hrSocialMedia->socialMedia->name)}}"></i></a>
                                         @endforeach
                                     </div>
                                 @endif

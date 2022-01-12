@@ -4,7 +4,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-12">
-                    <span>Have any question? <a style="color: white;" href="tel:.'{{$header_footer_data['footer']->phone}}'.">{{$header_footer_data['footer']->phone}}</a></span>
+                    {{-- <span>Have any question? <a style="color: white;" href="tel:.'{{$header_footer_data['footer']->phone}}'.">{{$header_footer_data['footer']->phone}}</a></span> --}}
+                    <span>Welcome To Lincon International College</span>
                 </div>
                 <div class="col-lg-5 col-md-6 col-12">
                     <div class="header-top-right">
@@ -31,9 +32,9 @@
                         <div class="mainmenu d-none d-lg-block">
                             <nav>
                                 @if(count($menus))
-                                    <ul id="nav">
+                                    <ul id="nav" class="nav-menu">
                                         @foreach($menus as $menu)
-                                            <li class="current"><a href="{{url($menu->link)}}">{{$menu->title}}</a>
+                                            <li><a href="{{url($menu->link)}}">{{$menu->title}}</a>
                                                 @if(count($menu->subMenus))
                                                     <ul class="sub-menu">
                                                         @foreach ($menu->subMenus as $subMenu)
