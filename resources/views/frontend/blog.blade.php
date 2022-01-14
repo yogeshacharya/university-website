@@ -37,17 +37,17 @@
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="single-latest-item">
                             <div class="single-latest-image">
-                                <a href="blog-details.html"><img src="{{url('/') . '/storage/uploads/' . $blog->image}}" alt=""></a>
+                                <a href="{{url('/'). '/blog-detail/' . $blog->id}}"><img src="{{url('/') . '/storage/uploads/' . $blog->image}}" alt=""></a>
                             </div>
                             <div class="single-latest-text">
-                                <h3><a href="blog-details.html">{{$blog->title}}</a></h3>
+                                <h3><a href="{{url('/'). '/blog-detail/' . $blog->id}}">{{$blog->title}}</a></h3>
                                 <div class="single-item-comment-view">
                                 <span><i class="zmdi zmdi-calendar-check"></i>{{date('d', strtotime($blog->date))}} {{date('M', strtotime($blog->date))}} {{date('Y', strtotime($blog->date))}}</span>
                                 <span><i class="zmdi zmdi-eye"></i>{{$blog->visit_counts}}</span>
                                 {{-- <span><i class="zmdi zmdi-comments"></i>19</span> --}}
                             </div>
                             <p>{{$blog->description}}</p>
-                            <a href="blog-details.html" class="button-default">Read More</a>
+                            <a href="{{url('/'). '/blog-detail/' . $blog->id}}" class="button-default">Read More</a>
                             </div>
                         </div>
                     </div>

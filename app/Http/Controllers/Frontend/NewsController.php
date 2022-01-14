@@ -68,4 +68,18 @@ class NewsController extends Controller
         ];
         return view('frontend.blog', $this->data);
     }
+    public function blogDetail($id)
+    {
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $blog = Blog::find($id);
+        $latest_blogs = Blog::latest()->take(5)->where('id','<>',$id)->get();
+        $this->data = [
+            'menus' => $menus,
+            'header_footer_data' => $header_footer_data,
+            'blog'=>$blog,
+            'latest_blogs'=>$latest_blogs
+        ];
+        return view('frontend.blog-details', $this->data);
+    }
 }
