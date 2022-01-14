@@ -181,7 +181,7 @@ class CreateTableForCollege extends Migration
             $table->smallIncrements('id');
             $table->string('title',200);
             $table->string('file_upload',500)->nullable();
-            $table->string('description',500)->nullable();
+            $table->text('description')->nullable();
             $table->date('date_ad')->nullable();
             $table->unsignedInteger('display_order')->nullable();
             $table->unsignedInteger('visit_counts')->nullable();
@@ -249,7 +249,7 @@ class CreateTableForCollege extends Migration
         Schema::create('faqs', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',100);
-            $table->string('description',500)->nullable();
+            $table->text('description')->nullable();
             $table->unsignedInteger('display_order')->nullable();
 
             $table->timestamps();
@@ -287,7 +287,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('type')->nullable();
             $table->unsignedSmallInteger('department_type_id')->nullable();
             $table->string('name',100);
-            $table->string('description',500)->nullable();
+            $table->text('description')->nullable();
             $table->string('email',50)->nullable();
             $table->string('phone',50)->nullable();
             $table->string('address',50)->nullable();
@@ -348,9 +348,9 @@ class CreateTableForCollege extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('name',100);
-            $table->date('date');
-            $table->string('time',20);
-            $table->string('location',100);
+            $table->date('date')->nullable();
+            $table->string('time',20)->nullable();
+            $table->string('location',100)->nullable();
             $table->text('description')->nullable();
             $table->text('content')->nullable();
             $table->string('file_upload',500)->nullable();
@@ -374,7 +374,7 @@ class CreateTableForCollege extends Migration
             $table->string('name',100);
             $table->string('capacity',50)->nullable();
             $table->string('section',50)->nullable();
-            $table->string('description',500)->nullable();
+            $table->text('description')->nullable();
 
             $table->unsignedInteger('display_order')->nullable();
             $table->timestamps();
@@ -422,7 +422,7 @@ class CreateTableForCollege extends Migration
             $table->smallIncrements('id');
             $table->string('title',100)->nullable();
             $table->text('description',500)->nullable();
-            $table->date('date');
+            $table->date('date')->nullable();
             $table->unsignedInteger('visit_counts')->nullable();
             $table->string('image')->nullable();
             $table->unsignedSmallInteger('category_id')->nullable();

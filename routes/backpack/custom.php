@@ -72,5 +72,10 @@ Route::group([
     Route::get('/event-detail/{id}', 'NewsController@eventDetail');
     Route::get('/team-detail/{id}', 'AboutUsController@teamDetail');
     Route::get('/blog-detail/{id}', 'NewsController@blogDetail');
+    Route::get('/news-detail/{id}', 'NewsController@newsDetail');
+    Route::get('/events/{category_id}', 'NewsController@filteredEvents');
+    Route::get('/blogs/{category_id}', 'NewsController@filteredBlogs');
+    Route::get('/news/{category_id}', 'NewsController@filteredNews');
+
 
 });

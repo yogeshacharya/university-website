@@ -74,19 +74,29 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="sidebar-widget">
+                        @if(count($categories))
+                            <div class="single-sidebar-widget">
+                                <h4 class="title">Categories</h4>
+                                <ul class="course-categoris">
+                                    @foreach($categories as $category)
+                                        <li><a href="{{url('/'). '/events/' . $category->id}}">{{$category->name}}<span>{{count($category->events)}}</span></a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="single-sidebar-widget">
                             <h4 class="title">Recent Events</h4>
                             <div class="recent-content">
                                 @foreach ($latest_events as $latest_event)
                                     <div class="recent-content-item">
-                                        <a href="{{url('/'). '/event-detail/' . $event->id}}"><img style="height: 70px;" src="{{url('/') . '/storage/uploads/' . $latest_event->file_upload}}" alt=""></a>
+                                        <a href="{{url('/'). '/event-detail/' . $latest_event->id}}"><img style="height: 70px;" src="{{url('/') . '/storage/uploads/' . $latest_event->file_upload}}" alt=""></a>
                                         <div class="recent-text">
-                                            <h4 style="margin-top: 15px;"><a href="{{url('/'). '/event-detail/' . $event->id}}">{{$latest_event->name}}</a></h4>
+                                            <h4 style="margin-top: 15px;"><a href="{{url('/'). '/event-detail/' . $latest_event->id}}">{{$latest_event->name}}</a></h4>
                                             <div class="single-item-comment-view">
                                                 <span><i class="zmdi zmdi-time"></i>{{$latest_event->time}}</span>
                                                 <span><i class="zmdi zmdi-calendar"></i>{{$latest_event->date}}</span>
                                             </div>
-                                            <p>{!! Str::limit($event->description, 50) !!}</p>
+                                            <p>{!! Str::limit($latest_event->description, 50) !!}</p>
                                         </div>
                                     </div>
                                 @endforeach
