@@ -332,7 +332,8 @@ class CreateTableForCollege extends Migration
             $table->date('date');
             $table->string('time',20);
             $table->string('location',100);
-            $table->string('description',500)->nullable();
+            $table->text('description')->nullable();
+            $table->text('content')->nullable();
             $table->string('file_upload',500)->nullable();
 
             $table->unsignedInteger('display_order')->nullable();

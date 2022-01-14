@@ -31,11 +31,11 @@
                         <div class="team-item-wrap">
                             <div class="team-wrap">
                                 <div class="image-inner">
-                                    <a href="#"><img src="{{url('/') . '/storage/uploads/Gallery/noimg.jpg'}}" alt=""></a>
+                                    <a href="{{url('/'). '/team-detail/' . $team->id}}"><img src="{{url('/') . '/storage/uploads/'.$team->file_upload}}" alt=""></a>
                                 </div>
                             </div>
                             <div class="team-content text-center">
-                                <h4 class="person-name"><a href="single-team.html">{{$team->name}}</a></h4>
+                                <h4 class="person-name"><a href="{{url('/'). '/team-detail/' . $team->id}}">{{$team->name}}</a></h4>
                                 <span class="designation">{{$team->designation}}</span>
                                 @if(count($team->hrSocialMedias))
                                     <ul class="team-social">

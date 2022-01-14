@@ -114,6 +114,11 @@ class EventCrudController extends BaseCrudController
                 'label' => 'Description',
             ],
             [
+                'name' => 'content',
+                'type' => 'ckeditor',
+                'label' => 'Content',
+            ],
+            [
                 'name' => 'file_upload',
                 'type' => 'image',
                 'label' => 'Image',

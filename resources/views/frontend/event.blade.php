@@ -37,19 +37,19 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-event-item event-style-2">
                             <div class="single-event-image">
-                                <a href="event-details.html">
+                                <a href="{{url('/'). '/event-detail/' . $event->id}}">
                                     <img src="{{url('/') . '/storage/uploads/' . $event->file_upload}}" alt="">
                                     <span>{{date('d', strtotime($event->date))}} {{date('M', strtotime($event->date))}}</span>
                                 </a>
                             </div>
                             <div class="single-event-text">
-                                <h3><a href="event-details.html">{{$event->name}}</a></h3>
+                                <h3><a href="{{url('/'). '/event-detail/' . $event->id}}">{{$event->name}}</a></h3>
                                 <div class="single-item-comment-view">
                                 <span><i class="zmdi zmdi-time"></i>{{$event->time}}</span>
                                 <span><i class="zmdi zmdi-pin"></i>{{$event->location}}</span>
                             </div>
                             <p>{!! Str::limit($event->description, 150) !!}</p>
-                            <a class="button-default" href="event-details.html">LEARN Now</a>
+                            <a class="button-default" href="{{url('/'). '/event-detail/' . $event->id}}">Know More</a>
                             </div>
                         </div>
                     </div>

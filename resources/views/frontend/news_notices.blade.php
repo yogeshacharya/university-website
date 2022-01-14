@@ -26,140 +26,38 @@
                 <div class="col-md-12">
                     <div class="section-title-wrapper">
                         <div class="section-title">
-                            <h3>OUR EVENTS</h3>
-                            <p>There are many variations of passages</p>
+                            <h3>News & Notice</h3>
+                            <p>Read News and Notice Related To Lincon International College</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-event-item event-style-2">
-                        <div class="single-event-image">
-                            <a href="event-details.html">
-                                <img src="img/event/1.jpg" alt="">
-                                <span>15 Jun</span>
-                            </a>
-                        </div>
-                        <div class="single-event-text">
-                            <h3><a href="event-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                                <span><i class="zmdi zmdi-pin"></i>Dhaka Bangladesh</span>
+                @foreach ($news as $item)
+                    <div class="col-lg-3 col-md-4">
+                        <div class="single-event-item event-style-2">
+                            <div class="single-event-image">
+                                <a href="event-details.html">
+                                    <img src="{{url('/') . '/storage/uploads/' . $item->file_upload}}" alt="">
+                                    {{-- <span></span> --}}
+                                </a>
                             </div>
-                            <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata din megla....</p>
-                            <a class="button-default" href="event-details.html">LEARN Now</a>
+                            <div class="single-event-text">
+                                <h3><a href="event-details.html">{{$item->title}}</a></h3>
+                                <div class="single-item-comment-view">
+                                    <span><i class="zmdi zmdi-calendar"></i>{{date('d', strtotime($item->date))}} {{date('M', strtotime($item->date))}}</span>
+                                    <span><i class="zmdi zmdi-eye"></i>{{$item->visit_counts}}</span>
+                                </div>
+                                <p>{!! Str::limit($item->description, 50) !!}</p>
+                                <a class="button-default" href="event-details.html">Know More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-event-item event-style-2">
-                        <div class="single-event-image">
-                            <a href="event-details.html">
-                                <img src="img/event/2.jpg" alt="">
-                                <span>20 Apr</span>
-                            </a>
-                        </div>
-                        <div class="single-event-text">
-                            <h3><a href="event-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                                <span><i class="zmdi zmdi-pin"></i>Jessore Bangladesh</span>
-                            </div>
-                            <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata din megla....</p>
-                            <a class="button-default" href="event-details.html">LEARN Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-event-item event-style-2">
-                        <div class="single-event-image">
-                            <a href="event-details.html">
-                                <img src="img/event/3.jpg" alt="">
-                                <span>06 Dec</span>
-                            </a>
-                        </div>
-                        <div class="single-event-text">
-                            <h3><a href="event-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                                <span><i class="zmdi zmdi-pin"></i>Dhaka. Bangladesh</span>
-                            </div>
-                            <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata din megla....</p>
-                            <a class="button-default" href="event-details.html">LEARN Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-event-item event-style-2">
-                        <div class="single-event-image">
-                            <a href="event-details.html">
-                                <img src="img/event/4.jpg" alt="">
-                                <span>15 Jun</span>
-                            </a>
-                        </div>
-                        <div class="single-event-text">
-                            <h3><a href="event-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                                <span><i class="zmdi zmdi-pin"></i>Dhaka Bangladesh</span>
-                            </div>
-                            <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata din megla....</p>
-                            <a class="button-default" href="event-details.html">LEARN Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-event-item event-style-2">
-                        <div class="single-event-image">
-                            <a href="event-details.html">
-                                <img src="img/event/5.jpg" alt="">
-                                <span>20 Apr</span>
-                            </a>
-                        </div>
-                        <div class="single-event-text">
-                            <h3><a href="event-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                                <span><i class="zmdi zmdi-pin"></i>Jessore Bangladesh</span>
-                            </div>
-                            <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata din megla....</p>
-                            <a class="button-default" href="event-details.html">LEARN Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-event-item event-style-2">
-                        <div class="single-event-image">
-                            <a href="event-details.html">
-                                <img src="img/event/6.jpg" alt="">
-                                <span>06 Dec</span>
-                            </a>
-                        </div>
-                        <div class="single-event-text">
-                            <h3><a href="event-details.html">Learn English in ease</a></h3>
-                            <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-time"></i>4.00 pm - 8.00 pm</span>
-                                <span><i class="zmdi zmdi-pin"></i>Dhaka. Bangladesh</span>
-                            </div>
-                            <p>There are many variaons of passa of Lorem Ipsuable, amrn in sofby injected humour, amr sarata din megla....</p>
-                            <a class="button-default" href="event-details.html">LEARN Now</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="pagination-content number">
-                        <ul class="pagination">
-                            <li><a href="#"><i class="zmdi zmdi-chevron-left"></i></a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li class="current"><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
+                        {{ $news->links('inc.pagination') }}
                 </div>
             </div>
         </div>

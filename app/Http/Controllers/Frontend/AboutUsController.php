@@ -113,5 +113,16 @@ class AboutUsController extends Controller
         ];
         return view('frontend.agent_details', $this->data);
     }
+    public function teamDetail($id){
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $team_detail = HumanResource::find($id);
+        $this->data = [
+            'menus' => $menus,
+            'header_footer_data' => $header_footer_data,
+            'team_detail' => $team_detail,
+        ];
+        return view('frontend.team-details', $this->data);
+    }
 }
 

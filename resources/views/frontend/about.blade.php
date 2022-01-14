@@ -93,19 +93,19 @@
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="agent mb-30">
                             <div class="image img-full">
-                                <a class="img" href="team-details.html"><img src="{{url('/') . '/storage/uploads/' . $teacher->file_upload}}" alt=""></a>
+                                <a class="img" href="{{url('/'). '/team-detail/' . $teacher->id}}"><img src="{{url('/') . '/storage/uploads/' . $teacher->file_upload}}" alt=""></a>
                                 @if(count($teacher->hrSocialMedias))
                                     <div class="social">
                                         @foreach ($teacher->hrSocialMedias as $hrSocialMedia)
-                                            <a href="{{url($hrSocialMedia->link)}}" class="{{strtolower($hrSocialMedia->socialMedia->name)}}"><i class="fa fa-{{strtolower($hrSocialMedia->socialMedia->name)}}"></i></a>
+                                            <a href="{{$hrSocialMedia->url}}" class="{{strtolower($hrSocialMedia->socialMedia->name)}}"><i class="fa fa-{{strtolower($hrSocialMedia->socialMedia->name)}}"></i></a>
                                         @endforeach
                                     </div>
                                 @endif
                             </div>
                             <div class="content">
-                                <h4 class="title"><a href="team-details.html">{{$teacher->name}}</a></h4>
-                                <a href="#" class="phone">{{$teacher->phone}}</a>
-                                <a href="#" class="email">{{$teacher->email}}</a>
+                                <h4 class="title"><a href="{{url('/'). '/team-detail/' . $teacher->id}}">{{$teacher->name}}</a></h4>
+                                <a href="tel:{{$teacher->phone}}" class="phone">{{$teacher->phone}}</a>
+                                <a href="mailto:{{$teacher->email}}" class="email">{{$teacher->email}}</a>
                                 <span class="properties">Teacher</span>
                             </div>
                         </div>

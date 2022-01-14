@@ -69,4 +69,7 @@ Route::group([
     Route::get('/news_notices/blogs', 'NewsController@blog');
 
     Route::get('/pages/{slug}', 'HomeController@getData');
+    Route::get('/event-detail/{id}', 'NewsController@eventDetail');
+    Route::get('/team-detail/{id}', 'AboutUsController@teamDetail');
+
 });
