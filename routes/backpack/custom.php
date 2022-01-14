@@ -40,8 +40,8 @@ Route::group([
     Route::crud('page', 'PageCrudController');
     Route::crud('saying', 'SayingCrudController');
     Route::crud('mst-social-media', 'MstSocialMediaCrudController');
+    Route::crud('category', 'CategoryCrudController');
 }); // this should be the absolute last line of this file
-
 
 
 

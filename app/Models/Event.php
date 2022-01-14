@@ -37,7 +37,9 @@ class Event extends BaseModel
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function category(){
+        return $this->belongsTo('App\Models\Category', 'category_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

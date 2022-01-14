@@ -46,7 +46,7 @@
                                 <span><i class="zmdi zmdi-eye"></i>{{$blog->visit_counts}}</span>
                                 {{-- <span><i class="zmdi zmdi-comments"></i>19</span> --}}
                             </div>
-                            <p>{{$blog->description}}</p>
+                            <p>{!! Str::limit($blog->description, 140) !!}</p>
                             <a href="{{url('/'). '/blog-detail/' . $blog->id}}" class="button-default">Read More</a>
                             </div>
                         </div>

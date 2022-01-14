@@ -72,6 +72,22 @@ class CreateTableForCollege extends Migration
             $table->foreign('parent_id','fk_menus_parent_id')->references('id')->on('menus')->onDelete('cascade')->change();;
         });
 
+        Schema::create('categories', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('name',100)->nullable();
+            $table->unsignedSmallInteger('menu_id')->nullable();
+
+            $table->timestamps();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
+            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+
+            $table->foreign('menu_id','fk_categories_menu_id')->references('id')->on('menus');
+        });
+        
         Schema::create('about_us', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',255);
@@ -94,7 +110,8 @@ class CreateTableForCollege extends Migration
             $table->text('description')->nullable();
             $table->unsignedInteger('display_order')->nullable();
             $table->string('file_upload',500)->nullable();
-                    
+            $table->unsignedSmallInteger('category_id')->nullable();
+
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
@@ -103,7 +120,8 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-                    
+            $table->foreign('category_id','fk_galleries_category_id')->references('id')->on('categories');
+
         });
 
        
@@ -167,7 +185,8 @@ class CreateTableForCollege extends Migration
             $table->date('date_ad')->nullable();
             $table->unsignedInteger('display_order')->nullable();
             $table->unsignedInteger('visit_counts')->nullable();
-                    
+            $table->unsignedSmallInteger('category_id')->nullable();
+
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
@@ -176,7 +195,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-                    
+            $table->foreign('category_id','fk_news_notices_category_id')->references('id')->on('categories');
         });
 
         Schema::create('scholarships', function (Blueprint $table) {
@@ -232,7 +251,7 @@ class CreateTableForCollege extends Migration
             $table->string('title',100);
             $table->string('description',500)->nullable();
             $table->unsignedInteger('display_order')->nullable();
-                    
+
             $table->timestamps();
             $table->boolean('is_active')->nullable()->default(true);
             $table->unsignedInteger('created_by')->nullable();
@@ -241,7 +260,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-                    
+
         });
 
         Schema::create('sliders', function (Blueprint $table) {
@@ -335,6 +354,7 @@ class CreateTableForCollege extends Migration
             $table->text('description')->nullable();
             $table->text('content')->nullable();
             $table->string('file_upload',500)->nullable();
+            $table->unsignedSmallInteger('category_id')->nullable();
 
             $table->unsignedInteger('display_order')->nullable();
             $table->timestamps();
@@ -345,7 +365,8 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-                    
+            $table->foreign('category_id','fk_events_category_id')->references('id')->on('categories');
+
         });
 
         Schema::create('mst_classes', function (Blueprint $table) {
@@ -400,10 +421,11 @@ class CreateTableForCollege extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',100)->nullable();
-            $table->string('description',500)->nullable();
+            $table->text('description',500)->nullable();
             $table->date('date');
             $table->unsignedInteger('visit_counts')->nullable();
             $table->string('image')->nullable();
+            $table->unsignedSmallInteger('category_id')->nullable();
 
             $table->unsignedInteger('display_order')->nullable();
             $table->timestamps();
@@ -413,6 +435,8 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+
+            $table->foreign('category_id','fk_blogs_category_id')->references('id')->on('categories');
         });
 
         Schema::create('pages', function (Blueprint $table) {
@@ -449,7 +473,7 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
 
-            $table->foreign('human_resource_id','fk_saying_human_resource_id')->references('id')->on('human_resources');
+            $table->foreign('human_resource_id','fk_sayings_human_resource_id')->references('id')->on('human_resources');
         });
 
         $DbSeed = new DatabaseSeeder();

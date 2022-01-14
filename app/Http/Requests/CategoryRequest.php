@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,14 +26,19 @@ class EventRequest extends FormRequest
     public function rules()
     {
         $request=request();
-
         $id_check = request()->request->get('id') ? ",".request()->request->get('id') : ",NULL";
-        $id_check=$id_check.",id,deleted_uq_code,1";
+        $parent_check=$id_check;
+        if(isset($request->menu_id)){
+            $menu_id = $request->request->get('menu_id');
+            $parent_check=$parent_check.",id,menu_id,".$menu_id;
+        }
+        if(isset($request->name)){
+            $category_name = strtolower($request->request->get('name'));
+            $parent_check=$parent_check.",name,".$category_name;
+        }
         return [
-            'name' => 'required',
-            'category_id' => 'required',
-            'description' => 'required',
-            'display_order' => 'sometimes|unique:events,display_order'.$id_check
+            'menu_id' => 'required',
+            'name' => 'required|min:2|max:50|unique:categories,name'.$parent_check
         ];
     }
 
@@ -57,7 +62,7 @@ class EventRequest extends FormRequest
     public function messages()
     {
         return [
-            'category_id.required' => 'Category Field is required, if you don\'t find the category then go to the category tab on left sidebar and add your new category',
+            //
         ];
     }
 }

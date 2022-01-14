@@ -31,6 +31,7 @@ class NewsNoticeRequest extends FormRequest
         $id_check=$id_check.",id,deleted_uq_code,1";
         return [
             'title' => 'required|min:2|max:255',
+            'category_id' => 'required',
             'description' => 'required|min:2|max:500',
             'display_order' => 'sometimes|unique:news_notices,display_order'.$id_check
         ];
@@ -56,7 +57,7 @@ class NewsNoticeRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'category_id.required' => 'Category Field is required, if you don\'t find the category then go to the category tab on left sidebar and add your new category',
         ];
     }
 }

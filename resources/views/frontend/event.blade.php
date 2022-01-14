@@ -48,7 +48,7 @@
                                 <span><i class="zmdi zmdi-time"></i>{{$event->time}}</span>
                                 <span><i class="zmdi zmdi-pin"></i>{{$event->location}}</span>
                             </div>
-                            <p>{!! Str::limit($event->description, 150) !!}</p>
+                            <p>{!! Str::limit($event->description, 140) !!}</p>
                             <a class="button-default" href="{{url('/'). '/event-detail/' . $event->id}}">Know More</a>
                             </div>
                         </div>

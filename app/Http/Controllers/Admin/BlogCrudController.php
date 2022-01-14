@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Blog;
+use App\Models\Category;
 use App\Http\Requests\BlogRequest;
 use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -67,6 +68,22 @@ class BlogCrudController extends BaseCrudController
                 'name' => 'title',
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-6',
+                ]
+            ],
+            [
+                'label' => "Category",
+                'type' => 'select2',
+                'name' => 'category_id',
+                'entity' => 'category',
+                'attribute' => 'name',
+                'model' => 'App\Models\Category',
+                // 'default' => 5,
+                // optional
+                'options' => (function ($query) {
+                    return Category::query()->where('deleted_uq_code',1)->where('menu_id',12)->get();
+                }),
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
                 ]
             ],
             [

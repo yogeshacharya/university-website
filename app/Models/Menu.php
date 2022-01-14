@@ -28,6 +28,9 @@ class Menu extends BaseModel
     public function parentMenu(){
         return $this->belongsTo('App\Models\Menu', 'parent_id', 'id');
     }
+    public function categories(){
+        return $this->hasMany('App\Models\Category', 'menu_id', 'id');
+    }
     
 
     /*

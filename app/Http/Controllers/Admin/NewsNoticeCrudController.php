@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Category;
 use App\Models\NewsNotice;
 use App\Http\Requests\NewsNoticeRequest;
 use App\Http\Controllers\Admin\BaseCrudController;
@@ -85,6 +86,22 @@ class NewsNoticeCrudController extends BaseCrudController
                     'class' => 'form-group col-md-6',
                 ]
 
+            ],
+            [
+                'label' => "Category",
+                'type' => 'select2',
+                'name' => 'category_id',
+                'entity' => 'category',
+                'attribute' => 'name',
+                'model' => 'App\Models\Category',
+                // 'default' => 5,
+                // optional
+                'options' => (function ($query) {
+                    return Category::query()->where('deleted_uq_code',1)->where('menu_id',4)->get();
+                }),
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-3',
+                ]
             ],
             [
                 'name' => 'description',
