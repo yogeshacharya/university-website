@@ -12,7 +12,7 @@
                         <h1 class="text-center">Our Team</h1>
                         <div class="breadcrumb-bar">
                             <ul class="breadcrumb text-center">
-                                <li><a href="/home">About Us</a></li>
+                                <li><a href="{{url('/home')}}">About Us</a></li>
                                 <li>Our Team</li>
                             </ul>
                         </div>

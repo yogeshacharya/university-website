@@ -21,7 +21,7 @@
                         <h1 class="text-center">Scholarship</h1>
                         <div class="breadcrumb-bar">
                             <ul class="breadcrumb text-center">
-                                <li><a href="index.html">About Us</a></li>
+                                <li><a href="{{url('/home')}}">About Us</a></li>
                                 <li>Scholarship</li>
                             </ul>
                         </div>

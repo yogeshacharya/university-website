@@ -18,9 +18,10 @@ class MasterSeeder extends Seeder
     {
         $this->clean_tables();
         $this->userSeeder();
+        $this->menuSeeder();
+        $this->category();
         $this->mst_social_media();
         $this->department_type();
-        $this->menuSeeder();
         $this->feeType();
         $this->courses();
         $this->sliders();
@@ -34,11 +35,12 @@ class MasterSeeder extends Seeder
         $this->blogs();
         $this->scholarship();
     }
-
+    
     public function clean_tables(){
         DB::table('users')->delete();
-        DB::table('mst_social_media')->delete();
         DB::table('menus')->delete();
+        DB::table('categories')->delete();
+        DB::table('mst_social_media')->delete();
         DB::table('mst_fee_types')->delete();
         DB::table('courses')->delete();
         DB::table('sliders')->delete();
@@ -53,7 +55,38 @@ class MasterSeeder extends Seeder
         DB::table('blogs')->delete();
         DB::table('scholarships')->delete();
     }
+    public function userSeeder(){
+        DB::table('users')->insert([
+            ['id' => 1,'name' => 'admin', 'email' => 'admin@gmail.com','password'=> \Hash::make('123456')],
+        ]); 
+    }
+    public function category(){
+        DB::table('categories')->insert([
+            // gallery
+            ['id' => 1,'name' => 'First cat','menu_id'=>'5','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'name' => 'Second cat','menu_id'=>'5','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'name' => 'Third_cat','menu_id'=>'5','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'name' => 'Fourth','menu_id'=>'5','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            
+            // news
+            ['id' => 5,'name' => 'Gallery','menu_id'=>'4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 6,'name' => 'Contact Us','menu_id'=>'4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 7,'name' => 'Fee Stucture','menu_id'=>'4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 8,'name' => 'Our Team','menu_id'=>'4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 9,'name' => 'Scholarships','menu_id'=>'4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 10,'name' => 'Our Agents','menu_id'=>'4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+          
+            //events
+            ['id' => 11,'name' => 'Events','menu_id'=>'11','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 12,'name' => 'Blogs','menu_id'=>'11','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            
+            //blogs
+            ['id' => 13,'name' => 'blog one cat','menu_id'=>'12','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 14,'name' => 'blog_two_cat','menu_id'=>'12','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+        ]);
+        // DB::statement("SELECT SETVAL('menus_id_seq',1000)");
 
+    }
     private function mst_social_media(){
         DB::table('mst_social_media')->insert([
             array('id' => '1','code' => 'fb', 'name' => 'FaceBook', 'display_order' => 1, 'is_active' => true),
@@ -62,13 +95,6 @@ class MasterSeeder extends Seeder
             array('id' => '4','code' => 'goo', 'name' => 'Google', 'display_order' => 4, 'is_active' => true),            
         ]);
     }
-
-    public function userSeeder(){
-        DB::table('users')->insert([
-            ['id' => 1,'name' => 'admin', 'email' => 'admin@gmail.com','password'=> \Hash::make('123456')],
-        ]); 
-    }
-
     public function menuSeeder(){
         DB::table('menus')->insert([
             // mainmenus
@@ -190,12 +216,12 @@ class MasterSeeder extends Seeder
     public function gallery(){
         DB::table('galleries')->insert([
             // mainmenus
-            ['id' => 1,'title' => 'gallery One','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 2,'title' => 'gallery Two','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '2','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 3,'title' => 'gallery Three','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '3','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 4,'title' => 'gallery Four','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 5,'title' => 'gallery Five','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '5','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 6,'title' => 'gallery Six','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '6','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 1,'title' => 'gallery One','category_id'=>'1','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'title' => 'gallery Two','category_id'=>'2','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '2','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'title' => 'gallery Three','category_id'=>'2','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '3','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'title' => 'gallery Four','category_id'=>'1','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 5,'title' => 'gallery Five','category_id'=>'3','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '5','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 6,'title' => 'gallery Six','category_id'=>'1','file_upload'=>'Gallery/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '6','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }
