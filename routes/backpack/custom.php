@@ -61,7 +61,8 @@ Route::group([
     Route::get('/about_us/class', 'AboutUsController@class');
     Route::get('/about_us/fee_type', 'AboutUsController@feeType');
     Route::get('/about_us/scholarships', 'AboutUsController@scholarship');
-    Route::get('/about_us/agent_details', 'AboutUsController@agentDetail');
+    Route::get('/about_us/agents', 'AboutUsController@agents');
+    Route::get('/agent-detail/{id}', 'AboutUsController@agentDetail');
     Route::get('/gallery', 'GalleryController@index');
     Route::get('/contact_us', 'ContactUsController@index');
     Route::get('/news_notices', 'NewsController@index');

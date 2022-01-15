@@ -231,7 +231,7 @@ class CreateTableForCollege extends Migration
             $table->string('address',50)->nullable();
             $table->string('city',50)->nullable();
             $table->string('country',50)->nullable();
-            $table->string('description',500)->nullable();
+            $table->text('description')->nullable();
             $table->string('file_upload',500)->nullable();
             $table->unsignedInteger('display_order')->nullable();
                     
@@ -324,11 +324,30 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
         });
+        
+        Schema::create('footer_address', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('title')->nullable();
+            $table->string('full_address')->nullable();
+            $table->string('description')->nullable();
+            $table->string('phone',20)->nullable();
+            $table->string('fax',50)->nullable();
+            $table->string('email',50)->nullable();
+            $table->timestamps();
+            $table->unsignedInteger('created_by')->nullable();
+            $table->unsignedInteger('updated_by')->nullable();
+            $table->softDeletes();
+            $table->unsignedSmallInteger('deleted_by')->nullable();
+            $table->boolean('is_deleted')->nullable();
+            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
+        });
 
         Schema::create('hr_social_media', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->unsignedSmallInteger('human_resource_id')->nullable();
             $table->unsignedSmallInteger('social_media_id')->nullable();
+            $table->unsignedSmallInteger('agent_detail_id')->nullable();
+            $table->unsignedSmallInteger('college_detail_id')->nullable();
             $table->string('url',50)->nullable();
             $table->unsignedInteger('display_order')->nullable();
             $table->timestamps();
@@ -340,6 +359,8 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
 
+            $table->foreign('agent_detail_id','fk_hr_social_media_agent_detail_id')->references('id')->on('agent_details');
+            $table->foreign('college_detail_id','fk_hr_social_media_college_detail_id')->references('id')->on('footer_address');
             $table->foreign('human_resource_id','fk_hr_social_media_human_resource_id')->references('id')->on('human_resources');
             $table->foreign('social_media_id','fk_hr_social_media_social_media_id')->references('id')->on('mst_social_media');
         });
@@ -392,23 +413,6 @@ class CreateTableForCollege extends Migration
             $table->string('title',100)->nullable();
             $table->string('subtitle',100)->nullable();
             $table->string('logo',500)->nullable();
-            $table->timestamps();
-            $table->unsignedInteger('created_by')->nullable();
-            $table->unsignedInteger('updated_by')->nullable();
-            $table->softDeletes();
-            $table->unsignedSmallInteger('deleted_by')->nullable();
-            $table->boolean('is_deleted')->nullable();
-            $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-        });
-
-        Schema::create('footer_address', function (Blueprint $table) {
-            $table->smallIncrements('id');
-            $table->string('title')->nullable();
-            $table->string('full_address')->nullable();
-            $table->string('description')->nullable();
-            $table->string('phone',20)->nullable();
-            $table->string('fax',50)->nullable();
-            $table->string('email',50)->nullable();
             $table->timestamps();
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();

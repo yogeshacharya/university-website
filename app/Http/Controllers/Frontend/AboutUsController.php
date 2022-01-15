@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\Saying;
 use App\Models\Slider;
 use App\Models\AboutUs;
+use App\Models\AgentDetail;
 use App\Models\Scholarship;
 use Illuminate\Http\Request;
 use App\Models\HumanResource;
@@ -83,9 +84,11 @@ class AboutUsController extends Controller
     {
         $header_footer_data = $this->getHeaderFooterData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $courses = Course::where('deleted_uq_code',1)->paginate(10);
         $this->data = [
             'menus' => $menus,
             'header_footer_data' => $header_footer_data,
+            'courses' => $courses,
         ];
         return view('frontend.fee_type', $this->data);
     }
@@ -103,13 +106,28 @@ class AboutUsController extends Controller
         return view('frontend.scholarship', $this->data);
     }
 
-    public function agentDetail()
+    public function agents()
     {
         $header_footer_data = $this->getHeaderFooterData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $agents = AgentDetail::where('deleted_uq_code',1)->orderBy('display_order','asc')->paginate(6);
         $this->data = [
             'menus' => $menus,
             'header_footer_data' => $header_footer_data,
+            'agents' => $agents,
+        ];
+        return view('frontend.agents', $this->data);
+    }
+
+    public function agentDetail($id)
+    {
+        $header_footer_data = $this->getHeaderFooterData();
+        $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
+        $agent = AgentDetail::find($id);
+        $this->data = [
+            'menus' => $menus,
+            'header_footer_data' => $header_footer_data,
+            'agent' => $agent,
         ];
         return view('frontend.agent_details', $this->data);
     }

@@ -88,14 +88,14 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($course_fees as $fee)
-                                    @php
-                                    $fee_type = App\Models\FeeType::where('id',$fee->fee_type_id)->pluck('title')->first();
-                                    @endphp
-                                    <tr>
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{{$fee_type}}</td>
-                                        <td>{{$fee->total_fee}}</td>
-                                        <td>{{$fee->description}}</td>
+                                        @php
+                                        $fee_type = App\Models\FeeType::where('id',$fee->fee_type_id)->pluck('title')->first();
+                                        @endphp
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$fee_type}}</td>
+                                            <td>{{$fee->total_fee}}</td>
+                                            <td>{{$fee->description}}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
