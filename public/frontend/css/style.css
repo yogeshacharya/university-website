@@ -139,7 +139,7 @@ textarea:focus {
 }
 a:focus,
 a:hover {
-	color: #FFAE27;
+	color: green;
 	text-decoration: none;
 }
 a,
@@ -234,7 +234,7 @@ label {
 }
 .mark,
 mark {
-	background: #FFAE27 none repeat scroll 0 0;
+	background: green none repeat scroll 0 0;
 	color: #ffffff;
 }
 .fix {
@@ -259,8 +259,8 @@ mark {
 	transition: all 0.3s ease-in-out;
 }
 .button-default:hover {
-	background-color: #FFAE27;
-	color: #FFAE27;
+	background-color: green;
+	color: green;
 }
 .btn-group {
 	margin-left: 5px;
@@ -771,7 +771,7 @@ mark {
 /*----------------------------------------*/
 
 .header-top {
-	background: #203a72 none repeat scroll 0 0;
+	background: #543c4f none repeat scroll 0 0;
 	color: #ffffff;
 	font-size: 13px;
 	position: relative;
@@ -952,31 +952,31 @@ mark {
 	padding: 34px 0;
 }
 .mainmenu ul#nav > li > a:hover {
-	color: #FFAE27;
+	color: green;
 }
 .header-logo-menu.fixed .mainmenu ul#nav > li > a {
 	color: #fff;
 }
 .header-logo-menu.fixed .mainmenu ul#nav > li > a:hover {
-	color: #FFAE27;
+	color: green;
 }
 .header-logo-menu.fixed .search-menu i#toggle-search {
 	color: #fff;
 }
 .header-logo-menu.fixed .search-menu i#toggle-search:hover {
-	color: #FFAE27;
+	color: green;
 }
 .header-logo-menu.stick .mainmenu ul#nav > li > a {
 	color: #2d3e50;
 }
 .header-logo-menu.stick .mainmenu ul#nav > li > a:hover {
-	color: #FFAE27;
+	color: green;
 }
 .header-logo-menu.stick .search-menu i#toggle-search {
 	color: #2d3e50;
 }
 .header-logo-menu.stick .search-menu i#toggle-search:hover {
-	color: #FFAE27;
+	color: green;
 }
 .mainmenu ul#nav > li > a:after,
 .mainmenu ul#nav.menu-white > li > a:after {
@@ -1519,7 +1519,7 @@ mark {
 	text-transform: capitalize;
 }
 .about-area h3 span.orange-color {
-	color: #F5B01F;
+	color: green;
 }
 .about-area p {
 	line-height: 28px;
@@ -2317,7 +2317,7 @@ mark {
 /*----------------------------------------*/
 
 .footer-widget-area {
-	background: #1F3971 none repeat scroll 0 0;
+	background: #543c4f none repeat scroll 0 0;
 	color: #ffffff;
 	padding: 75px 0 65px;
 }
@@ -2329,7 +2329,6 @@ mark {
 }
 .single-footer-widget p {
 	font-size: 14px;
-	color: ;
 	line-height: 26px;
 	font-weight: 400;
 	margin-bottom: 0;
@@ -2403,7 +2402,7 @@ mark {
 	color: #ffffff;
 	font-size: 14px;
 	padding: 18px 0;
-	background-color: #1c3263;
+	background-color: #543c4f;
 }
 .column-right {
 	float: right
@@ -4393,7 +4392,7 @@ thead {
 	background-color: #FFAE27;
 }
 .yellow-bg {
-	background-color: #FFAE27;
+	background-color: #ff27a9;
 }
 .contact-form-wrap {
 	padding: 86px 60px;
@@ -4430,7 +4429,7 @@ thead {
 }
 .edubuzz-address {
 	padding: 89px 60px;
-	background-color: #1F3971;
+	background-color: #711f6b;
 }
 .edubuzz-address > p {
 	font-size: 14px;
@@ -4849,7 +4848,7 @@ input.checkbox {
 	width: 50px;
 }
 .search-error button:hover{
-    color: #FFAE27;
+    color: green;
 }
 .error-button a {
 	background: #FFAE27 none repeat scroll 0 0;
@@ -4884,12 +4883,12 @@ input.checkbox {
 	text-align: center;
 	width: 40px;
 	z-index: 9999;
-	background-color: #FFAE27;
+	background-color: green;
 }
 #scrollUp:hover {
-	background-color: #F4A012;
+	background-color: green;
 }
 
 .current-menu-item>a{
-	color:orange !important;
+	color:green !important;
 }

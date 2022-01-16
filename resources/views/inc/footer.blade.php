@@ -34,11 +34,12 @@
     <div class="footer-widget-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="single-footer-widget">
-                        <div class="footer-logo">
+                        <h3>LINCON COLLEGE</h3>
+                        {{-- <div class="footer-logo">
                             <a href="index.html"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' . $header_footer_data['college_details']->logo}}" alt=""></a>
-                        </div>
+                        </div> --}}
                         <p>{{$header_footer_data['college_details']->description}}</p>
                         <div class="social-icons">
                             <a href="#"><i class="zmdi zmdi-facebook"></i></a>
@@ -54,7 +55,6 @@
                         <h3>GET IN TOUCH</h3>
                         <a style="color: white;" href="tel:.'{{$header_footer_data['college_details']->phone}}'."><i class="fa fa-phone"></i>{{$header_footer_data['college_details']->phone}}</a>
                         <span><a style="color: white;" href="mailto:'.{{$header_footer_data['college_details']->email}}.'"><i class="fa fa-envelope"></i>{{$header_footer_data['college_details']->email}}</a></span>
-                        {{-- <span><i class="fa fa-globe"></i>www.educat.com</span> --}}
                         <span><a style="color: white;" href="http://maps.google.com/?q='.{{$header_footer_data['college_details']->full_address}}.'"><i class="fa fa-map-marker"></i>{{$header_footer_data['college_details']->full_address}}</a></span>
                     </div>
                 </div>
@@ -62,21 +62,19 @@
                     <div class="single-footer-widget">
                         <h3>Useful Links</h3>
                         <ul class="footer-list">
-                            <li><a href="#">Teachers &amp; Staff</a></li>
-                            <li><a href="#">Our Courses</a></li>
-                            <li><a href="#">Courses Categories</a></li>
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">Terms &amp; Conditions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="{{url('/about_us/our_team')}}">Our Team</a></li>
+                            <li><a href="{{url('/courses')}}">Our Courses</a></li>
+                            <li><a href="{{url('/scholarships')}}">Scholarship</a></li>
+                            <li><a href="{{url('/contact_us')}}">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                {{-- <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget">
                         <h3>Instagram</h3>
                         <ul id="Instafeed"></ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

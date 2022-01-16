@@ -11,7 +11,7 @@
                             <h1>{{$slider->title}}</h1>
                             <p>{{$slider->description}}</p>
                             <div class="slider-btn">
-                                <a class="button-default" href="course.html">View Courses</a>
+                                <a class="button-default" href="{{url('/courses')}}">View Courses</a>
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
     @endif
     <!--Slider Area End-->
     <!--About Area Start--> 
-    <div class="about-area mt-95">
+    <div class="about-area mt-85">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">

@@ -34,11 +34,11 @@
                                 @if(count($menus))
                                     <ul id="nav" class="nav-menu">
                                         @foreach($menus as $menu)
-                                            <li><a href="{{url($menu->link)}}">{{$menu->title}}</a>
+                                           <li><a href="{{url($menu->link)}}">{{$menu->title}}</a>
                                                 @if(count($menu->subMenus))
                                                     <ul class="sub-menu">
                                                         @foreach ($menu->subMenus as $subMenu)
-                                                            <li><a href="{{url($subMenu->link)}}">{{$subMenu->title}}</a>
+                                                           <li><a href="{{url($subMenu->link)}}">{{$subMenu->title}}</a>
                                                                 @if(count($subMenu->subMenus))
                                                                     <ul class="inside-menu">
                                                                         @foreach ($subMenu->subMenus as $second_level_sub_menu)
