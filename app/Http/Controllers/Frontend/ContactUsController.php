@@ -11,10 +11,12 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Base\Traits\HeaderFooterData;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ContactUsController extends Controller
 {
+    use ValidatesRequests;
+
     use HeaderFooterData;
     public function index()
     {

@@ -51,7 +51,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="contact-form-style mb-20">
-                                        <input name="full_name" placeholder="Full Name*" type="text" required="">
+                                        <input name="full_name" placeholder="Full Name*" type="text" required>
                                     </div>
                                      <!-- Error -->
                                      @if ($errors->has('full_name'))
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="contact-form-style mb-20">
-                                        <input name="phone" placeholder="Phone*" type="text" required="">
+                                        <input name="phone" placeholder="Phone*" type="text" required>
                                     </div>
 
                                     @if ($errors->has('phone'))
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="contact-form-style mb-20">
-                                        <input name="email" placeholder="Email*" type="email" required="">
+                                        <input name="email" placeholder="Email*" type="email" required>
                                     </div>
 
                                     @if ($errors->has('email'))

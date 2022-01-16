@@ -9,7 +9,7 @@
                     <div class="single-slider" style="background-image: url('{{url('/') . '/storage/uploads/' . $slider->file_upload}}')"> 
                         <div class="hero-slider-content">
                             <h1>{{$slider->title}}</h1>
-                            <p>{{$slider->description}}</p>
+                            <p>{!! $slider->description !!}</p>
                             <div class="slider-btn">
                                 <a class="button-default" href="{{url('/courses')}}">View Courses</a>
                             </div>
@@ -28,7 +28,7 @@
                 <div class="col-lg-7">
                     <div class="about-container">
                         <h3><span class="orange-color">{{$about_us->title}}</span> <span class="orange-color"></span></h3>
-                        <p>{{$about_us->details}}</p>
+                        <p>{!! $about_us->details !!}</p>
                         <a class="button-default" href="{{url('/about_us')}}">Learn More</a>	      
                     </div>
                 </div>
