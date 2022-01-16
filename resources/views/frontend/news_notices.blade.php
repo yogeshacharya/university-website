@@ -34,7 +34,7 @@
             </div>
             <div class="row">
                 @foreach ($news as $item)
-                    <div class="col-lg-3 col-md-4">
+                    <div class="col-lg-4 col-md-4">
                         <div class="single-event-item event-style-2">
                             <div class="single-event-image">
                                 <a href="{{url('/'). '/news-detail/' . $item->id}}l">
@@ -48,8 +48,8 @@
                                     <span><i class="zmdi zmdi-calendar"></i>{{date('d', strtotime($item->date))}} {{date('M', strtotime($item->date))}}</span>
                                     <span><i class="zmdi zmdi-eye"></i>{{$item->visit_counts}}</span>
                                 </div>
-                                <p>{!! Str::limit($item->description, 50) !!}</p>
-                                <a class="button-default" href="{{url('/'). '/news-detail/' . $item->id}}l">Know More</a>
+                                <p>{!! Str::limit($item->description, 80) !!}</p>
+                                <a class="button-default" href="{{url('/'). '/news-detail/' . $item->id}}">Know More</a>
                             </div>
                         </div>
                     </div>
