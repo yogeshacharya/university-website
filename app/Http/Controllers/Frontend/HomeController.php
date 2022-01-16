@@ -24,7 +24,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $sliders = Slider::where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $about_us = AboutUs::where('deleted_uq_code',1)->first();
@@ -55,7 +55,7 @@ class HomeController extends Controller
 
     public function getData($slug)
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('deleted_uq_code',1)->where('type_id','main')->orderBy('display_order','asc')->get();
         $pages = Page::where('deleted_uq_code',1)->where('slug',$slug)->first();
         $this->data = [

@@ -1,20 +1,17 @@
 <?php
 namespace App\Base\Traits;
 
-use App\Models\Header;
-use App\Models\FooterAddress;
+use App\Models\CollegeDetails;
 use Illuminate\Support\Facades\DB;
 
 
 trait HeaderFooterData
 {
-    private function getHeaderFooterData(){
+    private function getCollegeDetailsData(){
         
-        $header = Header::first();
-        $footer = FooterAddress::first();
+        $college_details = CollegeDetails::first();
 
-        $data['header'] = $header;             
-        $data['footer'] = $footer;             
+        $data['college_details'] = $college_details;             
 
         return $data;
     }

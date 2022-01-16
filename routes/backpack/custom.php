@@ -28,6 +28,7 @@ Route::group([
     Route::crud('news-notice', 'NewsNoticeCrudController');
     Route::crud('scholarship', 'ScholarshipCrudController');
     Route::crud('agent-detail', 'AgentDetailCrudController');
+    Route::crud('agent-detail/{agent_details_id}/agent-social-media', 'AgentSocialMediaCrudController');
     Route::crud('faq', 'FaqCrudController');
     Route::crud('slider', 'SliderCrudController');
     Route::crud('human-resource', 'HumanResourceCrudController');
@@ -41,10 +42,9 @@ Route::group([
     Route::crud('saying', 'SayingCrudController');
     Route::crud('mst-social-media', 'MstSocialMediaCrudController');
     Route::crud('category', 'CategoryCrudController');
+    Route::crud('college-details', 'CollegeDetailsCrudController');
+    Route::crud('college-details/{college_details_id}/college-social-media', 'CollegeSocialMediaCrudController');
 }); // this should be the absolute last line of this file
-
-
-
 Route::group([
     'prefix'     => '',
     'middleware' => ['web'],
@@ -64,7 +64,6 @@ Route::group([
     Route::get('/about_us/agents', 'AboutUsController@agents');
     Route::get('/agent-detail/{id}', 'AboutUsController@agentDetail');
     Route::get('/gallery', 'GalleryController@index');
-    Route::get('/contact_us', 'ContactUsController@index');
     Route::get('/news_notices', 'NewsController@index');
     Route::get('/news_notices/events', 'NewsController@events');
     Route::get('/news_notices/blogs', 'NewsController@blog');
@@ -78,5 +77,6 @@ Route::group([
     Route::get('/blogs/{category_id}', 'NewsController@filteredBlogs');
     Route::get('/news/{category_id}', 'NewsController@filteredNews');
 
-
+    Route::get('/contact_us', 'ContactUsController@index');
+    Route::post('/contact_us', 'ContactUsController@store')->name('contact_us');
 });

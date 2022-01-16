@@ -25,8 +25,7 @@ class MasterSeeder extends Seeder
         $this->feeType();
         $this->courses();
         $this->sliders();
-        $this->header();
-        $this->footer_address();
+        $this->college_details();
         $this->about_us();
         $this->human_resources();
         $this->gallery();
@@ -43,7 +42,6 @@ class MasterSeeder extends Seeder
         DB::table('mst_fee_types')->delete();
         DB::table('courses')->delete();
         DB::table('sliders')->delete();
-        DB::table('headers')->delete();
         DB::table('about_us')->delete();
         DB::table('human_resources')->delete();
         DB::table('galleries')->delete();
@@ -53,7 +51,7 @@ class MasterSeeder extends Seeder
         DB::table('blogs')->delete();
         DB::table('scholarships')->delete();
         DB::table('menus')->delete();
-        DB::table('footer_address')->delete();
+        DB::table('college_details')->delete();
     }
     public function userSeeder(){
         DB::table('users')->insert([
@@ -164,15 +162,9 @@ class MasterSeeder extends Seeder
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }
-    public function header(){
-        DB::table('headers')->insert([
-            // mainmenus
-            ['id' => 1,'title' => 'Lincon','logo'=>'Logo/noimg.jpg','subtitle'=>'subtitle of first','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-        ]); 
-        // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
-    }
-    public function footer_address(){
-        DB::table('footer_address')->insert([
+   
+    public function college_details(){
+        DB::table('college_details')->insert([
             ['id' => 1,'title' => 'Slider Two','full_address'=>'This is full address','phone'=>'+97798768766676','fax'=>'998878787','email'=>'sandip.silwal.ss@gamil.com','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");

@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
-class ContactUs extends BaseModel
+class CollegeSocialMedia extends BaseModel
 {
+    use CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
@@ -13,11 +15,10 @@ class ContactUs extends BaseModel
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'contact_us';
+    protected $table = 'college_social_media';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['full_name','phone','email','message'];
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
@@ -33,9 +34,11 @@ class ContactUs extends BaseModel
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function departmentType(){
-        return $this->belongsTo('App\Models\MstDepartmentType', 'department_type_id', 'id');
+    public function socialMedia(){
+        return $this->belongsTo('App\Models\MstSocialMedia', 'social_media_id', 'id');
     }
+
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

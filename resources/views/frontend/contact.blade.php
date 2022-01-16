@@ -26,11 +26,11 @@
                 <div class="col-md-12 col-lg-6 blue-bg">
                     <div class="edubuzz-address">
                         <h2 class="contact-title">You Can Contact With Us</h2>
-                        <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas human.</p>
+                        <p>Get in Touch With us in every moment.</p><br /><br /><br />
                         <ul>
-                            <li><i class="fa fa-fax"></i> Address : No 40 Baria Sreet 133/2 NewYork City</li>
-                            <li><i class="fa fa-phone"></i> Phone : +1 222 3333</li>
-                            <li><i class="fa fa-envelope-o"></i> Web: info@example.com</li>
+                            <li><i class="fa fa-fax"></i> Address : {{$header_footer_data['college_details']->full_address}}</li>
+                            <li><i class="fa fa-phone"></i> Phone : {{$header_footer_data['college_details']->phone}}</li>
+                            <li><i class="fa fa-envelope-o"></i> Email: {{$header_footer_data['college_details']->email}}</li>
                         </ul>
                         <div class="contact-social">
                             <h3><strong>Also Can Find Us</strong></h3>
@@ -46,27 +46,46 @@
                 <div class="col-md-12 col-lg-6 yellow-bg">
                     <div class="contact-form-wrap">
                         <h2 class="contact-title">SEND YOUR MESSAGE</h2>
-                        <form id="contact-form" action="https://template.hasthemes.com/edubuzz/edubuzz/mail.php" method="post">
+                        <form id="contact-form" action="{{route('contact_us')}}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-12">
                                     <div class="contact-form-style mb-20">
-                                        <input name="name" placeholder="Name*" type="text">
+                                        <input name="full_name" placeholder="Full Name*" type="text" required="">
                                     </div>
+                                     <!-- Error -->
+                                     @if ($errors->has('full_name'))
+                                     <div class="error">
+                                         {{ $errors->first('full_name') }}
+                                     </div>
+                                     @endif
                                 </div>
                                 <div class="col-12">
                                     <div class="contact-form-style mb-20">
-                                        <input name="phone" placeholder="Phone*" type="text">
+                                        <input name="phone" placeholder="Phone*" type="text" required="">
                                     </div>
+
+                                    @if ($errors->has('phone'))
+                                    <div class="error">
+                                        {{ $errors->first('phone') }}
+                                    </div>
+                                    @endif
                                 </div>
                                 <div class="col-12">
                                     <div class="contact-form-style mb-20">
-                                        <input name="email" placeholder="Email*" type="email">
+                                        <input name="email" placeholder="Email*" type="email" required="">
                                     </div>
+
+                                    @if ($errors->has('email'))
+                                    <div class="error">
+                                        {{ $errors->first('email') }}
+                                    </div>
+                                    @endif
                                 </div>
                                 <div class="col-md-12">
                                     <div class="contact-form-style">
                                         <textarea name="message" placeholder="Type your message here.."></textarea>
-                                        <button class="button-default" type="submit"><span>Send Email</span></button>
+                                        <button class="button-default" type="submit"><span>Submit</span></button>
                                     </div>
                                 </div>
                             </div>

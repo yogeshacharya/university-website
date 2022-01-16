@@ -10,7 +10,7 @@ class PageController extends Controller
     use HeaderFooterData;
     public function ourTeam()
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $about_us = AboutUs::where('deleted_uq_code',1)->get();
         $teachers = HumanResource::where('type',1)->where('deleted_uq_code',1)->orderBy('display_order','asc')->paginate(4);

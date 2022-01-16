@@ -17,7 +17,7 @@ class GalleryController extends Controller
     use HeaderFooterData;
     public function index()
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $galleries = Gallery::where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $categories = Category::where('menu_id',5)->where('deleted_uq_code',1)->paginate(8);

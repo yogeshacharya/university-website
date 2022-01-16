@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\AgentDetail;
+use App\Base\Traits\ParentData;
 use App\Http\Requests\AgentDetailRequest;
 use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -20,11 +21,18 @@ class AgentDetailCrudController extends BaseCrudController
      * 
      * @return void
      */
+    use ParentData;
     public function setup()
     {
         CRUD::setModel(\App\Models\AgentDetail::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/agent-detail');
-        CRUD::setEntityNameStrings('agent detail', 'agent details');
+        CRUD::setEntityNameStrings('Agent Detail', 'Agent Detail');
+        $this->setUpLinks(['edit']);
+    }
+
+    public function tabLinks()
+    {
+        return $this->setAgentDetailsTabs();
     }
 
     /**

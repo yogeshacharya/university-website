@@ -32,6 +32,25 @@ trait ParentData
         $links[] = ['label' => trans('Human Resource'), 'href' => backpack_url('human-resource/'.$parameters[0].'/edit')];
         $links[] = ['label' => trans('Hr Social Media'), 'href' => backpack_url('human-resource/'.$parameters[0].'/hr-social-media')];
         return $links;
+    }
+
+    public function setCollegeDetailsTabs()
+    {
+        $parameters = array_values(request()->route()->parameters);
+        $links = [];
+        $links[] = ['label' => trans('College Details'), 'href' => backpack_url('college-details/'.$parameters[0].'/edit')];
+        $links[] = ['label' => trans('Social Media'), 'href' => backpack_url('college-details/'.$parameters[0].'/college-social-media')];
+        return $links;
+
+    }
+
+    public function setAgentDetailsTabs()
+    {
+        $parameters = array_values(request()->route()->parameters);
+        $links = [];
+        $links[] = ['label' => trans('Agent Detail'), 'href' => backpack_url('agent-detail/'.$parameters[0].'/edit')];
+        $links[] = ['label' => trans('Social Media'), 'href' => backpack_url('agent-detail/'.$parameters[0].'/agent-social-media')];
+        return $links;
 
     }
 }

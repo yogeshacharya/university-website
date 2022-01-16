@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Base\Traits\ParentData;
-use App\Http\Requests\FooterAddressRequest;
+use App\Http\Requests\CollegeDetailsRequest;
 use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class FooterAddressCrudController
+ * Class CollegeDetailsCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class FooterAddressCrudController extends BaseCrudController
+class CollegeDetailsCrudController extends BaseCrudController
 {
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -22,15 +23,15 @@ class FooterAddressCrudController extends BaseCrudController
     use ParentData;
     public function setup()
     {
-        CRUD::setModel(\App\Models\FooterAddress::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/footer-address');
-        CRUD::setEntityNameStrings('Footer', 'Footer');
+        CRUD::setModel(\App\Models\CollegeDetails::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/college-details');
+        CRUD::setEntityNameStrings('College Detail', 'College Detail');
         $this->setUpLinks(['edit']);
     }
 
     public function tabLinks()
     {
-        return $this->setFooterTabs();
+        return $this->setCollegeDetailsTabs();
     }
 
     /**
@@ -62,7 +63,7 @@ class FooterAddressCrudController extends BaseCrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(FooterAddressRequest::class);
+        CRUD::setValidation(CollegeDetailsRequest::class);
         $arr = [
             [
                 'label' => trans('Title'),
@@ -71,6 +72,25 @@ class FooterAddressCrudController extends BaseCrudController
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
                 ]
+            ],
+            [
+                'label' => trans('SubTitle'),
+                'type' => 'text',
+                'name' => 'subtitle',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ]
+            ],
+            [
+                'name' => 'logo',
+                'type' => 'image',
+                'label' => 'Logo',
+                'disk' => 'uploads', 
+                'upload' => true,
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                
             ],
             [
                 'label' => trans('Full Address'),
@@ -114,6 +134,12 @@ class FooterAddressCrudController extends BaseCrudController
             ],
         ];
         $this->crud->addFields(array_filter($arr));
+
+        /**
+         * Fields can be defined using the fluent syntax or array syntax:
+         * - CRUD::field('price')->type('number');
+         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         */
     }
 
     /**

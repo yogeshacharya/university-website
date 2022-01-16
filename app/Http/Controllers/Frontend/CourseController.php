@@ -14,7 +14,7 @@ class CourseController extends Controller
     use HeaderFooterData;
     public function index()
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $courses = Course::where('deleted_uq_code',1)->where('is_active',true)->orderBy('created_at','desc')->paginate(6);
         $this->data = [
@@ -27,7 +27,7 @@ class CourseController extends Controller
 
     public function getCourseDetail($id)
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
         $course_detail = Course::find($id);
         $new_course = Course::latest()->take(3)->where('id','<>',$id)->get();

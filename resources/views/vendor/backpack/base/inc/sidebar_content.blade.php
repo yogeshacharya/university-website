@@ -10,6 +10,8 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('human-resource') }}'><i class='nav-icon la la-user'></i> Human Resource</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('event') }}'><i class='nav-icon la la-calendar'></i> Events</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('page') }}'><i class='nav-icon la la-file'></i> Page</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('category') }}'><i class='nav-icon la la-list-alt'></i> Categories</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('college-details') }}'><i class='nav-icon la la-copyright'></i> College Details</a></li>
 
 <li class="nav-item nav-dropdown">
 	<a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-database"></i>Master</a>
@@ -20,8 +22,8 @@
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('mst-class') }}'><i class='nav-icon la la-building'></i>Class</a></li>
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('contact-us') }}'><i class='nav-icon la la-phone'></i> Contact Us</a></li>
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('about-us') }}'><i class='nav-icon la la-address-card'></i> About us</a></li>
-	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('header') }}'><i class='nav-icon la la-header'></i> Header</a></li>
-	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('footer-address') }}'><i class='nav-icon la la-copyright'></i> Footer</a></li>
+	{{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('header') }}'><i class='nav-icon la la-header'></i> Header</a></li> --}}
+	{{-- <li class='nav-item'><a class='nav-link' href='{{ backpack_url('footer-address') }}'><i class='nav-icon la la-copyright'></i> Footer</a></li> --}}
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('mst-social-media') }}'><i class='nav-icon la la-users'></i> Mst Social Media</a></li>
 	<li class='nav-item'><a class='nav-link' href='{{ backpack_url('saying') }}'><i class='nav-icon la la-compass'></i> Sayings</a></li>
 	</ul>
@@ -35,4 +37,3 @@
 	  <li class="nav-item"><a class="nav-link" href="{{ backpack_url('permission') }}"><i class="nav-icon la la-key"></i> <span>Permissions</span></a></li>
 	</ul>
 </li>
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('category') }}'><i class='nav-icon la la-question'></i> Categories</a></li>

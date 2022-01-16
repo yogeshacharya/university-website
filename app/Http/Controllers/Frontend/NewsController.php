@@ -19,7 +19,7 @@ class NewsController extends Controller
     use HeaderFooterData;
     public function index()
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $news = NewsNotice::where('deleted_uq_code',1)->orderBy('display_order','asc')->paginate(6);
         $this->data = [
@@ -33,7 +33,7 @@ class NewsController extends Controller
     public function events()
     {
         $events = Event::where('deleted_uq_code',1)->paginate(6);
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $this->data = [
             'menus' => $menus,
@@ -46,7 +46,7 @@ class NewsController extends Controller
     public function filteredEvents($category_id)
     {
         $events = Event::where('deleted_uq_code',1)->where('category_id',$category_id)->paginate(6);
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $this->data = [
             'menus' => $menus,
@@ -57,7 +57,7 @@ class NewsController extends Controller
     }
     public function eventDetail($id)
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $event = Event::find($id);
         $latest_events = Event::latest()->take(5)->where('deleted_uq_code',1)->where('id','<>',$id)->get();
@@ -74,7 +74,7 @@ class NewsController extends Controller
 
     public function blog()
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $blogs = Blog::where('deleted_uq_code',1)->paginate(3);
         $this->data = [
@@ -86,7 +86,7 @@ class NewsController extends Controller
     }
     public function filteredBlogs($category_id)
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $blogs = Blog::where('deleted_uq_code',1)->where('category_id',$category_id)->paginate(6);
         $this->data = [
@@ -98,7 +98,7 @@ class NewsController extends Controller
     }
     public function blogDetail($id)
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $blog = Blog::find($id);
         $latest_blogs = Blog::latest()->take(5)->where('id','<>',$id)->get();
@@ -115,7 +115,7 @@ class NewsController extends Controller
     public function filteredNews($category_id)
     {
         $news = NewsNotice::where('deleted_uq_code',1)->where('category_id',$category_id)->paginate(6);
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $this->data = [
             'menus' => $menus,
@@ -126,7 +126,7 @@ class NewsController extends Controller
     }
     public function newsDetail($id)
     {
-        $header_footer_data = $this->getHeaderFooterData();
+        $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->where('deleted_uq_code',1)->orderBy('display_order','asc')->get();
         $news = NewsNotice::find($id);
         $latest_news = NewsNotice::latest()->take(5)->where('deleted_uq_code',1)->where('id','<>',$id)->get();

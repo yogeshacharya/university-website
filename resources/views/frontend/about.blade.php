@@ -44,31 +44,31 @@
     </div>
     <!--End of About Area-->
     <!--Fun Factor Area Start-->
-    <div class="fun-factor-area fun-bg-img">
+    <div class="fun-factor-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-fun-factor mb-30">
-                        <h2><span class="counter">79</span>+</h2>
+                        <h2><span class="counter">{{$teacher_count}}</span>+</h2>
                         <h4>Teachers</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-fun-factor mb-30">
-                        <h2><span class="counter">120</span>+</h2>
-                        <h4>Members</h4>
+                        <h2><span class="counter">{{$department_count}}</span>+</h2>
+                        <h4>Departments</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-fun-factor mb-30">
-                        <h2><span class="counter">36</span>+</h2>
+                        <h2><span class="counter">{{$course_count}}</span>+</h2>
                         <h4>Courses</h4>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-fun-factor mb-30">
-                        <h2><span class="counter">20</span>+</h2>
-                        <h4>Countries</h4>
+                        <h2><span class="counter">{{$member_count}}</span>+</h2>
+                        <h4>Members</h4>
                     </div>
                 </div>
             </div>

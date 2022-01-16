@@ -9,8 +9,8 @@
                 </div>
                 <div class="col-lg-5 col-md-6 col-12">
                     <div class="header-top-right">
-                        <span><a style="color: white;" href="tel:.'{{$header_footer_data['footer']->phone}}'.">Phone: {{$header_footer_data['footer']->phone}}</a></span>
-                        <span><a style="color: white;" href="mailto:'.{{$header_footer_data['footer']->email}}.'">Email: {{$header_footer_data['footer']->email}}</a></span>
+                        <span><a style="color: white;" href="tel:.'{{$header_footer_data['college_details']->phone}}'.">Phone: {{$header_footer_data['college_details']->phone}}</a></span>
+                        <span><a style="color: white;" href="mailto:'.{{$header_footer_data['college_details']->email}}.'">Email: {{$header_footer_data['college_details']->email}}</a></span>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-lg-3 col-12">
                     @php
-                     $logo = $header_footer_data['header']->logo;
+                     $logo = $header_footer_data['college_details']->logo;
                     @endphp
                     <div class="logo">
                         <a href="#"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' .$logo}}"alt="LINCON"></a>
