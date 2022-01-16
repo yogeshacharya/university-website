@@ -69,7 +69,7 @@ class CreateTableForCollege extends Migration
         Schema::table('menus', function (Blueprint $table) {
             $table->unsignedSmallInteger('parent_id')->nullable();
 
-            $table->foreign('parent_id','fk_menus_parent_id')->references('id')->on('menus')->onDelete('cascade')->change();;
+            $table->foreign('parent_id','fk_menus_parent_id')->references('id')->on('menus')->onDelete('cascade')->change();
         });
 
         Schema::create('categories', function (Blueprint $table) {
@@ -85,7 +85,7 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
 
-            $table->foreign('menu_id','fk_categories_menu_id')->references('id')->on('menus');
+            $table->foreign('menu_id','fk_categories_menu_id')->references('id')->on('menus')->onDelete('cascade')->change();
         });
         
         Schema::create('about_us', function (Blueprint $table) {
@@ -120,7 +120,9 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->foreign('category_id','fk_galleries_category_id')->references('id')->on('categories');
+
+
+            $table->foreign('category_id','fk_galleries_category_id')->references('id')->on('categories')->onDelete('cascade')->change();
 
         });
 
@@ -173,7 +175,7 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
 
-            $table->foreign('department_type_id','fk_contact_us_department_type_id')->references('id')->on('mst_department_types');
+            $table->foreign('department_type_id','fk_contact_us_department_type_id')->references('id')->on('mst_department_types')->onDelete('cascade')->change();
                     
         });
 
@@ -195,7 +197,7 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->foreign('category_id','fk_news_notices_category_id')->references('id')->on('categories');
+            $table->foreign('category_id','fk_news_notices_category_id')->references('id')->on('categories')->onDelete('cascade')->change();
         });
 
         Schema::create('scholarships', function (Blueprint $table) {
@@ -306,7 +308,7 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
 
-            $table->foreign('department_type_id','fk_human_resources_department_type_id')->references('id')->on('mst_department_types');
+            $table->foreign('department_type_id','fk_human_resources_department_type_id')->references('id')->on('mst_department_types')->onDelete('cascade')->change();
                     
         });
 
@@ -359,10 +361,10 @@ class CreateTableForCollege extends Migration
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
 
-            $table->foreign('agent_detail_id','fk_hr_social_media_agent_detail_id')->references('id')->on('agent_details');
-            $table->foreign('college_detail_id','fk_hr_social_media_college_detail_id')->references('id')->on('footer_address');
-            $table->foreign('human_resource_id','fk_hr_social_media_human_resource_id')->references('id')->on('human_resources');
-            $table->foreign('social_media_id','fk_hr_social_media_social_media_id')->references('id')->on('mst_social_media');
+            $table->foreign('agent_detail_id','fk_hr_social_media_agent_detail_id')->references('id')->on('agent_details')->onDelete('cascade')->change();
+            $table->foreign('college_detail_id','fk_hr_social_media_college_detail_id')->references('id')->on('footer_address')->onDelete('cascade')->change();
+            $table->foreign('human_resource_id','fk_hr_social_media_human_resource_id')->references('id')->on('human_resources')->onDelete('cascade')->change();
+            $table->foreign('social_media_id','fk_hr_social_media_social_media_id')->references('id')->on('mst_social_media')->onDelete('cascade')->change();
         });
 
 
@@ -386,7 +388,9 @@ class CreateTableForCollege extends Migration
             $table->unsignedSmallInteger('deleted_by')->nullable();
             $table->boolean('is_deleted')->nullable();
             $table->unsignedInteger('deleted_uq_code')->nullable()->default(1);
-            $table->foreign('category_id','fk_events_category_id')->references('id')->on('categories');
+
+
+            $table->foreign('category_id','fk_events_category_id')->references('id')->on('categories')->onDelete('cascade')->change();
 
         });
 

@@ -38,14 +38,12 @@ class MasterSeeder extends Seeder
     
     public function clean_tables(){
         DB::table('users')->delete();
-        DB::table('menus')->delete();
         DB::table('categories')->delete();
         DB::table('mst_social_media')->delete();
         DB::table('mst_fee_types')->delete();
         DB::table('courses')->delete();
         DB::table('sliders')->delete();
         DB::table('headers')->delete();
-        DB::table('footer_address')->delete();
         DB::table('about_us')->delete();
         DB::table('human_resources')->delete();
         DB::table('galleries')->delete();
@@ -54,6 +52,8 @@ class MasterSeeder extends Seeder
         DB::table('mst_department_types')->delete();
         DB::table('blogs')->delete();
         DB::table('scholarships')->delete();
+        DB::table('menus')->delete();
+        DB::table('footer_address')->delete();
     }
     public function userSeeder(){
         DB::table('users')->insert([
