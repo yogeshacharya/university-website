@@ -33,23 +33,9 @@ class ContactUsCrudController extends BaseCrudController
         $cols = [
             $this->addRowNumber(),
             [
-                'label' => "Department",
-                'type' => 'select',
-                'name' => 'department_type_id',
-                'entity' => 'departmentType',
-                'attribute' => 'title',
-                'model' => "App\Models\MstDepartmentType",
-                
-            ],
-            [
-                'label' => "First Name",
+                'label' => "Full Name",
                 'type' => 'text',
-                'name' => 'first_name',
-            ],
-            [
-                'label' => "Last Name",
-                'type' => 'text',
-                'name' => 'last_name',
+                'name' => 'full_name',
             ],
             [
                 'label' => "Email",
@@ -59,7 +45,7 @@ class ContactUsCrudController extends BaseCrudController
             [
                 'label' => "Phone",
                 'type' => 'text',
-                'name' => 'Phone',
+                'name' => 'phone',
             ],
             [
                 'label' => "Message",

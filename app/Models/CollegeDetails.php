@@ -31,6 +31,9 @@ class CollegeDetails extends BaseModel
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function socialMedias(){
+        return $this->hasMany('App\Models\CollegeSocialMedia', 'college_details_id', 'id');
+    }
 
     /*
     |--------------------------------------------------------------------------

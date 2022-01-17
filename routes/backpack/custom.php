@@ -78,5 +78,5 @@ Route::group([
     Route::get('/news/{category_id}', 'NewsController@filteredNews');
 
     Route::get('/contact_us', 'ContactUsController@index');
-    Route::post('/contact_us', 'ContactUsController@store')->name('contact_us');
+    Route::post('/contact_us', 'ContactUsController@store')->name('contact_us_form');
 });

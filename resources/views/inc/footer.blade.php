@@ -41,12 +41,13 @@
                             <a href="index.html"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' . $header_footer_data['college_details']->logo}}" alt=""></a>
                         </div> --}}
                         <p>{{$header_footer_data['college_details']->description}}</p>
+
                         <div class="social-icons">
-                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                            <a href="#"><i class="zmdi zmdi-rss"></i></a>
-                            <a href="#"><i class="zmdi zmdi-google-plus"></i></a>
-                            <a href="#"><i class="zmdi zmdi-pinterest"></i></a>
-                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                            @if(count($header_footer_data['college_details']->socialMedias))
+                                @foreach ($header_footer_data['college_details']->socialMedias as $socailmedia)
+                                <a target="_blank" href="{{$socailmedia->url}}" class="{{strtolower($socailmedia->socialMedia->name)}}"><i class="fa fa-{{strtolower($socailmedia->socialMedia->name)}}"></i></a>
+                                @endforeach
+                             @endif
                         </div>
                     </div>
                 </div>

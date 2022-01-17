@@ -33,60 +33,46 @@
                             <li><i class="fa fa-envelope-o"></i> Email: {{$header_footer_data['college_details']->email}}</li>
                         </ul>
                         <div class="contact-social">
+                            @if(count($header_footer_data['college_details']->socialMedias))
                             <h3><strong>Also Can Find Us</strong></h3>
-                            <ul>
-                                <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="zmdi zmdi-google-plus"></i></a></li>
-                                <li><a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
-                            </ul>
+                            <div class="social">
+                                @foreach ($header_footer_data['college_details']->socialMedias as $socailmedia)
+                                <li><a target="_blank" href="{{$socailmedia->url}}" class="{{strtolower($socailmedia->socialMedia->name)}}"><i class="fa fa-{{strtolower($socailmedia->socialMedia->name)}}"></i></a></li>
+                                @endforeach
+                            </div>
+                          @endif
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6 yellow-bg">
                     <div class="contact-form-wrap">
                         <h2 class="contact-title">SEND YOUR MESSAGE</h2>
-                        <form id="contact-form" action="{{route('contact_us')}}" method="post">
+                        <form id="contact" action="{{route('contact_us_form')}}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
                                     <div class="contact-form-style mb-20">
                                         <input name="full_name" placeholder="Full Name*" type="text" required>
                                     </div>
-                                     <!-- Error -->
-                                     @if ($errors->has('full_name'))
-                                     <div class="error">
-                                         {{ $errors->first('full_name') }}
-                                     </div>
-                                     @endif
                                 </div>
                                 <div class="col-12">
                                     <div class="contact-form-style mb-20">
                                         <input name="phone" placeholder="Phone*" type="text" required>
                                     </div>
-
-                                    @if ($errors->has('phone'))
-                                    <div class="error">
-                                        {{ $errors->first('phone') }}
-                                    </div>
-                                    @endif
+                                   
                                 </div>
                                 <div class="col-12">
                                     <div class="contact-form-style mb-20">
                                         <input name="email" placeholder="Email*" type="email" required>
                                     </div>
-
-                                    @if ($errors->has('email'))
-                                    <div class="error">
-                                        {{ $errors->first('email') }}
-                                    </div>
-                                    @endif
                                 </div>
                                 <div class="col-md-12">
                                     <div class="contact-form-style">
                                         <textarea name="message" placeholder="Type your message here.."></textarea>
-                                        <button class="button-default" type="submit"><span>Submit</span></button>
                                     </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <button class="button-default" type="submit"><span>Submit</span></button>
                                 </div>
                             </div>
                         </form>

@@ -9,10 +9,8 @@ trait HeaderFooterData
 {
     private function getCollegeDetailsData(){
         
-        $college_details = CollegeDetails::first();
-
+        $college_details = CollegeDetails::with('socialMedias')->first();
         $data['college_details'] = $college_details;             
-
         return $data;
     }
 

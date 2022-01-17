@@ -259,7 +259,7 @@ mark {
 	transition: all 0.3s ease-in-out;
 }
 .button-default:hover {
-	background-color: green;
+	background-color: pink;
 	color: green;
 }
 .btn-group {
@@ -4429,7 +4429,7 @@ thead {
 }
 .edubuzz-address {
 	padding: 89px 60px;
-	background-color: #711f6b;
+	background-color: green;
 }
 .edubuzz-address > p {
 	font-size: 14px;

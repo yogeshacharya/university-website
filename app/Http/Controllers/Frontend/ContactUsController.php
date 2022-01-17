@@ -10,12 +10,9 @@ use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Base\Traits\HeaderFooterData;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ContactUsController extends Controller
 {
-    use ValidatesRequests;
 
     use HeaderFooterData;
     public function index()
@@ -31,13 +28,15 @@ class ContactUsController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'full_name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-        ]);
 
-        ContactUs::create($request->all());
+        $data = [
+            'full_name' => $request->full_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
+        ];
+
+        ContactUs::create($data);
         return back()->with('success', 'We have received your message and would like to thank you for writing to us.');
     }
 }

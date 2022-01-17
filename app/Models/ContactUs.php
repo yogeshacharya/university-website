@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use Backpack\CRUD\app\Models\Traits\CrudTrait;
 
 class ContactUs extends BaseModel
 {
+    use CrudTrait;
 
     /*
     |--------------------------------------------------------------------------
