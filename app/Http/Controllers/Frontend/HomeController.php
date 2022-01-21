@@ -17,6 +17,7 @@ use App\Models\HumanResource;
 use App\Models\MstDepartmentType;
 use Illuminate\Routing\Controller;
 use App\Base\Traits\HeaderFooterData;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -63,6 +64,10 @@ class HomeController extends Controller
             'pages' => $pages,
             'header_footer_data' => $header_footer_data,
         ];
-        return view('frontend.general_page', $this->data);
+        if($pages->external_redirect_url != null){
+            return Redirect::away($pages->external_redirect_url); 
+        }else{
+            return view('frontend.general_page', $this->data);
+        }
     }
 }

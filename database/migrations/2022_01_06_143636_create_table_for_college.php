@@ -509,6 +509,7 @@ class CreateTableForCollege extends Migration
             $table->string('description',500)->nullable();
             $table->string('slug',50);
             $table->string('file_upload')->nullable();
+            $table->string('external_redirect_url')->nullable();
             $table->timestamps();
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();

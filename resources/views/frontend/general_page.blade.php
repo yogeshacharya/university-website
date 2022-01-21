@@ -25,19 +25,37 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="about-container">
-                        <h3>Provide best <span class="orange-color">education</span> <span class="orange-color">services</span> for you</h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam eligendi expedita, provident cupiditate in excepturi.</p>
+                        <h3>{{$pages->title}}</h3>
+                        <p>{!! $pages->description !!}</p>
                     </div>
                 </div>
+                @php
+                $file_downloads = json_decode($pages->file_upload);
+                @endphp
                 <div class="col-lg-5">
-                    <!--About Image Area Start-->
-                    <div class="about-image-area img-full">
-                        <img src="img/about/about1.jpg" alt="">
+                    @php
+                    $file_downloads = json_decode($pages->file_upload);
+                    @endphp
+                    @foreach($file_downloads as $downloads)
+                    <div>
+                        
+                        <a  class="download_button" href="{{ asset('storage/uploads/').'/'.$downloads }}"  title="Download">
+                            <i class="fa fa-download" aria-hidden="true">File Download</i>
+                        </a>
                     </div>
-                    <!--About Image Area End-->
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
 @endsection
+<style>
+    .download_button {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+</style>

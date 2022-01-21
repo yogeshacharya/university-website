@@ -247,7 +247,7 @@ mark {
 	padding: 0.2em 0;
 }
 .button-default {
-	background: #1F3971 none repeat scroll 0 0;
+	background: #ff00bc none repeat scroll 0 0;
 	color: #ffffff;
 	display: inline-block;
 	font-size: 14px;
@@ -1463,7 +1463,7 @@ mark {
 	width: 60px;
 	height: 60px;
 	line-height: 60px;
-	background: #1F3971 !important;
+	background: #ff00bc !important;
 	border: 0;
 	text-align: center;
 	border-radius: 100%;
