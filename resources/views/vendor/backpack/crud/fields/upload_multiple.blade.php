@@ -1,7 +1,12 @@
 @php
-    $field['wrapper'] = $field['wrapper'] ?? $field['wrapperAttributes'] ?? [];
-    $field['wrapper']['data-init-function'] = $field['wrapper']['data-init-function'] ?? 'bpFieldInitUploadMultipleElement';
-    $field['wrapper']['data-field-name'] = $field['wrapper']['data-field-name'] ?? $field['name'];
+    if (!isset($field['wrapperAttributes']) || !isset($field['wrapperAttributes']['data-init-function'])){
+        $field['wrapperAttributes']['data-init-function'] = 'bpFieldInitUploadMultipleElement';
+    }
+
+    if (!isset($field['wrapperAttributes']) || !isset($field['wrapperAttributes']['data-field-name'])) {
+        $field['wrapperAttributes']['data-field-name'] = $field['name'];
+    }
+
 @endphp
 
 <!-- upload multiple input -->
@@ -20,16 +25,28 @@
 	@endphp
 	@if (count($values))
     <div class="well well-sm existing-file">
-    	@foreach($values as $key => $file_path)
-    		<div class="file-preview">
-    			@if (isset($field['temporary']))
-		            <a target="_blank" href="{{ isset($field['disk'])?asset(\Storage::disk($field['disk'])->temporaryUrl($file_path, Carbon\Carbon::now()->addMinutes($field['temporary']))):asset($file_path) }}">{{ $file_path }}</a>
-		        @else
-		            <a target="_blank" href="{{ isset($field['disk'])?asset(\Storage::disk($field['disk'])->url($file_path)):asset($file_path) }}">{{ $file_path }}</a>
-		        @endif
-		    	<a href="#" class="btn btn-light btn-sm float-right file-clear-button" title="Clear file" data-filename="{{ $file_path }}"><i class="la la-remove"></i></a>
-		    	<div class="clearfix"></div>
-	    	</div>
+		@foreach($values as $key => $file_path)
+		<?php
+		$data = explode('.', $file_path);
+		$extension = $data[1];
+		?>
+		@if($extension == 'pdf')
+		<div class="file-preview" style="display:inline-flex;">
+			<a target="_blank" href="{{ isset($field['disk'])?asset(\Storage::disk($field['disk'])->url($file_path)):asset($file_path) }}"> <i class="la la-file-pdf-o fa-3x" style="color:red; position:relative; top:-10px"></i></a>
+			<a id="{{ $field['name'] }}_{{ $key }}_clear_button" href="#" class="btn btn-default btn-xs pull-right file-clear-button" title="Clear file" data-filename="{{ $file_path }}"><i class="fa fa-remove"></i></a>
+
+		</div>
+		@else
+		<div class="file-preview" style="display:inline-flex;">
+			<img class="image_thumbnail" style="max-height:40px; max-width:40x; border-radius:10px; margin-top:10px;" src="{{ isset($field['disk'])?asset(\Storage::disk($field['disk'])->url($file_path)):asset($file_path) }}" />
+			<a id="{{ $field['name'] }}_{{ $key }}_clear_button" href="#" class="btn btn-default btn-xs pull-right file-clear-button" title="Clear file" data-filename="{{ $file_path }}"><i class="fa fa-remove"></i></a>
+		</div>
+
+		<div class="modal" id="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" id="modal-content">
+		</div>
+		@endif
     	@endforeach
     </div>
     @endif
@@ -86,7 +103,7 @@
 		        fileInput.change(function() {
 	                inputLabel.html("Files selected. After save, they will show up above.");
 		        	// remove the hidden input, so that the setXAttribute method is no longer triggered
-					$(this).next("input[type=hidden]:not([name='clear_"+fieldName+"[]'])").remove();
+		        	$(this).next("input[type=hidden]").remove();
 		        });
         	}
         </script>

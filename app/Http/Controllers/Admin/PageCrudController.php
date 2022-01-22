@@ -35,10 +35,26 @@ class PageCrudController extends BaseCrudController
      */
     protected function setupListOperation()
     {
-        
-
-        CRUD::column('title');
-        CRUD::column('slug');
+        $cols = [
+            $this->addRowNumber(),
+            [
+                'name'=>'title',
+                'type'=>'numtextber',
+                'label' => 'Title',
+            ],
+            [
+                'label' => 'Redirect Url',
+                'type' => 'text',
+                'name' => 'external_redirect_url',
+            ],
+            [
+                'label' => 'Upload Document',
+                'name' => 'file_upload',
+                'type' => 'upload_multiple',
+                'prefix' => 'storage/uploads/',
+            ],
+        ];
+        $this->crud->addColumns($cols);  
     }
 
     /**
@@ -56,7 +72,7 @@ class PageCrudController extends BaseCrudController
                 'type' => 'text',
                 'name' => 'title',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -73,7 +89,15 @@ class PageCrudController extends BaseCrudController
                         ->get();
                 }),
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-6',
+                    'class' => 'form-group col-md-4',
+                ]
+            ],
+            [
+                'label' => trans('External Link'),
+                'type' => 'text',
+                'name' => 'external_redirect_url',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -86,8 +110,8 @@ class PageCrudController extends BaseCrudController
             ],
             [
                 'name' => 'file_upload',
-                'type' => 'image',
-                'label' => 'Image',
+                'type' => 'upload_multiple',
+                'label' => 'File Upload',
                 'disk' => 'uploads', 
                 'upload' => true,
                 'wrapperAttributes' => [
