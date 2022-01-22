@@ -3145,6 +3145,9 @@ mark {
 .agent .image .social a.facebook {
 	background-color: #4867AA;
 }
+.agent .image .social a.youtube {
+	background-color: red;
+}
 .agent .image .social a:nth-child(2) {
 	-webkit-transition-delay: 0.15s;
 	transition-delay: 0.15s;
@@ -4611,6 +4614,9 @@ thead {
 }
 .team-content .social a.facebook {
   background-color: #4867AA;
+}
+.team-content .social a.youtube {
+  background-color: red;
 }
 .team-content .social a.twitter {
   background-color: #1DA1F2;

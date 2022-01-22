@@ -43,7 +43,9 @@ class AgentDetail extends BaseModel
     | SCOPES
     |--------------------------------------------------------------------------
     */
-
+    public function socialMedias(){
+        return $this->hasMany('App\Models\AgentSocialMedia', 'agent_details_id', 'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | ACCESSORS

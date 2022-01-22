@@ -166,6 +166,18 @@ class CourseCrudController extends BaseCrudController
                 ],
                 
             ],
+            [   // Upload
+                'name'      => 'syllabus',
+                'label'     => 'Syllabus/Program Details',
+                'type'      => 'upload',
+                'upload'    => true,
+                'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
+                // optional:
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ],
+                // 'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URLs this will make a URL that is valid for the number of minutes specified
+            ],
             [  
                 'name'  => 'course_structure',
                 'label'   => trans('Course Structure'),

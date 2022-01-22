@@ -142,8 +142,8 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="sidebar-widget">
-                        <a class="button-default button-download" href="#">Download <i class="fa fa-download"></i></a>
-                        <a class="button-default button-apply" href="#">Apply Now <i class="fa fa-check-circle"></i></a>
+                        <a class="button-default button-download" href="{{ ($course_detail->syllabus)?asset('storage/uploads/').'/'.$course_detail->syllabus:'#' }}">Download <i class="fa fa-download"></i></a>
+                        <a class="button-default button-apply" href="{{ ($header_footer_data['college_details']->enrolment_form)?asset('storage/uploads/').'/'.$header_footer_data['college_details']->enrolment_form:'#' }}">Apply Now <i class="fa fa-check-circle"></i></a>
                         <a class="button-default button-enquary" href="{{url('/contact_us')}}">Course Enquary &nbsp;<i class="fa fa-phone-square"></i></a>
                         <div class="single-sidebar-widget">
                             <h3 class="sidebar-title">Course Structure </h3>

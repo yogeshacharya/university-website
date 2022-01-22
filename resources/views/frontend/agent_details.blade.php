@@ -44,12 +44,13 @@
                                     <li><i class="zmdi zmdi-view-web"></i><a href="#">{{$agent->website}}</a></li>
                                     {{-- <li><i class="zmdi zmdi-book-image"></i>5 Research Published</li> --}}
                                 </ul>
-                                {{-- <div class="social">
-                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-                                </div> --}}
+                                @if(count($agent->socialMedias))
+                                    <div class="social">
+                                        @foreach ($agent->socialMedias as $socailmedia)
+                                            <a href="{{$socailmedia->url}}" class="{{strtolower($socailmedia->socialMedia->name)}}"><i class="fa fa-{{strtolower($socailmedia->socialMedia->name)}}"></i></a>
+                                        @endforeach
+                                    </div>
+                                @endif
                             </div>
                             {{-- <div class="col-md-6 col-12 mb-30">
                                 <h4>Teacher Info</h4>

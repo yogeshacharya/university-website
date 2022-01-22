@@ -37,6 +37,9 @@ class AgentSocialMedia extends BaseModel
     public function socialMedia(){
         return $this->belongsTo('App\Models\MstSocialMedia', 'social_media_id', 'id');
     }
+    public function agent(){
+        return $this->belongsTo('App\Models\AgentDetail', 'agent_details_id', 'id');
+    }
 
 
     /*

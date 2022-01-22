@@ -96,10 +96,20 @@ class Course extends BaseModel
             // $this->attributes[$attribute_name] = '/'.$public_destination_path.'/'.$filename;
         }
     }
+    public function setSyllabusAttribute($value)
+    {
+        $attribute_name = "syllabus";
+        $disk = "uploads";
+        $destination_path = "Syllabus";
+
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+
+    // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
+    }
     public static function boot()
     {
         parent::boot();
-        static::deleted(function ($obj) {
+        static::deleting(function($obj) {
             Storage::disk('uploads')->delete($obj->image);
         });
     }

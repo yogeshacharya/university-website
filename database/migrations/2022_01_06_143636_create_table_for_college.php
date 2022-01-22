@@ -145,6 +145,7 @@ class CreateTableForCollege extends Migration
             $table->json('courses_fee',100)->nullable(); //type // fee //description
             $table->unsignedInteger('display_order')->nullable();
             $table->unsignedInteger('visit_counts')->nullable();
+            $table->string('syllabus')->nullable();
             $table->unsignedInteger('ratings')->nullable();
                     
             $table->timestamps();
@@ -352,6 +353,7 @@ class CreateTableForCollege extends Migration
             $table->string('gps',1000)->nullable();
             $table->string('email',50)->nullable();
             $table->string('logo',500)->nullable();
+            $table->string('enrolment_form')->nullable();
             $table->timestamps();
             $table->unsignedInteger('created_by')->nullable();
             $table->unsignedInteger('updated_by')->nullable();

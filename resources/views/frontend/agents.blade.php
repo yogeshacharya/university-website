@@ -37,10 +37,10 @@
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="single-latest-item">
                             <div class="single-latest-image">
-                                <a href="{{url('/'). '/agent-detail/' . $agent->id}}"><img src="{{url('/') . '/storage/uploads/' . $agent->file_upload}}" alt=""></a>
+                                <a href="{{url('/'). '/agent-detail/' . $agent->id}}"><img style="max-height:150px;" src="{{url('/') . '/storage/uploads/' . $agent->file_upload}}" alt=""></a>
                             </div>
                             <div class="single-latest-text">
-                                <h3><a href="{{url('/'). '/agent-detail/' . $agent->id}}">{{$agent->agent_name}}</a></h3>
+                                <h4><b><a href="{{url('/'). '/agent-detail/' . $agent->id}}">{{Str::limit($agent->agent_name,40)}}</a></b></h4>
                                 <div class="single-item-comment-view">
                                 <span><i class="zmdi zmdi-pin"></i>{{$agent->city}}, {{$agent->country}}</span>
                                 <span><i class="zmdi zmdi-phone"></i>{{$agent->phone}}</span><br>

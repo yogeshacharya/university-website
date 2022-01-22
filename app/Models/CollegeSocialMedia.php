@@ -37,6 +37,9 @@ class CollegeSocialMedia extends BaseModel
     public function socialMedia(){
         return $this->belongsTo('App\Models\MstSocialMedia', 'social_media_id', 'id');
     }
+    public function college(){
+        return $this->belongsTo('App\Models\CollegeDetails', 'college_details_id', 'id');
+    }
 
 
     /*

@@ -102,10 +102,20 @@ class CollegeDetails extends BaseModel
             // $this->attributes[$attribute_name] = '/'.$public_destination_path.'/'.$filename;
         }
     }
+    public function setEnrolmentFormAttribute($value)
+    {
+        $attribute_name = "enrolment_form";
+        $disk = "uploads";
+        $destination_path = "Forms";
+
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+
+    // return $this->attributes[{$attribute_name}]; // uncomment if this is a translatable field
+    }
     public static function boot()
     {
         parent::boot();
-        static::deleted(function ($obj) {
+        static::deleting(function($obj) {
             Storage::disk('uploads')->delete($obj->image);
         });
     }
