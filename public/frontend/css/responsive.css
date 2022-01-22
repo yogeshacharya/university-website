@@ -676,7 +676,8 @@
 		text-align: center;
 	}
 	.hero-slider-content {
-		margin: 0 10px;
+		margin: auto !important;
+		max-width: 400px !important;
 	}
 	.hero-slider-content > h1 {
 		font-size: 28px;

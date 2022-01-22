@@ -33,6 +33,7 @@ class MasterSeeder extends Seeder
         $this->news();
         $this->blogs();
         $this->scholarship();
+        $this->college_social_media();
     }
     
     public function clean_tables(){
@@ -52,6 +53,7 @@ class MasterSeeder extends Seeder
         DB::table('scholarships')->delete();
         DB::table('menus')->delete();
         DB::table('college_details')->delete();
+        DB::table('college_social_media')->delete();
     }
     public function userSeeder(){
         DB::table('users')->insert([
@@ -89,8 +91,9 @@ class MasterSeeder extends Seeder
         DB::table('mst_social_media')->insert([
             array('id' => '1','code' => 'fb', 'name' => 'FaceBook', 'display_order' => 1, 'is_active' => true),
             array('id' => '2','code' => 'tw', 'name' => 'Twitter', 'display_order' => 2, 'is_active' => true),            
-            array('id' => '3','code' => 'lin', 'name' => 'Linkden', 'display_order' => 3, 'is_active' => true),            
-            array('id' => '4','code' => 'goo', 'name' => 'Google', 'display_order' => 4, 'is_active' => true),            
+            array('id' => '3','code' => 'lin', 'name' => 'Linkedin', 'display_order' => 3, 'is_active' => true),            
+            array('id' => '4','code' => 'yu', 'name' => 'Youtube', 'display_order' => 4, 'is_active' => true),            
+            array('id' => '5','code' => 'ig', 'name' => 'Instagram', 'display_order' => 5, 'is_active' => true),            
         ]);
     }
     public function menuSeeder(){
@@ -127,29 +130,32 @@ class MasterSeeder extends Seeder
     public function courses(){
         DB::table('courses')->insert([
             // mainmenus
-            ['id' => 1,'name' => 'Photoshop CC 2017','levels'=>'Begineer','start_on'=>'2022-01-01','duration'=>15,
-                'class_size'=>40,'lectures'=>14,'time'=>'7 am to 12 pm','description' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            ['id' => 1,'name' => 'Diploma of Leadership and Management','levels'=>'Begineer','start_on'=>'2022-01-01','duration'=>15,
+                'class_size'=>40,'lectures'=>14,'time'=>'7 am to 12 pm','description' =>'This qualification reflects the role of individuals in a variety of information and communications technology (ICT) roles who have significant experience in specialist technical skills, or managerial business and people management skills.
+                Individuals in these roles carry out complex tasks in a specialist field, working independently, leading a team or a strategic direction of a business. They apply their skills across a wide range of industries and business functions, or as a business owner (sole trader/contractor).',
                 'entry_requirement' => 'Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content',
                 'course_structure'=>'[{"code":"001","course_title":"CourseTitle1","credit":"5hrs"}]',
-                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'anual','courses_fee'=>'[{"fee_type_id":"1","total_fee":"10000","description":"This is a description"}]',
+                'file_upload'=>'Course/course1.jpg','payment_plan'=>'anual','courses_fee'=>'[{"fee_type_id":"1","total_fee":"10000","description":"This is a description"}]',
                 'visit_counts'=>500,'ratings'=>3.5,'display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 2,'name' => 'Illustrator CC 2017','levels'=>'Intermediate','start_on'=>'2021-01-01','duration'=>10,
-            'class_size'=>30,'lectures'=>20,'time'=>'8 am to 1 pm','description' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            ['id' => 2,'name' => 'Advanced Diploma of Leadership and Management','levels'=>'Intermediate','start_on'=>'2021-01-01','duration'=>10,
+            'class_size'=>30,'lectures'=>20,'time'=>'8 am to 1 pm','description' =>'This qualification reflects the role of individuals in a variety of information and communications technology (ICT) roles who have significant experience in specialist technical skills, or managerial business and people management skills.',
                 'entry_requirement' => 'Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content',
                 'course_structure'=>'[{"code":"002","course_title":"CourseTitle2","credit":"8hrs"}]',
-                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'anual','courses_fee'=>'[{"fee_type_id":"2","total_fee":"14000","description":"This is a description"}]',
+                'file_upload'=>'Course/course2.jpg','payment_plan'=>'anual','courses_fee'=>'[{"fee_type_id":"2","total_fee":"14000","description":"This is a description"}]',
                 'visit_counts'=>100,'ratings'=>2,'display_order' => '2','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 3,'name' => 'Indesign CC 2017','levels'=>'Master','start_on'=>'2021-12-01','duration'=>25,
-            'class_size'=>20,'lectures'=>20,'time'=>'6 am to 10 pm','description' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            ['id' => 3,'name' => 'Graduate Diploma of Strategic Leadership','levels'=>'Master','start_on'=>'2021-12-01','duration'=>25,
+            'class_size'=>20,'lectures'=>20,'time'=>'6 am to 10 pm','description' =>'This qualification reflects the role of individuals in a variety of information and communications technology (ICT) roles who have significant experience in specialist technical skills, or managerial business and people management skills.
+
+            Individuals in these roles carry out complex tasks in a specialist field, working independently, leading a team or a strategic direction of a business. They apply their skills across a wide range of industries and business functions, or as a business owner (sole trader/contractor).',
                 'entry_requirement' => 'Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content',
                 'course_structure'=>'[{"code":"003","course_title":"CourseTitle3","credit":"3hrs"}]',
-                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'anual','courses_fee'=>'[{"fee_type_id":"3","total_fee":"10400","description":"This is a description"}]',
+                'file_upload'=>'Course/course3.jpg','payment_plan'=>'anual','courses_fee'=>'[{"fee_type_id":"3","total_fee":"10400","description":"This is a description"}]',
                 'visit_counts'=>200,'ratings'=>5,'display_order' => '3','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 4,'name' => 'Master In Economics','levels'=>'Begineer','start_on'=>'2021-09-01','duration'=>25,
-             'class_size'=>50,'lectures'=>20,'time'=>'9 am to 3 pm','description' =>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            ['id' => 4,'name' => 'Advanced Diploma of Information Technology','levels'=>'Begineer','start_on'=>'2021-09-01','duration'=>25,
+             'class_size'=>50,'lectures'=>20,'time'=>'9 am to 3 pm','description' =>'Individuals in these roles carry out complex tasks in a specialist field, working independently, leading a team or a strategic direction of a business. They apply their skills across a wide range of industries and business functions, or as a business owner (sole trader/contractor).',
                 'entry_requirement' => 'Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content Over 40 lectures and 60 hours of content',
                 'course_structure'=>'[{"code":"004","course_title":"master","credit":"4hrs"}]',
-                'file_upload'=>'Course/noimg.jpg','payment_plan'=>'monthly','courses_fee'=>'[{"fee_type_id":"3","total_fee":"15400","description":"This is a description"}]',
+                'file_upload'=>'Course/course4.jpg','payment_plan'=>'monthly','courses_fee'=>'[{"fee_type_id":"3","total_fee":"15400","description":"This is a description"}]',
                 'visit_counts'=>100,'ratings'=>4,'display_order' => '4','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
@@ -157,21 +163,32 @@ class MasterSeeder extends Seeder
     public function sliders(){
         DB::table('sliders')->insert([
             // mainmenus
-            ['id' => 1,'title' => 'Slider One','file_upload'=>'Sliders/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 2,'title' => 'Slider Two','file_upload'=>'Sliders/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 1,'display_order'=>2,'title' => 'START YOUR COREER WITH US','file_upload'=>'Sliders/slider1.jpg','description'=>'CAMPUS IN SYDNEY','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'display_order'=>1,'title' => 'START YOUR COREER WITH US','file_upload'=>'Sliders/slider2.jpg','description'=>'CAMPUS IN SYDNEY','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }
    
     public function college_details(){
         DB::table('college_details')->insert([
-            ['id' => 1,'title' => 'Slider Two','full_address'=>'This is full address','phone'=>'+97798768766676','fax'=>'998878787','email'=>'sandip.silwal.ss@gamil.com','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 1,'title' => 'Lincoln','logo'=>'Logo/logo.png','full_address'=>'This is full address','phone'=>'+97798768766676','fax'=>'998878787','email'=>'sandip.silwal.ss@gamil.com','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+        ]); 
+        // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
+    }
+    public function college_social_media(){
+        DB::table('college_social_media')->insert([
+            ['id' => 1,'college_details_id' => 1,'social_media_id'=> 1,'url'=>'https://www.facebook.com','display_order'=> 1,'is_active'=> 1,'created_by'=> 1,'deleted_uq_code'=> 1,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'college_details_id' => 1,'social_media_id'=> 2,'url'=>'https://www.twitter.com','display_order'=> 2,'is_active'=> 1,'created_by'=> 1,'deleted_uq_code'=> 1,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'college_details_id' => 1,'social_media_id'=> 3,'url'=>'https://www.linkedin.com','display_order'=> 3,'is_active'=> 1,'created_by'=> 1,'deleted_uq_code'=> 1,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'college_details_id' => 1,'social_media_id'=> 4,'url'=>'https://www.youtube.com','display_order'=> 4,'is_active'=> 1,'created_by'=> 1,'deleted_uq_code'=> 1,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 5,'college_details_id' => 1,'social_media_id'=> 5, 'url'=>'https://www.instagram.com','display_order'=> 5,'is_active'=> 1,'created_by'=> 1,'deleted_uq_code'=> 1,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }
     public function about_us(){
         DB::table('about_us')->insert([
-            ['id' => 1,'title' => 'Slider Two','file_upload'=>'Logo/noimg.jpg','details'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 1,'title' => 'WHY CHOOSE LINCOLN COLLEGE','file_upload'=>'AboutUs/about_us.jpg','details'=>'Medicus College is dedicatedly providing study options that prepare our students to become leaders and innovators in their careers. We can help you get started on your career path, opening a world of opportunity and gaining the skills to change yourself and the world.
+            We deliver quality education and training to international students according to the Australian Vocational Education and Training sector. We offer nationally recognised degrees that help our students develop skills that meet current industry needs. Our qualifications give students the knowledge and experience they need to be fully prepared for their chosen career path.','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }

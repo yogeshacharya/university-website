@@ -91,7 +91,7 @@ class CreateTableForCollege extends Migration
         Schema::create('about_us', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('title',255);
-            $table->string('details',500);
+            $table->text('details');
             $table->string('file_upload',500)->nullable();
                     
             $table->timestamps();

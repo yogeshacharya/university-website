@@ -27,9 +27,11 @@ class CourseController extends Controller
 
     public function getCourseDetail($id)
     {
+        $course_detail = Course::find($id);
+        $course_detail->visit_counts++;
+        $course_detail->save();
         $header_footer_data = $this->getCollegeDetailsData();
         $menus = Menu::where('type_id','main')->orderBy('display_order','asc')->get();
-        $course_detail = Course::find($id);
         $new_course = Course::latest()->take(3)->where('id','<>',$id)->get();
         $this->data = [
             'menus' => $menus,

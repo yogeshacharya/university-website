@@ -1,4 +1,41 @@
 @extends('layout.base')
+@section('css')
+<style>
+    .button-download:hover,.button-apply:hover,.button-enquary:hover{
+        color:white;
+        opacity: 1;
+        font-size: 14.5px;
+        background: green !important;
+    }
+    .button-download{
+        padding: 15px !important;
+        background: green;
+        color: white;
+        opacity: .8;
+        float: left;
+        font-size: 13px !important;
+        margin-right: 2%;
+        margin-bottom: 5px;
+    }
+    .button-apply{
+        padding: 15px !important;
+        background: green;
+        color: white;
+        opacity: .8;
+        font-size: 13px !important;
+        margin-bottom: 5px;
+    }
+    .button-enquary{
+        width: 97% !important;
+        padding: 15px !important;
+        background: green;
+        color: white;
+        margin-bottom: 5px;
+        opacity: .8;
+        text-align: center;
+    }
+</style>
+@endsection
 @section('content')
     <div class="breadcrumb-banner-area">
         <div class="container">
@@ -30,7 +67,7 @@
                         </div>
                         <div class="single-item-content">
                             <div class="single-item-comment-view">
-                                <span><i class="zmdi zmdi-accounts"></i>{{$course_detail->visit_counts}}</span>
+                                <span><i class="zmdi zmdi-eye"></i>{{$course_detail->visit_counts}}</span>
                             </div>
                             <div class="single-item-rating">
                                 <i class="zmdi zmdi-star"></i>
@@ -105,6 +142,9 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="sidebar-widget">
+                        <a class="button-default button-download" href="#">Download <i class="fa fa-download"></i></a>
+                        <a class="button-default button-apply" href="#">Apply Now <i class="fa fa-check-circle"></i></a>
+                        <a class="button-default button-enquary" href="{{url('/contact_us')}}">Course Enquary &nbsp;<i class="fa fa-phone-square"></i></a>
                         <div class="single-sidebar-widget">
                             <h3 class="sidebar-title">Course Structure </h3>
                             <ul class="course-menu">

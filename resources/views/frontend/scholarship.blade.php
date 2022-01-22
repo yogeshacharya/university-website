@@ -45,11 +45,11 @@
                                 <div class="blog-bottom-content">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h4 style="color:orange; padding-top:30px;"><b>Eligibility & selection criteria <span style="cursor: pointer;" class="showEligibility" onclick="showEligibility()">+</span><span style="cursor: pointer;" class="hideEligibility" onclick="hideEligibility()">-</span></b></h4>
+                                            <h4 style="color:orange; padding-top:30px;"><b><span style="cursor: pointer;" class="showEligibility" onclick="showEligibility()">Eligibility & selection criteria +</span><span style="cursor: pointer;" class="hideEligibility" onclick="hideEligibility()">Eligibility & selection criteria -</span></b></h4>
                                             <p class="eligibility">{{$scholarship->eligibility}}</p>
                                         </div>
                                         <div class="col-md-6">
-                                            <h4 style="color:orange; padding-top:30px;"><b>Application process <span style="cursor: pointer;" class="showProcess" onclick="showProcess()">+</span><span style="cursor: pointer;" class="hideProcess" onclick="hideProcess()">-</span></b></h4>
+                                            <h4 style="color:orange; padding-top:30px;"><b><span style="cursor: pointer;" class="showProcess" onclick="showProcess()">Application process +</span><span style="cursor: pointer;" class="hideProcess" onclick="hideProcess()">Application process -</span></b></h4>
                                             <p class="process">{{$scholarship->process}}</p>
                                         </div>
                                     </div>
@@ -87,14 +87,14 @@
                                 <h4 style="color: white; margin-top:20px;" class="title"><b>Department Contact info</b></h4>
                                 <ul class="course-categoris">
                                     <li><a style="color: white;" href="#">{{$scholarship->contact}}</a>
+                                    @if(count($header_footer_data['college_details']->socialMedias))
                                         <h4 style="color: white;padding-top:20px;"><b>Social Info</b></h4>
                                         <div class="social-info social-icons">
-                                            <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                                            <a href="#"><i class="zmdi zmdi-rss"></i></a>
-                                            <a href="#"><i class="zmdi zmdi-google-plus"></i></a>
-                                            <a href="#"><i class="zmdi zmdi-pinterest"></i></a>
-                                            <a href="#"><i class="zmdi zmdi-instagram"></i></a>
+                                            @foreach($header_footer_data['college_details']->socialMedias as $socialMedia)
+                                                <a href="{{$socialMedia->url}}"><i class="zmdi zmdi-{{strtolower($socialMedia->socialMedia->name)}}"></i></a>
+                                            @endforeach
                                         </div>
+                                    @endif
                                     </li>
                                 </ul>
                             </div>

@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="single-footer-widget">
-                        <h3>LINCON COLLEGE</h3>
+                        <h3>LINCOLN COLLEGE</h3>
                         {{-- <div class="footer-logo">
                             <a href="index.html"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' . $header_footer_data['college_details']->logo}}" alt=""></a>
                         </div> --}}
@@ -65,7 +65,7 @@
                         <ul class="footer-list">
                             <li><a href="{{url('/about_us/our_team')}}">Our Team</a></li>
                             <li><a href="{{url('/courses')}}">Our Courses</a></li>
-                            <li><a href="{{url('/scholarships')}}">Scholarship</a></li>
+                            <li><a href="{{url('/about_us/scholarships')}}">Scholarship</a></li>
                             <li><a href="{{url('/contact_us')}}">Contact Us</a></li>
                         </ul>
                     </div>
@@ -81,7 +81,7 @@
     </div>
     <!--End of Footer Widget Area-->
     <!--Footer Area Start-->
-    <div class="footer-area">
+    {{-- <div class="footer-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-7 col-12">
@@ -94,6 +94,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--End of Footer Area-->
 </footer>

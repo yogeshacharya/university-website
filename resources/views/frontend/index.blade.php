@@ -7,7 +7,7 @@
                 <!--Single Slider Start-->
                 @foreach($sliders as $slider)
                     <div class="single-slider" style="background-image: url('{{url('/') . '/storage/uploads/' . $slider->file_upload}}')"> 
-                        <div class="hero-slider-content">
+                        <div style="max-width: 500px;" class="hero-slider-content">
                             <h1>{{$slider->title}}</h1>
                             <p>{!! $slider->description !!}</p>
                             <div class="slider-btn">
@@ -28,7 +28,7 @@
                 <div class="col-lg-7">
                     <div class="about-container">
                         <h3><span class="orange-color">{{$about_us->title}}</span> <span class="orange-color"></span></h3>
-                        <p>{!! $about_us->details !!}</p>
+                        <p>{!! Str::limit($about_us->details,500) !!}</p>
                         <a class="button-default" href="{{url('/about_us')}}">Learn More</a>	      
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <div class="section-title-wrapper">
                             <div class="section-title">
                                 <h3>POPULAR COURSES</h3>
-                                <p>There are many variations courses in Lincon International College</p>
+                                {{-- <p>There are many variations courses in Lincon International College</p> --}}
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="single-item">
                                 <div class="single-item-image overlay-effect">
-                                    <a href="courses-details.html"><img src="{{url('/') . '/storage/uploads/' . $popular_course->file_upload}}" alt=""></a>
+                                    <a href="{{url('/'). '/courses/' . $popular_course->id}}"><img src="{{url('/') . '/storage/uploads/' . $popular_course->file_upload}}" alt=""></a>
                                     {{-- <div class="courses-hover-info">
                                         <div class="courses-hover-action">
                                             <div class="courses-hover-thumb">
@@ -75,11 +75,11 @@
                                     </div> --}}
                                 </div>
                                 <div class="single-item-text">
-                                    <h4><a href="courses-details.html">{{$popular_course->name}}</a></h4>
+                                    <h4><a href="{{url('/'). '/courses/' . $popular_course->id}}">{{$popular_course->name}}</a></h4>
                                     <p>{!! Str::limit($popular_course->description, 150) !!}</p>
                                     <div class="single-item-content">
                                         <div class="single-item-comment-view">
-                                            <span><i class="zmdi zmdi-accounts"></i>{{$popular_course->visit_counts}}</span>
+                                            <span><i class="zmdi zmdi-eye"></i>{{$popular_course->visit_counts}}</span>
                                             {{-- <span><i class="zmdi zmdi-favorite"></i>19</span> --}}
                                         </div>
                                         <div class="single-item-rating">
@@ -153,17 +153,17 @@
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="single-latest-item">
                             <div class="single-latest-image">
-                                <a href="blog-details.html"><img src="{{url('/') . '/storage/uploads/' . $news->file_upload}}" alt=""></a>
+                                <a href="{{url('/'). '/news-detail/' . $news->id}}"><img src="{{url('/') . '/storage/uploads/' . $news->file_upload}}" alt=""></a>
                             </div>
                             <div class="single-latest-text">
-                                <h3><a href="blog-details.html">{{$news->title}}</a></h3>
+                                <h3><a href="{{url('/'). '/news-detail/' . $news->id}}">{{$news->title}}</a></h3>
                                 <div class="single-item-comment-view">
                                     <span><i class="zmdi zmdi-calendar-check"></i>{{$news->date_ad}}</span>
                                     <span><i class="zmdi zmdi-eye"></i>{{$news->visit_counts}}</span>
                                     {{-- <span><i class="zmdi zmdi-comments"></i>19</span> --}}
                                 </div>
                                 <p>{!! Str::limit($news->description, 150) !!}</p>
-                                <a href="blog-details.html" class="button-default">Read More</a>
+                                <a href="{{url('/'). '/news-detail/' . $news->id}}" class="button-default">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -328,19 +328,19 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="single-event-item">
                                 <div class="single-event-image">
-                                    <a href="event-details.html">
+                                    <a href="{{url('/'). '/event-detail/' . $event->id}}">
                                         <img src="{{url('/') . '/storage/uploads/' . $event->file_upload}}" alt="">
                                         <span>{{date('d', strtotime($event->date))}} {{date('M', strtotime($event->date))}}</span>
                                     </a>
                                 </div>
                                 <div class="single-event-text">
-                                    <h3><a href="event-details.html">{{$event->name}}</a></h3>
+                                    <h3><a href="{{url('/'). '/event-detail/' . $event->id}}">{{$event->name}}</a></h3>
                                     <div class="single-item-comment-view">
                                         <span><i class="zmdi zmdi-time"></i>{{$event->time}}</span>
                                         <span><i class="zmdi zmdi-pin"></i>{{$event->location}}</span>
                                     </div>
                                     <p>{!! Str::limit($event->description, 150) !!}</p>
-                                    <a class="button-default" href="{{url('/events')}}">LEARN Now</a>
+                                    <a class="button-default" href="{{url('/'). '/event-detail/' . $event->id}}">Know More</a>
                                 </div>
                             </div>
                         </div>
