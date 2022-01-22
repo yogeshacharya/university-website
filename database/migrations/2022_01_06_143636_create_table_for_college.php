@@ -349,6 +349,7 @@ class CreateTableForCollege extends Migration
             $table->text('description')->nullable();
             $table->string('phone',20)->nullable();
             $table->string('fax',50)->nullable();
+            $table->string('gps',1000)->nullable();
             $table->string('email',50)->nullable();
             $table->string('logo',500)->nullable();
             $table->timestamps();

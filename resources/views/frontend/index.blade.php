@@ -339,7 +339,7 @@
                                         <span><i class="zmdi zmdi-time"></i>{{$event->time}}</span>
                                         <span><i class="zmdi zmdi-pin"></i>{{$event->location}}</span>
                                     </div>
-                                    <p>{!! Str::limit($event->description, 150) !!}</p>
+                                    <p>{!! Str::limit($event->description, 100) !!}</p>
                                     <a class="button-default" href="{{url('/'). '/event-detail/' . $event->id}}">Know More</a>
                                 </div>
                             </div>
@@ -349,5 +349,11 @@
             </div>
         </div>
     @endif
+    @php
+     $tag='<if';  
+    @endphp
+    <div class="row">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d74983.41378301271!2d150.9838068164885!3d-33.84249391117579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a4976b4734ed%3A0xf017d68f9f14250!2sBlaxland%20Riverside%20Park!5e0!3m2!1sen!2snp!4v1642845596251!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
     <!--End of Event Area-->
 @endsection

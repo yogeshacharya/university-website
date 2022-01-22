@@ -23,8 +23,16 @@
         <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
             <style>
-                .breadcrumb-banner-area {
+                .breadcrumb-banner-area,.testimonial-area {
                     background: rgba(0, 0, 0, 0) url("{{ asset('img/bg_img.jpg')}}") no-repeat scroll 0 0 !important;
+                    background-size: cover !important;
+                }
+                .testimonial-area,.fun-factor-area {
+                    background: rgba(0, 0, 0, 0) url("{{ asset('img/saying_bg.jpg')}}") no-repeat scroll 0 0 !important;
+                    background-size: cover !important;
+                }
+                .fun-factor-area {
+                    background: rgba(0, 0, 0, 0) url("{{ asset('img/count_bg.jpg')}}") no-repeat scroll 0 0 !important;
                     background-size: cover !important;
                 }
                 /* .rs-team .team-item-wrap .team-wrap {

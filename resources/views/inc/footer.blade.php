@@ -34,13 +34,13 @@
     <div class="footer-widget-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget">
                         <h3>LINCOLN COLLEGE</h3>
                         {{-- <div class="footer-logo">
                             <a href="index.html"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' . $header_footer_data['college_details']->logo}}" alt=""></a>
                         </div> --}}
-                        <p>{{$header_footer_data['college_details']->description}}</p>
+                        <p>{{Str::limit($header_footer_data['college_details']->description,100)}}</p>
 
                         <div class="social-icons">
                             @if(count($header_footer_data['college_details']->socialMedias))
@@ -63,29 +63,30 @@
                     <div class="single-footer-widget">
                         <h3>Useful Links</h3>
                         <ul class="footer-list">
-                            <li><a href="{{url('/about_us/our_team')}}">Our Team</a></li>
-                            <li><a href="{{url('/courses')}}">Our Courses</a></li>
-                            <li><a href="{{url('/about_us/scholarships')}}">Scholarship</a></li>
-                            <li><a href="{{url('/contact_us')}}">Contact Us</a></li>
+                            <li><a href="https://info.australia.gov.au/information-and-services/immigration-and-visas/work-visas">Work Permit</a></li>
+                            <li><a href="https://www.ato.gov.au/Individuals/Tax-File-Number/Apply-for-a-TFN/">Tax file application</a></li>
+                            <li><a href="https://www.usi.gov.au/students/get-a-usi">Unique student Identifier</a></li>
+                            <li><a href="{{url('/about_us/scholarships')}}">Scholarships</a></li>
+                            <li><a href="{{url('/news_notices')}}">Latest News & updates</a></li>
                         </ul>
                     </div>
                 </div>
-                {{-- <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget">
-                        <h3>Instagram</h3>
+                        <h3>Agent Portal</h3>
                         <ul id="Instafeed"></ul>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>
     <!--End of Footer Widget Area-->
     <!--Footer Area Start-->
-    {{-- <div class="footer-area">
+    <div class="footer-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-7 col-12">
-                    <span>Copyright &copy; All right reserved.Created by <a href="#">Lincon</a></span>
+                    <span>Copyright &copy; All right reserved.Created by <a href="#">Lincoln international college</a></span>
                 </div>
                 <div class="col-lg-6 col-md-5 col-12">
                     <div class="column-right">
@@ -94,6 +95,6 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!--End of Footer Area-->
 </footer>

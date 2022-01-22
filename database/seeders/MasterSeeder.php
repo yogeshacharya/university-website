@@ -34,6 +34,7 @@ class MasterSeeder extends Seeder
         $this->blogs();
         $this->scholarship();
         $this->college_social_media();
+        $this->saying();
     }
     
     public function clean_tables(){
@@ -54,6 +55,7 @@ class MasterSeeder extends Seeder
         DB::table('menus')->delete();
         DB::table('college_details')->delete();
         DB::table('college_social_media')->delete();
+        DB::table('sayings')->delete();
     }
     public function userSeeder(){
         DB::table('users')->insert([
@@ -171,7 +173,7 @@ class MasterSeeder extends Seeder
    
     public function college_details(){
         DB::table('college_details')->insert([
-            ['id' => 1,'title' => 'Lincoln','logo'=>'Logo/logo.png','full_address'=>'This is full address','phone'=>'+97798768766676','fax'=>'998878787','email'=>'sandip.silwal.ss@gamil.com','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 1,'title' => 'Lincoln','gps'=>'<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d74983.41378301271!2d150.9838068164885!3d-33.84249391117579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a4976b4734ed%3A0xf017d68f9f14250!2sBlaxland%20Riverside%20Park!5e0!3m2!1sen!2snp!4v1642845596251!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>','logo'=>'Logo/logo.png','full_address'=>'This is full address','phone'=>'+97798768766676','fax'=>'998878787','email'=>'sandip.silwal.ss@gamil.com','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }
@@ -237,36 +239,180 @@ class MasterSeeder extends Seeder
     public function events(){
         DB::table('events')->insert([
             // mainmenus
-            ['id' => 1,'name' => 'Event One','time'=>'09AM - 05PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/noimg.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Over 40 lectures and 60 hours of content','display_order' => '1','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 2,'name' => 'Event Two','time'=>'10AM - 03PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/noimg.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Live Project End to End Software Testing Training Included','display_order' => '2','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 3,'name' => 'Event Three','time'=>'09AM - 05PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/noimg.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Information packed practical training starting from basics to advanced testing techniques.','display_order' => '3','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 4,'name' => 'Event Four','time'=>'08AM - 01PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/noimg.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Course content designed by considering current software testing technology and the job market.','display_order' => '4','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 5,'name' => 'Event Five','time'=>'10AM - 06PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/noimg.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Best suitable for beginners to advanced level users and who learn faster when demonstrated.','display_order' => '5','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 6,'name' => 'Event Six','time'=>'01PM - 03PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/noimg.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Practical assignments at the end of every session.','display_order' => '6','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 1,'name' => 'Event One','time'=>'09AM - 05PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/event1.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Over 40 lectures and 60 hours of content','display_order' => '1','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'name' => 'Event Two','time'=>'10AM - 03PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/event2.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Live Project End to End Software Testing Training Included','display_order' => '2','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'name' => 'Event Three','time'=>'09AM - 05PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/event3.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Information packed practical training starting from basics to advanced testing techniques.','display_order' => '3','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'name' => 'Event Four','time'=>'08AM - 01PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/event4.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Course content designed by considering current software testing technology and the job market.','display_order' => '4','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 5,'name' => 'Event Five','time'=>'10AM - 06PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/event5.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Best suitable for beginners to advanced level users and who learn faster when demonstrated.','display_order' => '5','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 6,'name' => 'Event Six','time'=>'01PM - 03PM','location'=>'Gongabu, Kathmandu, Nepal','file_upload'=>'Event/event5.jpg','description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. t ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.','content'=>'Practical assignments at the end of every session.','display_order' => '6','date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }
     public function news(){
         DB::table('news_notices')->insert([
             // mainmenus
-            ['id' => 1,'title' => 'Title One','file_upload'=>'NewsNotice/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '1','visit_counts'=>400,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 2,'title' => 'Title Two','file_upload'=>'NewsNotice/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '2','visit_counts'=>500,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 3,'title' => 'Title Three','file_upload'=>'NewsNotice/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '3','visit_counts'=>600,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 4,'title' => 'Title Four','file_upload'=>'NewsNotice/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '4','visit_counts'=>500,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 5,'title' => 'Title Five','file_upload'=>'NewsNotice/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '5','visit_counts'=>300,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 6,'title' => 'Title Six','file_upload'=>'NewsNotice/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '6','visit_counts'=>500,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 1,'title' => 'Summer Holidays Announcement','file_upload'=>'NewsNotice/news1.jpg','description'=>'Dear All,
+
+                    As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                    At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                    We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                    Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                    LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                    Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '1','visit_counts'=>400,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'title' => 'Summer Holidays Announcement','file_upload'=>'NewsNotice/news2.jpg','description'=>'Dear All,
+
+                    As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                    At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                    We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                    Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                    LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                    Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '2','visit_counts'=>500,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'title' => 'Summer Holidays Announcement','file_upload'=>'NewsNotice/news3.jpg','description'=>'Dear All,
+
+                    As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                    At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                    We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                    Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                    LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                    Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '3','visit_counts'=>600,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'title' => 'Summer Holidays Announcement','file_upload'=>'NewsNotice/news4.jpg','description'=>'Dear All,
+
+                    As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                    At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                    We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                    Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                    LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                    Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '4','visit_counts'=>500,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 5,'title' => 'Summer Holidays Announcement','file_upload'=>'NewsNotice/news5.jpg','description'=>'Dear All,
+
+                    As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                    At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                    We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                    Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                    LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                    Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '5','visit_counts'=>300,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 6,'title' => 'Summer Holidays Announcement','file_upload'=>'NewsNotice/news5.jpg','description'=>'Dear All,
+
+                    As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                    At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                    We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                    Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                    LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                    Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '6','visit_counts'=>500,'date_ad'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }
     public function blogs(){
         DB::table('blogs')->insert([
             // mainmenus
-            ['id' => 1,'title' => 'Blog One','image'=>'Blog/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '1','visit_counts'=>400,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 2,'title' => 'Blog Two','image'=>'Blog/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '2','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 3,'title' => 'Blog Three','image'=>'Blog/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '3','visit_counts'=>600,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 4,'title' => 'Blog Four','image'=>'Blog/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '4','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 5,'title' => 'Blog Five','image'=>'Blog/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '5','visit_counts'=>300,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
-            ['id' => 6,'title' => 'Blog Six','image'=>'Event/noimg.jpg','description'=>'Donald Palmer is a Specialist Real Estate Agent with 8 years of Experience in Real Estate field. He achive success with his honesty,determination, hardwork and commetment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, totam?','display_order' => '6','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 1,'title' => 'Blog One','image'=>'Blog/blog1.jpg','description'=>'Dear All,
+
+                As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '1','visit_counts'=>400,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'title' => 'Blog Two','image'=>'Blog/blog2.jpg','description'=>'Dear All,
+
+                As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '2','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'title' => 'Blog Three','image'=>'Blog/blog3.jpg','description'=>'Dear All,
+
+                As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '3','visit_counts'=>600,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 4,'title' => 'Blog Four','image'=>'Blog/blog4.jpg','description'=>'Dear All,
+
+                As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '4','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 5,'title' => 'Blog Five','image'=>'Blog/blog5.jpg','description'=>'Dear All,
+
+                As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '5','visit_counts'=>300,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 6,'title' => 'Blog Six','image'=>'Event/blog5.jpg','description'=>'Dear All,
+
+                As we start to wrap up another eventful year, we wanted to take a moment to wish you and your family a Merry Christmas and happy 2022!
+
+                At the end of last year, we were looking forward to a new year with no more interruptions from Covid. Thank you for your continued trust in Medicus in 2021. We’ve taken the challenges in our stride, continuing to improve our students support with standards while also introducing innovative new plans and services.
+
+                We’d also like to remind you that our students support team will still be available over the phone to assist with any immediate concerns (info@medicus.edu.au).
+
+                Students Classes will resume from 31st January 2022 (this may vary, depending on the individual student’s timetable)
+
+                LMS Support: Available on weekdays except for public holidays and weekends (lmssupport@medicus.edu.au)
+
+                Admin/student Support Not available -23rd December till the 9th January 2022.','display_order' => '6','visit_counts'=>500,'date'=>Carbon::now()->toDateString(),'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }
@@ -318,6 +464,15 @@ class MasterSeeder extends Seeder
             Ph. 1300 131 017
             Email: info@medicus.edu.au
             Office Hours: 9AM – 5PM','application_open'=>Carbon::now()->toDateString(),'application_close'=>Carbon::now()->toDateString(),'display_order' => '1','created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+        ]); 
+
+        // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
+    }
+    public function saying(){
+        DB::table('sayings')->insert([
+            ['id' => 1,'display_order'=>1,'said_by' => "Dr. Hari Narayan Gupta",'saying'=> "Lincoln International college is on e of the best college on the world.Lincoln International college is on e of the best college on the world.Lincoln International college is on e of the best college on the world.",'image'=> 'Saying/saying.jpg','created_by'=> 1,'deleted_uq_code'=> 1,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 2,'display_order'=>2,'said_by' => "Dr. Hari Narayan Gupta",'saying'=> "Lincoln International college is on e of the best college on the world.Lincoln International college is on e of the best college on the world.Lincoln International college is on e of the best college on the world.",'image'=> 'Saying/saying1.jpg','created_by'=> 1,'deleted_uq_code'=> 1,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
+            ['id' => 3,'display_order'=>3,'said_by' => "Dr. Hari Narayan Gupta",'saying'=> "Lincoln International college is on e of the best college on the world.Lincoln International college is on e of the best college on the world.Lincoln International college is on e of the best college on the world.",'image'=> 'Saying/saying2.jpg','created_by'=> 1,'deleted_uq_code'=> 1,'created_at'=>Carbon::now()->toDateTimeString(),'updated_at'=>Carbon::now()->toDateTimeString()],
         ]); 
         // DB::statement("SELECT SETVAL('mst_fee_types_id_seq',1000)");
     }

@@ -93,6 +93,14 @@ class CollegeDetailsCrudController extends BaseCrudController
                 
             ],
             [
+                'label' => "Google map embed link",
+                'type' => 'text',
+                'name' => 'gps',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4',
+                ]
+            ],
+            [
                 'label' => trans('Full Address'),
                 'type' => 'text',
                 'name' => 'full_address',
