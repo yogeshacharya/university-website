@@ -17,10 +17,32 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div><br>
+    <div class="about-area mt-85">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="about-container">
+                        <h3><span class="orange-color">{{$pages->title}}</span> <span class="orange-color"></span></h3>
+                        <p>{!! $pages->description !!}</p>
+                        {{-- <a class="button-default" href="{{url('/pages')}}">Learn More</a>	       --}}
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <!--About Image Area Start-->
+                    <div class="about-image-area img-full">
+                        <img src="{{url('/') . '/storage/uploads/' . $pages->file_upload}}" alt="">
+                    </div>
+                    <!--About Image Area End-->
+                </div>
+            </div>
+        </div>
+    </div><br>
+
+
     <!--End of Breadcrumb Banner Area-->
     <!--About Area Start--> 
-    <div class="about-area mt-95">
+    {{-- <div class="about-area mt-95">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
@@ -47,7 +69,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 <style>
     .download_button {

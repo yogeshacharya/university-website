@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Menu;
+use App\Models\Page;
 use App\Http\Requests\PageRequest;
+use Prologue\Alerts\Facades\Alert;
 use App\Http\Controllers\Admin\BaseCrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -25,8 +27,40 @@ class PageCrudController extends BaseCrudController
         CRUD::setModel(\App\Models\Page::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/page');
         CRUD::setEntityNameStrings('Page', 'Page');
+        $this->data['script_js']= $this->getScriptJs();
     }
 
+    public function getScriptJs(){
+        return "
+        $(document).ready(function(){
+            if($('#type_id').val() == '0' || $('#type_id').val() == ''){
+                $('.title').val(null);
+                $('.title').hide();
+                $('.description').val(null);
+                $('.description').hide();
+                $('.file_upload').val(null);
+                $('.file_upload').hide();
+            }
+            $('.type_id').change(function() {
+                if($('#type_id').val() == '0'){
+                    $('#title').val(null);
+                    $('.title').hide();
+                    $('#description').val(null);
+                    $('.description').hide();
+                    $('#file_upload').val(null);
+                    $('.file_upload').hide();
+                    $('.external_link').show();
+                }else{
+                    $('.title').show();
+                    $('.description').show();
+                    $('.file_upload').show();
+                    $('#external_link').val(null);
+                    $('.external_link').hide();
+                }
+            });
+        });
+        ";
+    }
     /**
      * Define what happens when the List operation is loaded.
      * 
@@ -48,11 +82,11 @@ class PageCrudController extends BaseCrudController
                 'name' => 'external_redirect_url',
             ],
             [
-                'label' => 'Upload Document',
                 'name' => 'file_upload',
-                'type' => 'upload_multiple',
-                'prefix' => 'storage/uploads/',
-            ],
+                'type' => 'image',
+                'label' => "Image",
+                'disk'=>'uploads',
+            ]
         ];
         $this->crud->addColumns($cols);  
     }
@@ -68,15 +102,20 @@ class PageCrudController extends BaseCrudController
         CRUD::setValidation(PageRequest::class);
         $arr = [
             [
-                'label' => trans('Title'),
-                'type' => 'text',
-                'name' => 'title',
+                'label' => trans('common.type'),
+                'type' => 'select_from_array',
+                'name' => 'type',
+                'options' => Page::$type,
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-4',
+                    'class' => 'form-group col-md-4 type_id',
+                ],
+                'attributes'=>[
+                    'id'=>'type_id'
                 ]
+
             ],
             [
-                'label' => 'Sub Menu',
+                'label' => 'Menu',
                 'type' => 'select2',
                 'name' => 'sub_menu_id',
                 'entity' => 'subMenuEntity',
@@ -97,7 +136,21 @@ class PageCrudController extends BaseCrudController
                 'type' => 'text',
                 'name' => 'external_redirect_url',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-4',
+                    'class' => 'form-group col-md-4 external_link',
+                ],
+                'attributes'=>[
+                    'id'=>'external_link'
+                ]
+            ],
+            [
+                'label' => trans('Title'),
+                'type' => 'text',
+                'name' => 'title',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-4 title',
+                ],
+                'attributes'=>[
+                    'id'=>'title'
                 ]
             ],
             [
@@ -105,20 +158,36 @@ class PageCrudController extends BaseCrudController
                 'type' => 'ckeditor',
                 'name' => 'description',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-12',
+                    'class' => 'form-group col-md-12 description',
+                ],
+                'attributes'=>[
+                    'id'=>'description'
                 ]
             ],
             [
                 'name' => 'file_upload',
-                'type' => 'upload_multiple',
-                'label' => 'File Upload',
+                'type' => 'image',
+                'label' => 'Image',
                 'disk' => 'uploads', 
                 'upload' => true,
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-4',
+                    'class' => 'form-group col-md-4 file_upload',
                 ],
-                
+                'attributes'=>[
+                    'id'=>'file_upload'
+                ]
             ],
+            // [
+            //     'name' => 'file_upload',
+            //     'type' => 'upload_multiple',
+            //     'label' => 'File Upload',
+            //     'disk' => 'uploads', 
+            //     'upload' => true,
+            //     'wrapperAttributes' => [
+            //         'class' => 'form-group col-md-4',
+            //     ],
+                
+            // ],
          
         ];
         $this->crud->addFields(array_filter($arr));

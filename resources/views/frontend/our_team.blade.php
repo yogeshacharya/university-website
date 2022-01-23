@@ -49,6 +49,11 @@
                     </div>
                 @endforeach
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                        {{ $teams->links('inc.pagination') }}
+                </div>
+            </div><br>
         </div> 
     </div>
     <!-- Team Section End -->

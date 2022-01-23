@@ -510,6 +510,7 @@ class CreateTableForCollege extends Migration
             $table->string('title',100)->nullable();
             $table->unsignedSmallInteger('sub_menu_id')->nullable();
             $table->string('description',500)->nullable();
+            $table->unsignedSmallInteger('type')->nullable();
             $table->string('slug',50);
             $table->string('file_upload')->nullable();
             $table->string('external_redirect_url')->nullable();
