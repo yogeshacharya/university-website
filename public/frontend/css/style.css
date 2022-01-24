@@ -247,7 +247,7 @@ mark {
 	padding: 0.2em 0;
 }
 .button-default {
-	background: #ff00bc none repeat scroll 0 0;
+	background: rgb(236, 184, 86) none repeat scroll 0 0;
 	color: #ffffff;
 	display: inline-block;
 	font-size: 14px;
@@ -4897,4 +4897,19 @@ input.checkbox {
 
 .current-menu-item>a{
 	color:green !important;
+}
+.hero-slider .owl-nav > button {
+	background: rgb(236, 184, 86)  !important;
+}
+.header-top{
+	background: rgb(236, 184, 86);
+}
+.footer-widget-area{
+	background: rgb(236, 184, 86);
+}
+.footer-area {
+	background: rgb(236, 184, 86);
+}
+.single-event-image a > span {
+	background: rgb(236, 184, 86);
 }
