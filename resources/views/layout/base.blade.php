@@ -11,7 +11,7 @@
         
 		<!-- favicon
 		============================================ -->		
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/img/favicon.ico') }}" />
+        <link rel="shortcut icon" type="image/x-icon" href="{{url('/') . '/storage/uploads/' .$header_footer_data['college_details']->logo}}" />
 
 	   
 		<!-- Bootstrap CSS
