@@ -32,7 +32,7 @@ class NewsNoticeRequest extends FormRequest
         return [
             'title' => 'required|min:2|max:255',
             'category_id' => 'required',
-            'description' => 'required|min:2|max:500',
+            'description' => 'required|min:2',
             'display_order' => 'sometimes|unique:news_notices,display_order'.$id_check
         ];
     }

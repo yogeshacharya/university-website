@@ -29,7 +29,7 @@ class ContactUsRequest extends FormRequest
             'first_name' => 'required|min:2|max:32',
             'last_name' => 'required|min:2|max:32',
             'email' => 'required|email',
-            'message' => 'required|min:5|max:500',
+            'message' => 'required|min:5',
         ];
     }
 
