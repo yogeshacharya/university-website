@@ -45,10 +45,7 @@
                                 <span><i class="zmdi zmdi-pin"></i>{{$agent->city}}, {{$agent->country}}</span>
                                 <span><i class="zmdi zmdi-phone"></i>{{$agent->phone}}</span><br>
                                 <span><i class="zmdi zmdi-email"></i>{{$agent->email}}</span>
-                                {{-- <span><i class="zmdi zmdi-comments"></i>19</span> --}}
                             </div>
-                            <p></p>
-                            {{-- <a href="{{url('/'). '/agent-detail/' . $agent->id}}" class="button-default">Read More</a> --}}
                             </div>
                         </div>
                     </div>

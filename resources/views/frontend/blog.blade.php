@@ -44,7 +44,6 @@
                                 <div class="single-item-comment-view">
                                 <span><i class="zmdi zmdi-calendar-check"></i>{{date('d', strtotime($blog->date))}} {{date('M', strtotime($blog->date))}} {{date('Y', strtotime($blog->date))}}</span>
                                 <span><i class="zmdi zmdi-eye"></i>{{$blog->visit_counts}}</span>
-                                {{-- <span><i class="zmdi zmdi-comments"></i>19</span> --}}
                             </div>
                             <p>{!! Str::limit($blog->description, 140) !!}</p>
                             <a href="{{url('/'). '/blog-detail/' . $blog->id}}" class="button-default">Read More</a>

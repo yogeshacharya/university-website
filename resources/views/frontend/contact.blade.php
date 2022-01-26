@@ -84,7 +84,6 @@
     </div>
     <!--Contact Area End-->
     <div class="row">
-        {{-- {{substr($header_footer_data['college_details']->gps,13,-88)}} --}}
         @if(strpos($header_footer_data['college_details']->gps, '<iframe') !== false)
             <iframe src="{{substr($header_footer_data['college_details']->gps,13,-88)}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         @else

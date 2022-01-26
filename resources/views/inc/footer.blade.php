@@ -1,45 +1,11 @@
 <footer>
-    <!--Newsletter Area Start-->
-    {{-- <div class="newsletter-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-5">
-                    <div class="newsletter-content">
-                        <h3>SUBSCRIBE</h3>
-                        <h2>TO OUR NEWSLETTER</h2>
-                    </div>
-                </div>
-                <div class="col-lg-7 col-md-7">
-                    <div class="newsletter-form angle">
-                        <form action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mc-form footer-newsletter fix">
-                            <div class="subscribe-form">
-                                <input id="mc-email" type="email" autocomplete="off" placeholder="Enter your email here">
-                                <button id="mc-submit" type="submit">SUBSCRIBE</button>
-                            </div>    
-                        </form>
-                        <!-- mailchimp-alerts Start -->
-                        <div class="mailchimp-alerts text-centre fix pull-right">
-                            <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                            <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                            <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                        </div>
-                        <!-- mailchimp-alerts end -->
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
-    <!--End of Newsletter Area-->
-    <!--Footer Widget Area Start-->
     <div class="footer-widget-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget">
                         <h3>LINCOLN COLLEGE</h3>
-                        {{-- <div class="footer-logo">
-                            <a href="index.html"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' . $header_footer_data['college_details']->logo}}" alt=""></a>
-                        </div> --}}
                         <p>{{Str::limit($header_footer_data['college_details']->description,100)}}</p>
 
                         <div class="social-icons">

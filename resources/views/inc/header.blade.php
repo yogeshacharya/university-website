@@ -4,7 +4,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-12">
-                    {{-- <span>Have any question? <a style="color: white;" href="tel:.'{{$header_footer_data['footer']->phone}}'.">{{$header_footer_data['footer']->phone}}</a></span> --}}
                     <span>Welcome To Lincon International College</span>
                 </div>
                 <div class="col-lg-5 col-md-6 col-12">
@@ -48,8 +47,6 @@
                                                                 @endif
                                                             </li>
                                                         @endforeach
-                                                        {{-- <li><a href="#">Home Version 1</a></li>
-                                                        <li><a href="index-2.html">Home Version 2</a></li> --}}
                                                     </ul>
                                                 @endif
                                             </li>
