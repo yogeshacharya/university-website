@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget">
-                        <h3>{{$header_footer_data['college_details']->title}}</h3>
+                        <h3 style="line-height: 30px;">{{$header_footer_data['college_details']->title}}</h3>
                         {{-- <div class="footer-logo">
                             <a href="index.html"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' . $header_footer_data['college_details']->logo}}" alt=""></a>
                         </div> --}}
@@ -54,10 +54,10 @@
     <div class="footer-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-7 col-12">
-                    <span>Copyright &copy; All right reserved.Created by <a href="#">Lincoln international college</a></span>
+                <div class="col-lg-8 col-md-8 col-12">
+                    <span>Copyright &copy; All right reserved.Created by <a href="#">{{$header_footer_data['college_details']->title}}</a></span>
                 </div>
-                <div class="col-lg-6 col-md-5 col-12">
+                <div class="col-lg-4 col-md-4 col-12">
                     <div class="column-right">
                         <span>Privacy Policy , Terms &amp; Conditions</span>
                     </div>

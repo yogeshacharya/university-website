@@ -1050,6 +1050,7 @@ mark {
 	text-align: left;
 	top: 100%;
 	width: auto;
+	min-width: 191px;
 	z-index: -99;
 	opacity: 0;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
