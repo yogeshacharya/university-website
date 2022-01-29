@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-12">
                     {{-- <span>Have any question? <a style="color: white;" href="tel:.'{{$header_footer_data['footer']->phone}}'.">{{$header_footer_data['footer']->phone}}</a></span> --}}
-                    <span>Welcome To Lincon International College</span>
+                    <span>Welcome To {{$header_footer_data['college_details']->title}}</span>
                 </div>
                 <div class="col-lg-5 col-md-6 col-12">
                     <div class="header-top-right">
@@ -36,7 +36,7 @@
                                         @foreach($menus as $menu)
                                            <li><a href="{{url($menu->link)}}">{{$menu->title}}</a>
                                                 @if(count($menu->subMenus))
-                                                    <ul class="sub-menu">
+                                                    <ul id="sub-menu{{$menu->id}}" class="sub-menu">
                                                         @foreach ($menu->subMenus as $subMenu)
                                                            <li><a href="{{url($subMenu->link)}}">{{$subMenu->title}}</a>
                                                                 @if(count($subMenu->subMenus))

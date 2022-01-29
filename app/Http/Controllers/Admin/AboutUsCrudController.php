@@ -72,7 +72,8 @@ class AboutUsCrudController extends BaseCrudController
                 'type' => 'image',
                 'label' => 'Image',
                 'disk' => 'uploads', 
-                'upload' => true,
+                'upload' => true,                
+                'crop' => true, 
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
                 ],

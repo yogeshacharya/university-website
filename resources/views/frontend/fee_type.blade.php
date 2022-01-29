@@ -37,7 +37,9 @@
                         @endphp
                         @foreach ($course_fees as $fee)
                             @php
-                                $course_total_fee = $course_total_fee + $fee->total_fee
+                                if($fee->total_fee){
+                                    $course_total_fee = $course_total_fee + $fee->total_fee;
+                                }
                             @endphp
                         @endforeach
                     <tr>

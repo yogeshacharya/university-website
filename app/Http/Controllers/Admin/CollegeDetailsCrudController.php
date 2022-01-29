@@ -66,7 +66,7 @@ class CollegeDetailsCrudController extends BaseCrudController
         CRUD::setValidation(CollegeDetailsRequest::class);
         $arr = [
             [
-                'label' => trans('Title'),
+                'label' => 'College Name',
                 'type' => 'text',
                 'name' => 'title',
                 'wrapperAttributes' => [
@@ -86,6 +86,7 @@ class CollegeDetailsCrudController extends BaseCrudController
                 'type' => 'image',
                 'label' => 'Logo',
                 'disk' => 'uploads', 
+                'crop' => true, 
                 'upload' => true,
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',

@@ -364,5 +364,8 @@ $('ul.inside-menu a').filter(function() {
 	 return this.href == url;
 }).parentsUntil(".nav-menu > .inside-menu li").addClass('current-menu-item');
 
-    
+$( ".sub-menu" ).mouseover(function() {
+    var x = $("#"+this.id).width()+21;
+    $(".inside-menu").css('margin-left',x+'px');
+});
 })(jQuery); 

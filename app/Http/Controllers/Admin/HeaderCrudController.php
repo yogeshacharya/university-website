@@ -79,6 +79,7 @@ class HeaderCrudController extends CrudController
                 'type' => 'image',
                 'label' => 'Logo',
                 'disk' => 'uploads', 
+                'crop' => true, 
                 'upload' => true,
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',

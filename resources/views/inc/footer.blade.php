@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="single-footer-widget">
-                        <h3>LINCOLN COLLEGE</h3>
+                        <h3>{{$header_footer_data['college_details']->title}}</h3>
                         {{-- <div class="footer-logo">
                             <a href="index.html"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' . $header_footer_data['college_details']->logo}}" alt=""></a>
                         </div> --}}

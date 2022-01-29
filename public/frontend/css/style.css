@@ -1049,7 +1049,7 @@ mark {
 	position: absolute;
 	text-align: left;
 	top: 100%;
-	width: 190px;
+	width: auto;
 	z-index: -99;
 	opacity: 0;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -1100,7 +1100,6 @@ mark {
 	z-index: 9999;
 }
 .mainmenu ul.sub-menu ul.inside-menu {
-	left: 169px;
 	top: -2px;
 	width: 195px;
 	-webkit-transform: scaleX(0);
