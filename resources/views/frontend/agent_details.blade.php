@@ -42,7 +42,6 @@
                                     <li><i class="zmdi zmdi-phone-in-talk"></i><a href="#">{{$agent->phone}}</a></li>
                                     <li><i class="zmdi zmdi-email"></i><a href="#">{{$agent->email}}</a></li>
                                     <li><i class="zmdi zmdi-view-web"></i><a href="#">{{$agent->website}}</a></li>
-                                    {{-- <li><i class="zmdi zmdi-book-image"></i>5 Research Published</li> --}}
                                 </ul>
                                 @if(count($agent->socialMedias))
                                     <div class="social">
@@ -52,16 +51,6 @@
                                     </div>
                                 @endif
                             </div>
-                            {{-- <div class="col-md-6 col-12 mb-30">
-                                <h4>Teacher Info</h4>
-                                <ul>
-                                    <li><span>Degrees:</span> <span><a href="#">BSC IN CSE</a> <a href="#">MSC IN EEE</a></span></li>
-                                    <li><span>Institute:</span> <span>BPI</span></li>
-                                    <li><span>Teachers Id:</span> <span>AB7876A6</span></li>
-                                    <li><span>Number:</span> <span><a href="#">(756) 447 5744</a></span></li>
-                                    <li><span>Address:</span> <span>246, 2st AVE, Manchester 126 , Noth England</span></li>
-                                </ul>
-                            </div> --}}
                         </div>
                     </div>
                 </div>

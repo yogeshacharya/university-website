@@ -156,19 +156,7 @@
                                 <li>Time :<span>{{$course_detail->time}}</span></li>
                             </ul>
                         </div>
-                        {{-- <div class="single-sidebar-widget">
-                            <h4 class="title">Categories</h4>
-                            <ul class="course-categoris">
-                                <li><a href="#">Political Science<span>10</span></a></li>
-                                <li><a href="#">Micro Biology<span>15</span></a></li>
-                                <li><a href="#">Computer Science<span>05</span></a></li>
-                                <li><a href="#">Business Leaders Guide<span>19</span></a></li>
-                                <li><a href="#">Become a Product Manage<span>21</span></a></li>
-                                <li><a href="#">Business Economics<span>14</span></a></li>
-                                <li><a href="#">Language Education<span>13</span></a></li>
-                                <li><a href="#">Social Media Management<span>18</span></a></li>
-                            </ul>
-                        </div> --}}
+                      
                         <div class="single-sidebar-widget">
                             <h4 class="title">Recent Course</h4>
                             <div class="recent-content">
@@ -184,52 +172,8 @@
                                     </div>
                                     @endforeach
                                 </div>
-                                {{-- <div class="recent-content-item">
-                                    <a href="#"><img src="img/event/8.jpg" alt=""></a>
-                                    <div class="recent-text">
-                                        <h4><a href="#">Team Works</a></h4>
-                                        <div class="single-item-comment-view">
-                                            <span><i class="zmdi zmdi-eye"></i>59</span>
-                                            <span><i class="zmdi zmdi-comments"></i>19</span>
-                                        </div>
-                                        <p>There are many varf passages of Lorem Ipsuable,amar</p>
-                                    </div>
-                                </div> --}}
-                                {{-- <div class="recent-content-item">
-                                    <a href="#"><img src="img/event/9.jpg" alt=""></a>
-                                    <div class="recent-text">
-                                        <h4><a href="#">Learn With Fun</a></h4>
-                                        <div class="single-item-comment-view">
-                                            <span><i class="zmdi zmdi-eye"></i>59</span>
-                                            <span><i class="zmdi zmdi-comments"></i>19</span>
-                                        </div>
-                                        <p>There are many varf passages of Lorem Ipsuable,amar</p>
-                                    </div>
-                                </div> --}}
-                                {{-- <div class="recent-content-item">
-                                    <a href="#"><img src="img/event/10.jpg" alt=""></a>
-                                    <div class="recent-text">
-                                        <h4><a href="#">Writing Skill</a></h4>
-                                        <div class="single-item-comment-view">
-                                            <span><i class="zmdi zmdi-eye"></i>59</span>
-                                            <span><i class="zmdi zmdi-comments"></i>19</span>
-                                        </div>
-                                        <p>There are many varf passages of Lorem Ipsuable,amar</p>
-                                    </div>
-                                </div> --}}
                             </div>
                         </div>
-                        {{-- <div class="single-sidebar-widget">
-                            <h4 class="title">Search by Tags</h4>
-                            <ul class="tags">
-                                <li><a href="#">Photoshop</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Tutorial</a></li>
-                                <li><a href="#">Courses</a></li>
-                                <li><a href="#">Premium</a></li>
-                                <li><a href="#">Designtuto</a></li>
-                            </ul>
-                        </div> --}}
                     </div>
                 </div>
             </div>

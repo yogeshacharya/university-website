@@ -32,25 +32,9 @@
                             <div class="single-item-comment-view">
                                 <span><i class="zmdi zmdi-calendar-check"></i>{{$news->date_ad}}</span>
                                 <span><i class="zmdi zmdi-eye"></i>{{$news->visit_counts}}</span>
-                                {{-- <span><i class="zmdi zmdi-comments"></i>19</span> --}}
                             </div>
                             <h3>{{$news->title}}</h3>
                             <p>{{$news->description}}</p>
-                            {{-- <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="blog-post-list">
-                                        <li> Lawyer boluptatum deleniti atque corrupti sdolores et quas molestias cepturi sint  eca itate non similique </li>
-                                        <li> Lawyer boluptatum deleniti atque corrupti sdolores et quas molestias cepturi sint  eca itate non similique </li>
-                                        <li> Lawyer boluptatum deleniti atque corrupti sdolores et quas molestias cepturi sint  eca itate non similique </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <ul class="blog-post-list">
-                                        <li> Lawyer boluptatum deleniti atque corrupti sdolores et quas molestias cepturi sint  eca itate non similique </li>
-                                        <li> Lawyer boluptatum deleniti atque corrupti sdolores et quas molestias cepturi sint  eca itate non similique </li>
-                                    </ul>
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
                 </div>

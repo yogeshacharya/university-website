@@ -48,8 +48,6 @@
                                                                 @endif
                                                             </li>
                                                         @endforeach
-                                                        {{-- <li><a href="#">Home Version 1</a></li>
-                                                        <li><a href="index-2.html">Home Version 2</a></li> --}}
                                                     </ul>
                                                 @endif
                                             </li>

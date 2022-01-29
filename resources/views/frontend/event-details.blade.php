@@ -39,16 +39,6 @@
                                     <p class="time-mrg">{{$event->time}} &emsp;{{$event->date}}</p>
                                 </div>
                             </div>
-                            {{-- <div class="events-details-time mrg-xs">
-                                <div class="time-icon">
-                                    <i class="zmdi zmdi-flag"></i>
-                                </div>
-                                <div class="time-text">
-                                    <span>Start Time</span>
-                                    <p class="time-mrg">04:30 pm</p>
-                                    <p>Monday,July 09,2016</p>
-                                </div>
-                            </div> --}}
                             <div class="events-details-time mrg-xs">
                                 <div class="time-icon">
                                     <i class="zmdi zmdi-pin"></i>
@@ -56,7 +46,6 @@
                                 <div class="time-text">
                                     <span>Address</span>
                                     <p class="time-mrg">{{$event->location}}</p>
-                                    {{-- <p>Monday,July 08,2016</p> --}}
                                 </div>
                             </div>
                         </div>

@@ -63,16 +63,6 @@
                             <div class="single-item">
                                 <div class="single-item-image overlay-effect">
                                     <a href="{{url('/'). '/courses/' . $popular_course->id}}"><img src="{{url('/') . '/storage/uploads/' . $popular_course->file_upload}}" alt=""></a>
-                                    {{-- <div class="courses-hover-info">
-                                        <div class="courses-hover-action">
-                                            <div class="courses-hover-thumb">
-                                                <img src="{{url('/') . '/storage/uploads/' . $popular_course->file_upload}}" alt="small images">
-                                            </div>
-                                            <h4><a href="#">Derek Spafford</a></h4>
-                                            <span class="crs-separator">/</span>
-                                            <p>Professor</p>
-                                        </div>
-                                    </div> --}}
                                 </div>
                                 <div class="single-item-text">
                                     <h4><a href="{{url('/'). '/courses/' . $popular_course->id}}">{{$popular_course->name}}</a></h4>
@@ -160,7 +150,6 @@
                                 <div class="single-item-comment-view">
                                     <span><i class="zmdi zmdi-calendar-check"></i>{{$news->date_ad}}</span>
                                     <span><i class="zmdi zmdi-eye"></i>{{$news->visit_counts}}</span>
-                                    {{-- <span><i class="zmdi zmdi-comments"></i>19</span> --}}
                                 </div>
                                 <p>{!! Str::limit($news->description, 150) !!}</p>
                                 <a href="{{url('/'). '/news-detail/' . $news->id}}" class="button-default">Read More</a>
@@ -173,115 +162,6 @@
         </div>
     @endif
     <!--End of Latest News Area--> 
-    <!--Online Product Area Start-->
-    {{-- <div class="product-area section-bottom-padding bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title-wrapper">
-                        <div class="section-title">
-                            <h3>Online Library</h3>
-                            <p>There are many variations of passages</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <!--Single Product Start-->
-                    <div class="single-product mb-30">
-                        <div class="product-img img-full">
-                            <a href="single-product.html" tabindex="0">
-                                <img src="img/product/16.jpg" alt="">
-                            </a>
-                            <span class="onsale">Sale!</span>
-                        </div>
-                        <div class="product-content">
-                            <h2><a href="single-product.html" tabindex="0">Clock</a></h2>
-                            <div class="product-price">
-                                <div class="price-box">
-                                    <span class="regular-price">$115.00</span>
-                                </div>
-                                <div class="add-to-cart">
-                                    <a href="#" tabindex="0">Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Single Product Start-->
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <!--Single Product Start-->
-                    <div class="single-product mb-30">
-                        <div class="product-img img-full">
-                            <a href="single-product.html" tabindex="0">
-                                <img src="img/product/2.jpg" alt="">
-                            </a>
-                            <span class="onsale">Sale!</span>
-                        </div>
-                        <div class="product-content">
-                            <h2><a href="single-product.html" tabindex="0">Eleifend quam</a></h2>
-                            <div class="product-price">
-                                <div class="price-box">
-                                    <span class="regular-price">$115.00</span>
-                                </div>
-                                <div class="add-to-cart">
-                                    <a href="#" tabindex="0">Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Single Product Start-->
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <!--Single Product Start-->
-                    <div class="single-product mb-30">
-                        <div class="product-img img-full">
-                            <a href="single-product.html" tabindex="0">
-                                <img src="img/product/4.jpg" alt="">
-                            </a>
-                            <span class="onsale">Sale!</span>
-                        </div>
-                        <div class="product-content">
-                            <h2><a href="single-product.html" tabindex="0">Pen quam</a></h2>
-                            <div class="product-price">
-                                <div class="price-box">
-                                    <span class="regular-price">$115.00</span>
-                                </div>
-                                <div class="add-to-cart">
-                                    <a href="#" tabindex="0">Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Single Product Start-->
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <!--Single Product Start-->
-                    <div class="single-product mb-30">
-                        <div class="product-img img-full">
-                            <a href="single-product.html" tabindex="0">
-                                <img src="img/product/3.jpg" alt="">
-                            </a>
-                            <span class="onsale">Sale!</span>
-                        </div>
-                        <div class="product-content">
-                            <h2><a href="single-product.html" tabindex="0">Note Khata</a></h2>
-                            <div class="product-price">
-                                <div class="price-box">
-                                    <span class="regular-price">$115.00</span>
-                                </div>
-                                <div class="add-to-cart">
-                                    <a href="#" tabindex="0">Add To Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Single Product Start-->
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <!--End of Online Product Area-->
     @if(count($sayings))
         <div class="testimonial-area">
@@ -359,4 +239,3 @@
     </div>
     <!--End of Event Area-->
 @endsection
-{{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d74983.41378301271!2d150.9838068164885!3d-33.84249391117579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a4976b4734ed%3A0xf017d68f9f14250!2sBlaxland%20Riverside%20Park!5e0!3m2!1sen!2snp!4v1642845596251!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> --}}

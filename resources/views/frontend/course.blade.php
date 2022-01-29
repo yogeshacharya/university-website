@@ -17,53 +17,6 @@
             </div>
         </div>
     </div>
-    <!--End of Breadcrumb Banner Area-->
-    <!--Search Category Start-->
-    {{-- <div class="search-category">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <form action="#" method="post">
-                        <div class="form-container">
-                            <div class="box-select">
-                                <div class="select large">
-                                    <select name="category">
-                                        <option>All Categories</option>
-                                        <option>Web Design</option>
-                                        <option>Designing</option>
-                                        <option>Development</option>
-                                        <option>Programming</option>
-                                        <option>Developing</option>
-                                    </select>
-                                </div>
-                                <div class="select small">
-                                    <select name="date">
-                                        <option>Price</option>
-                                        <option>$10000</option>
-                                        <option>$35000</option>
-                                        <option>$67000</option>
-                                        <option>$82000</option>
-                                        <option>$95000</option>
-                                    </select>
-                                </div>
-                                <div class="select medium">
-                                    <select name="date">
-                                        <option>Course Type</option>
-                                        <option>Web Design</option>
-                                        <option>Designing</option>
-                                        <option>Development</option>
-                                        <option>Programming</option>
-                                        <option>Developing</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button type="button">Search Course</button>
-                        </div>
-                    </form>  
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <!--Search Category End-->
     <!--Course Area Start-->
     <div class="course-area bg-white section-padding">
@@ -83,16 +36,6 @@
                         <div class="single-item mb-50">
                             <div class="single-item-image overlay-effect">
                                 <a href="{{url('/'). '/courses/' . $course->id}}"><img src="{{url('/') . '/storage/uploads/' . $course->file_upload}}" alt=""></a>
-                                {{-- <div class="courses-hover-info">
-                                    <div class="courses-hover-action">
-                                        <div class="courses-hover-thumb">
-                                            <img src="img/teacher/1.png" alt="small images">
-                                        </div>
-                                        <h4><a href="#">Derek Spafford</a></h4>
-                                        <span class="crs-separator">/</span>
-                                        <p>Professor</p>
-                                    </div>
-                                </div> --}}
                             </div>
                             <div class="single-item-text">
                                 <h4><a href="{{url('/'). '/courses/' . $course->id}}">{{$course->name}}</a></h4>
@@ -100,7 +43,6 @@
                                 <div class="single-item-content">
                                 <div class="single-item-comment-view">
                                     <span><i class="zmdi zmdi-accounts"></i>{{$course->visit_counts}}</span>
-                                    {{-- <span><i class="zmdi zmdi-favorite"></i>19</span> --}}
                                 </div>
                                 <div class="single-item-rating">
                                     <i class="zmdi zmdi-star"></i>

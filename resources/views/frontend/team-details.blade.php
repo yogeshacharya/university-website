@@ -41,8 +41,6 @@
                                     <li><i class="zmdi zmdi-home"></i>{{$team_detail->address}}</li>
                                     <li><i class="zmdi zmdi-phone-in-talk"></i><a href="tel:{{$team_detail->phone}}">{{$team_detail->phone}}9</a></li>
                                     <li><i class="zmdi zmdi-email"></i><a href="mailto:{{$team_detail->email}}">{{$team_detail->email}}</a></li>
-                                    {{-- <li><i class="zmdi zmdi-view-web"></i><a href="#">www.example.com</a></li> --}}
-                                    {{-- <li><i class="zmdi zmdi-book-image"></i>5 Research Published</li> --}}
                                 </ul>
                                 @if(count($team_detail->hrSocialMedias))
                                     <div class="social">
@@ -57,9 +55,6 @@
                                 <ul>
                                     <li><span>Degrees:</span> <span><a href="#">{{$team_detail->degree}}</a></span></li>
                                     <li><span>Institute:</span> <span>{{$team_detail->institute}}</span></li>
-                                    {{-- <li><span>Teachers Id:</span> <span>{{$team_detail->id}}</span></li> --}}
-                                    {{-- <li><span>Number:</span> <span><a href="#">(756) 447 5744</a></span></li> --}}
-                                    {{-- <li><span>Address:</span> <span>246, 2st AVE, Manchester 126 , Noth England</span></li> --}}
                                 </ul>
                             </div>
                         </div>
