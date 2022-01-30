@@ -24,7 +24,7 @@
                      $logo = $header_footer_data['college_details']->logo;
                     @endphp
                     <div class="logo">
-                        <a href="#"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' .$logo}}"alt="LINCON"></a>
+                        <a href="{{url('/home')}}"><img style="height: 60px;" src="{{url('/') . '/storage/uploads/' .$logo}}"alt="LINCON"></a>
                     </div>
                 </div>
                 <div class="col-lg-9 col-12">
