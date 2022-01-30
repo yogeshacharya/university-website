@@ -35,3 +35,7 @@ Route::get('/config-cache', function() {
     $exitCode = Artisan::call('config:cache');
     return '<h1>Clear Config cleared</h1>';
 });
+
+Route::get('/run-migrations', function () {
+    return Artisan::call('migrate', ["--force" => true ]);
+});
