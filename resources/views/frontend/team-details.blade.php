@@ -33,7 +33,7 @@
                 <div class="col-lg-7 col-12">
                     <div class="team-content">
                         <h3 class="title">{{$team_detail->name}}</h3>
-                        <p>{{$team_detail->description}}</p>
+                        <p>{!! $team_detail->description !!}</p>
                         <div class="row">
                             <div class="col-md-6 col-12 mb-30">
                                 <h4>Persoanl Info</h4>
