@@ -56,13 +56,13 @@
                                 @endif
                             </nav>
                         </div>
-                        <ul class="header-search">
+                        {{-- <ul class="header-search">
                             <li class="search-menu">
                                 <i id="toggle-search" class="zmdi zmdi-search"></i>
                             </li>
-                        </ul>
+                        </ul> --}}
                         <!--Search Form-->
-                        <div class="search">
+                        {{-- <div class="search">
                             <div class="search-form">
                                 <form id="search-form" action="#">
                                     <input type="search" placeholder="Search here..." name="search" />
@@ -71,7 +71,7 @@
                                     </button>
                                 </form>                                
                             </div>
-                        </div>
+                        </div> --}}
                         <!--End of Search Form-->
                     </div> 
                 </div>

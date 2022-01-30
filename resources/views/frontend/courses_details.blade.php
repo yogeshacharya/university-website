@@ -1,5 +1,6 @@
 @extends('layout.base')
 @section('css')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
     .button-download:hover,.button-apply:hover,.button-enquary:hover{
         color:white;
@@ -8,7 +9,8 @@
         background: green !important;
     }
     .button-download{
-        padding: 15px !important;
+        width: 97% !important;
+        padding: 20px !important;
         background: green;
         color: white;
         opacity: .8;
@@ -18,7 +20,8 @@
         margin-bottom: 5px;
     }
     .button-apply{
-        padding: 15px !important;
+        width: 97% !important;
+        padding: 20px !important;
         background: green;
         color: white;
         opacity: .8;
@@ -27,13 +30,22 @@
     }
     .button-enquary{
         width: 97% !important;
-        padding: 15px !important;
+        padding: 20px !important;
         background: green;
         color: white;
         margin-bottom: 5px;
         opacity: .8;
         text-align: center;
     }
+
+    .accordion-button::after {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+      transform: scale(.7) !important;
+    }
+    .accordion-button:not(.collapsed)::after {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+    }
+   
 </style>
 @endsection
 @section('content')
@@ -92,9 +104,7 @@
                             <div class="card">
                               <div class="card-header" id="headingOne">
                                 <h5 class="mb-0">
-                                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Delivery Mode
-                                  </button>
+                                  <button type="button" class="accordion-button" data-toggle="collapse" data-target="#collapseOne"><b>Delivery Mode</b></button>
                                 </h5>
                               </div>
                           
@@ -106,9 +116,7 @@
                             <div class="card">
                               <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
-                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Course Facts
-                                  </button>
+                                  <button type="button" class="accordion-button" data-toggle="collapse" data-target="#collapseTwo"><b>Course Facts</b></button>
                                 </h5>
                               </div>
                               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
@@ -120,9 +128,7 @@
                             <div class="card">
                               <div class="card-header" id="headingThree">
                                 <h5 class="mb-0">
-                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Course Structure Summary
-                                  </button>
+                                  <button type="button" class="accordion-button" data-toggle="collapse" data-target="#collapseThree"><b>Course Structure Summary</b></button>
                                 </h5>
                               </div>
                               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
@@ -134,9 +140,7 @@
                             <div class="card">
                                 <div class="card-header" id="headingFour">
                                   <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                      Fee Structure
-                                    </button>
+                                  <button type="button" class="accordion-button" data-toggle="collapse" data-target="#collapseFour"><b>Fee Structure</b></button>
                                   </h5>
                                 </div>
                                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
@@ -148,9 +152,7 @@
                               <div class="card">
                                 <div class="card-header" id="headingFive">
                                   <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                      Entry Requirement
-                                    </button>
+                                  <button type="button" class="accordion-button" data-toggle="collapse" data-target="#collapseFive"><b>Entry Requirement</b></button>
                                   </h5>
                                 </div>
                                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
@@ -162,9 +164,7 @@
                               <div class="card">
                                 <div class="card-header" id="headingSix">
                                   <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                      Application Process
-                                    </button>
+                                  <button type="button" class="accordion-button" data-toggle="collapse" data-target="#collapseSix"><b>Application Process</b></button>
                                   </h5>
                                 </div>
                                 <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
@@ -176,9 +176,7 @@
                               <div class="card">
                                 <div class="card-header" id="headingSeven">
                                   <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                        Process Under Law
-                                    </button>
+                                  <button type="button" class="accordion-button" data-toggle="collapse" data-target="#collapseSeven"><b>Process Under Law</b></button>
                                   </h5>
                                 </div>
                                 <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
@@ -186,15 +184,22 @@
                                       <p>{!!$course_detail->process_under_law!!}</p>
                                   </div>
                                 </div>
+                              </div> 
+                              <div class="card">
+                                <div class="card-header" id="headingEight">
+                                  <h5 class="mb-0">
+                                  <button type="button" class="accordion-button" data-toggle="collapse" data-target="#collapseEight"><b>For further information please contact</b></button>
+                                  </h5>
+                                </div>
+                                <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+                                  <div class="card-body">
+                                      <p>{!!$course_detail->contact_details!!}</p>
+                                  </div>
+                                </div>
                               </div>
                           </div>
                         </div>
                           {{-- End Section For Collabsible --}}
-                        </br>
-                          <div class="contact-details">
-                            <h3><b>For further information please contact:</b></h3>
-                            <p>{!!$course_detail->contact_details!!}</p>
-                        </div>
                         </br>
                         <div class="fee_structure mb-30">
                             <h3 class="sidebar-title">Fee Structure </h3>
@@ -264,6 +269,7 @@
         </div>
     </div>
 @endsection
+
 
 @section('js')
 <script type="text/javascript" src="{{url('frontend/js/vendor/jquery-3.6.0.min.js')}}"></script>
