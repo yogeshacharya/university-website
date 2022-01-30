@@ -2,41 +2,43 @@
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
-    .button-download:hover,.button-apply:hover,.button-enquary:hover{
+   .button-download:hover,.button-apply:hover,.button-enquary:hover{
         color:white;
         opacity: 1;
         font-size: 14.5px;
         background: green !important;
     }
     .button-download{
-        width: 97% !important;
-        padding: 20px !important;
+        padding: 15px !important;
         background: green;
         color: white;
         opacity: .8;
         float: left;
         font-size: 13px !important;
-        margin-right: 2%;
+        margin-right: 1%;
         margin-bottom: 5px;
+        text-decoration: none;
     }
     .button-apply{
-        width: 97% !important;
-        padding: 20px !important;
+        padding: 15px !important;
         background: green;
         color: white;
         opacity: .8;
         font-size: 13px !important;
         margin-bottom: 5px;
+        text-decoration: none;
     }
     .button-enquary{
         width: 97% !important;
-        padding: 20px !important;
+        padding: 15px !important;
         background: green;
         color: white;
         margin-bottom: 5px;
         opacity: .8;
         text-align: center;
+        text-decoration: none;
     }
+
 
     .accordion-button::after {
       background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
