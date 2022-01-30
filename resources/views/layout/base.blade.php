@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Lincon College</title>
         <meta name="description" content="lincoln institute of business and technology">
-        <meta name="keywords" content="lincoln, lincoln international, libt, best college, college in australia lincoln college, lincoln australia, college, australia">
+        <meta name="keywords" content="lincoln, lincoln international, libt, best college, college in australia lincoln college, lincoln australia, college, australia, lincoln college australia">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
         
 		<!-- favicon
