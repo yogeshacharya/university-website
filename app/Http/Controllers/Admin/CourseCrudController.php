@@ -93,7 +93,7 @@ class CourseCrudController extends BaseCrudController
                 'type' => 'text',
                 'name' => 'levels',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -101,7 +101,7 @@ class CourseCrudController extends BaseCrudController
                 'type' => 'date',
                 'name' => 'start_on',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -110,7 +110,7 @@ class CourseCrudController extends BaseCrudController
                 'name' => 'duration',
                 'suffix'=>'Hours',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -119,7 +119,7 @@ class CourseCrudController extends BaseCrudController
                 'name' => 'class_size',
                 'suffix'=>'Person',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -128,7 +128,7 @@ class CourseCrudController extends BaseCrudController
                 'name' => 'lectures',
                 'suffix'=>'Session',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -136,23 +136,7 @@ class CourseCrudController extends BaseCrudController
                 'type' => 'text',
                 'name' => 'time',
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-3',
-                ]
-            ],
-            [
-                'label' => trans('Description'),
-                'type' => 'ckeditor',
-                'name' => 'description',
-                'wrapperAttributes' => [
-                    'class' => 'form-group col-md-12',
-                ]
-            ],
-            [
-                'label' => trans('Entry Requirement'),
-                'type' => 'ckeditor',
-                'name' => 'entry_requirement',
-                'wrapperAttributes' => [
-                    'class' => 'form-group col-md-12',
+                    'class' => 'form-group col-md-4',
                 ]
             ],
             [
@@ -177,40 +161,112 @@ class CourseCrudController extends BaseCrudController
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',
                 ],
-                // 'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URLs this will make a URL that is valid for the number of minutes specified
             ],
-            [  
-                'name'  => 'course_structure',
-                'label'   => trans('Course Structure'),
-                'type'  => 'repeatable',
-                'fields' => [
-                                [
-                                    'name'    => 'code',
-                                    'type'    => 'text',
-                                    'label'   => trans('Code'),
-                                    'wrapper' => ['class' => 'form-group col-md-4'],
-                                    'attributes' => ['maxlength' =>'50'],
-                                    'required' => true
-                                ],
-                                [
-                                    'name'    => 'course_title',
-                                    'type'    => 'text',
-                                    'label'   => trans('Course Title'),
-                                    'wrapper' => ['class' => 'form-group col-md-4'],
-                                    'attributes' => ['maxlength' =>'50'],
-                                    'required' => true
-                                ],
-                                [
-                                    'name'    => 'credit',
-                                    'type'    => 'text',
-                                    'label'   => trans('Credit'),
-                                    'wrapper' => ['class' => 'form-group col-md-4'],
-                                    'attributes' => ['maxlength' =>'50'],
-                                    'required' => true
-                                ],
-                    ],
-                    'new_item_label'  => 'New', // customize the text of the button
+            [
+                'label' => trans('Programme Overview'),
+                'type' => 'ckeditor',
+                'name' => 'description',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
             ],
+            [
+                'label' => trans('Delivery Mode'),
+                'type' => 'ckeditor',
+                'name' => 'delivery_mode',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
+            ],
+            [
+                'label' => trans('Course Facts'),
+                'type' => 'ckeditor',
+                'name' => 'course_facts',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
+            ],
+            [
+                'label' => trans('Course Structure Summary'),
+                'type' => 'ckeditor',
+                'name' => 'course_structure_summary',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
+            ],
+            [
+                'label' => trans('Fee Structure'),
+                'type' => 'ckeditor',
+                'name' => 'fee_structure',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
+            ],
+            [
+                'label' => trans('Entry Requirement'),
+                'type' => 'ckeditor',
+                'name' => 'entry_requirement',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
+            ],
+            [
+                'label' => trans('Application Process'),
+                'type' => 'ckeditor',
+                'name' => 'application_process',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
+            ],
+            [
+                'label' => trans('Process Under Law'),
+                'type' => 'ckeditor',
+                'name' => 'process_under_law',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
+            ],
+            [
+                'label' => trans('Contact Details'),
+                'type' => 'ckeditor',
+                'name' => 'contact_details',
+                'wrapperAttributes' => [
+                    'class' => 'form-group col-md-12',
+                ]
+            ],
+         
+            // [  
+            //     'name'  => 'course_structure',
+            //     'label'   => trans('Course Structure'),
+            //     'type'  => 'repeatable',
+            //     'fields' => [
+            //                     [
+            //                         'name'    => 'code',
+            //                         'type'    => 'text',
+            //                         'label'   => trans('Code'),
+            //                         'wrapper' => ['class' => 'form-group col-md-4'],
+            //                         'attributes' => ['maxlength' =>'50'],
+            //                         'required' => true
+            //                     ],
+            //                     [
+            //                         'name'    => 'course_title',
+            //                         'type'    => 'text',
+            //                         'label'   => trans('Course Title'),
+            //                         'wrapper' => ['class' => 'form-group col-md-4'],
+            //                         'attributes' => ['maxlength' =>'50'],
+            //                         'required' => true
+            //                     ],
+            //                     [
+            //                         'name'    => 'credit',
+            //                         'type'    => 'text',
+            //                         'label'   => trans('Credit'),
+            //                         'wrapper' => ['class' => 'form-group col-md-4'],
+            //                         'attributes' => ['maxlength' =>'50'],
+            //                         'required' => true
+            //                     ],
+            //         ],
+            //         'new_item_label'  => 'New', // customize the text of the button
+            // ],
 
 
             [  

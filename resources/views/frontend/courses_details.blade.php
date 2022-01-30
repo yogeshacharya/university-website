@@ -78,40 +78,124 @@
                             </div>
                         </div>
                             @php
-                        $courses_structure = json_decode($course_detail->course_structure);
                         $course_fees = json_decode($course_detail->courses_fee);
                         @endphp
-                        <div class="course-duration mb-30">
-                            <table class="table table-hover">
-                                <thead class="duration-title">
-                                    <tr>
-                                    <th scope="col">SN</th>
-                                    <th scope="col">Code</th>
-                                    <th scope="col">Course Title</th>
-                                    <th scope="col">Credit</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($courses_structure as $course)
-                                    <tr>
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{{$course->code}}</td>
-                                        <td>{{$course->course_title}}</td>
-                                        <td>{{$course->credit}}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                                </table>
-                        </div>
+                        
                         <div class="about-lectures">
-                            <h3>Course Description</h3>
+                            <h3><b>Programme Overview</b></h3>
                             <p>{!!$course_detail->description!!}</p>
                         </div>
-                        <div class="event-content">
-                            <h3 class="content2">Entry Requirement</h3>
-                            <p>{!! $course_detail->entry_requirement !!}</p>
-                        </div>
+                     </br>
 
+                     {{-- Section For Collabsible --}}
+                        <div id="accordion">
+                            <div class="card">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Delivery Mode
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p>{!!$course_detail->delivery_mode!!}</p>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Course Facts
+                                  </button>
+                                </h5>
+                              </div>
+                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p>{!!$course_detail->course_facts!!}</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Course Structure Summary
+                                  </button>
+                                </h5>
+                              </div>
+                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                    <p>{!!$course_detail->course_structure_summary!!}</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFour">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                      Fee Structure
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                  <div class="card-body">
+                                      <p>{!!$course_detail->fee_structure!!}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingFive">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                      Entry Requirement
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                                  <div class="card-body">
+                                      <p>{!!$course_detail->entry_requirement!!}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingSix">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                      Application Process
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                                  <div class="card-body">
+                                      <p>{!!$course_detail->application_process!!}</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingSeven">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        Process Under Law
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                                  <div class="card-body">
+                                      <p>{!!$course_detail->process_under_law!!}</p>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                          {{-- End Section For Collabsible --}}
+                        </br>
+                          <div class="contact-details">
+                            <h3><b>For further information please contact:</b></h3>
+                            <p>{!!$course_detail->contact_details!!}</p>
+                        </div>
+                        </br>
                         <div class="fee_structure mb-30">
                             <h3 class="sidebar-title">Fee Structure </h3>
                             <table class="table table-hover">
@@ -180,3 +264,14 @@
         </div>
     </div>
 @endsection
+
+@section('js')
+<script type="text/javascript" src="{{url('frontend/js/vendor/jquery-3.6.0.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  $('.collapse').collapse();
+</script>
+@endsection
+
