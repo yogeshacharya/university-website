@@ -1,7 +1,7 @@
 /* ------------------------------------
     16. Team Section CSS
 ---------------------------------------*/
-img{
+.rs-team .team-item-wrap .team-wrap .image-inner a img{
     width: 100%;
     height: auto;
 }
@@ -21,7 +21,15 @@ img{
 .rs-team .team-item-wrap .team-wrap .image-inner {
   overflow: hidden;
   border-radius: 50%;
+  height: 320px;
+  width: 320px;
   border:orange 5px double;
+}
+@media (min-width: 992px) and (max-width: 1199px){
+  .rs-team .team-item-wrap .team-wrap .image-inner {
+    height: 300px;
+    width: 300px;
+  }
 }
 .rs-team .team-item-wrap .team-wrap .image-inner a img {
   transform: scale(1);

@@ -210,9 +210,10 @@ class HumanResourceCrudController extends BaseCrudController
                 'label' => 'Image',
                 'disk' => 'uploads', 
                 'crop' => true, 
+                'aspect_ratio' => 1,
                 'upload' => true,
                 'wrapperAttributes' => [
-                    'class' => 'form-group col-md-4',
+                    'class' => 'form-group col-md-6',
                 ],
                 
             ],
