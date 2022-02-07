@@ -45,7 +45,7 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{$course->name}}</td>
-                        <td>{{$course_total_fee}}</td>
+                        <td>$ {{$course_total_fee}}</td>
                         <td onclick="showSubTable({{$course->id}})" class="expand" id="expand{{$course->id}}"><b style="font-size:22px;">+</b></td><td onclick="hideSubTable({{$course->id}})" class="reduce" id="reduce{{$course->id}}"><b style="font-size:22px;">-</b></td></
                     </tr>
                     <tr style="background: rgba(87, 192, 110, .4)" id="sub-table{{$course->id}}" class="sub-table">
@@ -67,7 +67,7 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$fee_type}}</td>
-                                            <td>{{$fee->total_fee}}</td>
+                                            <td>$ {{$fee->total_fee}}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

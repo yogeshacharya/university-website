@@ -141,6 +141,7 @@ class EventCrudController extends BaseCrudController
                 'label' => 'Image',
                 'disk' => 'uploads', 
                 'upload' => true,
+                'aspect_ratio' => 1.5,
                 'crop' => true, 
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',

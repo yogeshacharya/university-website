@@ -162,6 +162,7 @@ class AgentDetailCrudController extends BaseCrudController
                 'label' => 'Image',
                 'disk' => 'uploads', 
                 'crop' => true, 
+                'aspect_ratio' => 2.4,
                 'upload' => true,
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',

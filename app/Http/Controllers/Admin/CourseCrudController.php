@@ -145,6 +145,7 @@ class CourseCrudController extends BaseCrudController
                 'label' => 'Image',
                 'disk' => 'uploads', 
                 'crop' => true, 
+                'aspect_ratio' => 1.5,
                 'upload' => true,
                 'wrapperAttributes' => [
                     'class' => 'form-group col-md-4',

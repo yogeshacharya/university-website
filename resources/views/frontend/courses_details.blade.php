@@ -222,7 +222,7 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$fee_type}}</td>
-                                            <td>{{$fee->total_fee}}</td>
+                                            <td>$ {{$fee->total_fee}}</td>
                                             <td>{{$fee->description}}</td>
                                         </tr>
                                     @endforeach
